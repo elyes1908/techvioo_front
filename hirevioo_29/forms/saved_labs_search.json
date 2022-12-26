@@ -1,0 +1,537 @@
+{
+    "className": "org.joget.apps.form.model.Form",
+    "elements": [
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field20",
+                            "label": "",
+                            "value": "<label class=\"template-color epilogue-bold\">Search details<\/label>\n<br>\n<style>\n    hr{\n       height:1px;\n       border-width:0;\n       color:gray;\n       background-color:gray \n    }\n<\/style>"
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "id": "title",
+                            "label": "Title",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "readonly": "",
+                            "readonlyLabel": "",
+                            "size": "",
+                            "storeNumeric": "",
+                            "style": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.DatePicker",
+                        "properties": {
+                            "allowManual": "",
+                            "currentDateAs": "",
+                            "dataFormat": "yyyy-MM-dd",
+                            "datePickerType": "",
+                            "endDateFieldId": "",
+                            "format": "",
+                            "id": "date",
+                            "label": "Date",
+                            "permissionHidden": "",
+                            "placeholder": "",
+                            "readonly": "true",
+                            "readonlyLabel": "",
+                            "startDateFieldId": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "",
+                            "workflowVariable": "",
+                            "yearRange": "c-10:c+10"
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.Radio",
+                        "properties": {
+                            "controlField": "",
+                            "id": "status",
+                            "label": "Status",
+                            "options": [
+                                {
+                                    "grouping": "",
+                                    "label": "Active",
+                                    "value": "active"
+                                },
+                                {
+                                    "grouping": "",
+                                    "label": "Closed",
+                                    "value": "closed"
+                                }
+                            ],
+                            "optionsBinder": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "readonly": "",
+                            "readonlyLabel": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "active",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "accor",
+                            "label": "",
+                            "value": "<style>\n    #save{\n        float:right;\n        display:none;\n    }\n    \n    /* The Modal (background) */\n    .modal {\n      display: none; /* Hidden by default */\n      position: fixed; /* Stay in place */\n      z-index: 1; /* Sit on top */\n      left: 0;\n      top: 0;\n      width: 100%; /* Full width */\n      height: 100%; /* Full height */\n      overflow: auto; /* Enable scroll if needed */\n      background-color: rgb(0,0,0); /* Fallback color */\n      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\n    }\n    \n    /* Modal Content/Box */\n    .modal-content {\n      background-color: #fefefe;\n      margin: 15% auto;/* 15% from the top and centered */\n      padding: 20px;\n      border: 1px solid #888;\n      width: 500px; /* Could be more or less, depending on screen size */\n    }\n    \n    /* The Close Button */\n    .close {\n      color: #aaa;\n      float: right;\n      font-size: 50px;\n      font-weight: bold;\n    }\n    \n    .close:hover,\n    .close:focus {\n      color: black;\n      text-decoration: none;\n      cursor: pointer;\n    }\n    \n    .hr{\n       height:1px;\n       border-width:0;\n       color:gray;\n       background-color:gray \n    }\n<\/style>\n\n      <div class=\"acc\">\n    <div class=\"acc__card\">\n      <div class=\"acc__title template-color epilogue-bold\">Filters<\/div>\n      <div class=\"acc__panel\">\n         <div class=\"oo\"><\/div>\n      <\/div>\n    <\/div>\n \n\n  <\/div>\n<input type=\"button\" value=\"Save\" id=\"save\" disabled/>\n\n<div id=\"myModal\" class=\"modal\">\n\n  <!-- Modal content -->\n  <div class=\"modal-content\">\n    <span class=\"close\">&times;<\/span>\n    <div id=\"modal-msg\">\n         <div>\n                <label>SAVE A SEARCH<\/label>\n                <input id=\"save_title\"  type=\"text\" value=\"\">\n          <\/div>\n    <\/div>\n    <input type=\"button\" value=\"Save\" id=\"confirmSave\"/>\n\n  <\/div>\n<\/div>\n\n\n\n\n\n<script>\nwindow.onload=function(){\n    const queryString = window.location.search;\n    const urlParams = new URLSearchParams(queryString);\n    const id = urlParams.get('id')\n    if(id!=null){\n        document.getElementById('save').disabled=false;\n    }\n}\n\n$(document).ready(function(){\n// Get the modal\nvar modal = document.getElementById(\"myModal\");\n\n// Get the <span> element that closes the modal\nvar span = document.getElementsByClassName(\"close\")[0];\n\n// When the user clicks on <span> (x), close the modal\nspan.onclick = function() {\n  modal.style.display = \"none\";\n}\n\n// When the user clicks anywhere outside of the modal, close it\nwindow.onclick = function(event) {\n  if (event.target == modal) {\n    modal.style.display = \"none\";\n  }\n}\n\nvar save = document.getElementById(\"save\");\n\nsave.onclick = function() {\n  modal.style.display = \"block\";\n}\n\nvar confirmSave=document.getElementById(\"confirmSave\");\n\nconfirmSave.onclick = function() {\n    var title=document.getElementById(\"save_title\").value;\n    const queryString = window.location.search;\n    const urlParams = new URLSearchParams(queryString);\n    const idsearch = urlParams.get('id')\n    var uri='E8C088A2B0B84F34AED8BDF7126FDC38?id='+idsearch+'&title='+title;\n           \n    window.location.replace(uri);\n}\n\n})\n\n<\/script>"
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "id": "keywords",
+                            "label": "Keyword",
+                            "maxlength": "40",
+                            "permissionHidden": "",
+                            "placeholder": "Keyword",
+                            "readonly": "true",
+                            "readonlyLabel": "",
+                            "size": "",
+                            "storeNumeric": "",
+                            "style": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.marketplace.AjaxSelectbox",
+                        "properties": {
+                            "afterTypeDelay": "300",
+                            "allowEmpty": "true",
+                            "defaultOptions": "",
+                            "displayField": "label",
+                            "id": "University",
+                            "idField": "label",
+                            "keepTypingMsg": "Continue typing to search",
+                            "label": "University",
+                            "listId": "industry_data_list",
+                            "lookingForMsg": "Retrieving results",
+                            "minTermLength": "3",
+                            "multiple": "",
+                            "permissionHidden": "",
+                            "placeholder": "University",
+                            "readonly": "true",
+                            "readonlyLabel": "",
+                            "requestParams": [],
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "label",
+                            "width": "40%",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.marketplace.AjaxSelectbox",
+                        "properties": {
+                            "afterTypeDelay": "300",
+                            "allowEmpty": "true",
+                            "defaultOptions": "",
+                            "displayField": "label",
+                            "id": "institution",
+                            "idField": "label",
+                            "keepTypingMsg": "Continue typing to search",
+                            "label": "Institution",
+                            "listId": "institution_data_list",
+                            "lookingForMsg": "Retrieving results",
+                            "minTermLength": "3",
+                            "multiple": "",
+                            "permissionHidden": "",
+                            "placeholder": "Institution",
+                            "readonly": "true",
+                            "readonlyLabel": "",
+                            "requestParams": [],
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "label",
+                            "width": "40%",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.marketplace.AjaxSelectbox",
+                        "properties": {
+                            "afterTypeDelay": "300",
+                            "allowEmpty": "true",
+                            "defaultOptions": "",
+                            "displayField": "label",
+                            "id": "speciality",
+                            "idField": "label",
+                            "keepTypingMsg": "Continue typing to search",
+                            "label": "Speciality",
+                            "listId": "specialities_list_data",
+                            "lookingForMsg": "Retrieving results",
+                            "minTermLength": "3",
+                            "multiple": "true",
+                            "permissionHidden": "",
+                            "placeholder": "Speciality",
+                            "readonly": "true",
+                            "readonlyLabel": "",
+                            "requestParams": [],
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "label",
+                            "width": "40%",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.marketplace.AjaxSelectbox",
+                        "properties": {
+                            "afterTypeDelay": "300",
+                            "allowEmpty": "true",
+                            "defaultOptions": "",
+                            "displayField": "label",
+                            "id": "research_structure",
+                            "idField": "label",
+                            "keepTypingMsg": "Continue typing to search",
+                            "label": "Research Structure",
+                            "listId": "specialities_list_data",
+                            "lookingForMsg": "Retrieving results",
+                            "minTermLength": "3",
+                            "multiple": "true",
+                            "permissionHidden": "",
+                            "placeholder": "Research Structure",
+                            "readonly": "true",
+                            "readonlyLabel": "",
+                            "requestParams": [],
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "label",
+                            "width": "40%",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.marketplace.AjaxSelectbox",
+                        "properties": {
+                            "afterTypeDelay": "300",
+                            "allowEmpty": "true",
+                            "defaultOptions": "",
+                            "displayField": "label",
+                            "id": "research_topics",
+                            "idField": "label",
+                            "keepTypingMsg": "Continue typing to search",
+                            "label": "Research Topics",
+                            "listId": "topicsdata",
+                            "lookingForMsg": "Retrieving results",
+                            "minTermLength": "3",
+                            "multiple": "true",
+                            "permissionHidden": "",
+                            "placeholder": "Research Topics",
+                            "readonly": "true",
+                            "readonlyLabel": "",
+                            "requestParams": [],
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "label",
+                            "width": "40%",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field22",
+                            "label": "",
+                            "value": "\r\n\t<style>\r\n\t\r\n        .ui-slider { position: relative; text-align: left; }\r\n        .ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 1.2em; height: 1.2em; cursor: default; }\r\n        .ui-slider .ui-slider-range { position: absolute; z-index: 1; font-size: .7em; display: block; border: 0; background-position: 0 0; }\r\n        \r\n        .ui-slider-horizontal { height: .8em; }\r\n        .ui-slider-horizontal .ui-slider-handle { top: -.3em; margin-left: -.6em; }\r\n        .ui-slider-horizontal .ui-slider-range { top: 0; height: 100%; }\r\n        .ui-slider-horizontal .ui-slider-range-min { left: 0; }\r\n        .ui-slider-horizontal .ui-slider-range-max { right: 0; }\r\n        \r\n        .ui-slider-vertical { width: .8em; height: 100px; }\r\n        .ui-slider-vertical .ui-slider-handle { left: -.3em; margin-left: 0; margin-bottom: -.6em; }\r\n        .ui-slider-vertical .ui-slider-range { left: 0; width: 100%; }\r\n        .ui-slider-vertical .ui-slider-range-min { bottom: 0; }\r\n        .ui-slider-vertical .ui-slider-range-max { top: 0; }\r\n        .ui-spinner { position:relative; display: inline-block; overflow: hidden; padding: 0; vertical-align: middle; }\r\n        .ui-spinner-input { border: none; background: none; padding: 0; margin: .2em 0; vertical-align: middle; margin-left: .4em; margin-right: 22px; }\r\n        .ui-spinner-button { width: 16px; height: 50%; font-size: .5em; padding: 0; margin: 0; text-align: center; position: absolute; cursor: default; display: block; overflow: hidden; right: 0; }\r\n        .ui-spinner a.ui-spinner-button { border-top: none; border-bottom: none; border-right: none; } /* more specificity required here to overide default borders */\r\n        .ui-spinner .ui-icon { position: absolute; margin-top: -8px; top: 50%; left: 0; } /* vertical centre icon */\r\n        .ui-spinner-up { top: 0; }\r\n        .ui-spinner-down { bottom: 0; }\r\n                /*.years_experience .ui-slider {*/\r\n                /*\tmargin-top: 20px;*/\r\n                /*\theight: 7px;*/\r\n                /*\tposition: relative;*/\r\n                /*\tborder: none;*/\r\n                /*\tbackground: rgba(116, 183, 207, 0.6);*/\r\n                /*}*/\r\n                        \t.years_experience .ui-slider {\r\n            \t\t\tmargin-top: 20px;\r\n            \t\t\theight: 3px;\r\n            \t\t\tposition: relative;\r\n            \t\t\tborder: none;\r\n            \t\t\tbackground: #614ac133;\r\n            \t\t}\r\n            \t\t\r\n            \t\ta.ui-slider-handle:hover{\r\n            \t\t    cursor:pointer;\r\n            \t\t    \tbackground: #ffffff !important;\r\n                       border: 2px solid #0E6BB2 !important;\r\n            \t\t}\r\n            \t\t\ta.ui-slider-handle{\r\n            \t\t    text-decoration:none;\r\n            \t\t}\r\n            \t\t.ui-state-hover,.ui-state-focus,.ui-slider-handle.ui-state-default.ui-corner-all:hover{\r\n            \t\t  \tbackground: #614ac1 !important;\r\n                        border: 2px solid #614ac1 !important;\r\n                        top: -10px;\r\n                        border-radius: 25px !important;\r\n                        outline: none;\r\n                        position: absolute;\r\n                        font-family: \"Epilogue-Medium\" !important;  \r\n            \t\t}\r\n            \t\t.years_experience .ui-state-default, .years_experience .ui-widget-content .ui-state-default, .years_experience .ui-widget-header .ui-state-default {\r\n            \t\t\tbackground: #ffffff;\r\n                        border: 2px solid #614ac1;\r\n                        top: -10px;\r\n                        border-radius: 25px;\r\n                        outline: none;\r\n                        position: absolute;\r\n                        font-family: \"Epilogue-Medium\" !important;\r\n                \t}\r\n            \t\t.years_experience .ui-slider-horizontal .ui-slider-range {\r\n            \t\t\tbackground: #614ac1 !important;\r\n            \t\t}\r\n                .years_experience #labelHolder {\r\n                    height: 7px;\r\n                    position: relative;\r\n                    border: none;\r\n                }\r\n                .years_experience span {\r\n                  position: absolute;\r\n                  width: 1.2em;\r\n                  height: 1.2em;\r\n                  margin-left: -.6em;\r\n                  text-align: center;\r\n                }\r\n                .ui-slider .ui-slider-handle {\r\n            position: absolute;\r\n            z-index: 2;\r\n            width: 23px;\r\n            height: 23px;\r\n            cursor: default;\r\n            line-height: 23px;\r\n            text-align: center;\r\n        }\r\n            .years_experience .ui-widget-content {\r\n        \r\n            border-radius: 1.2rem !important;\r\n        }\r\n        /******************************/\r\n        .ui-widget-content {\r\n            padding: 1px;\r\n        }\r\n        .years_experience .ui-state-hover, .years_experience .ui-widget-content .ui-state-hover,\r\n        .years_experience .ui-widget-header .ui-state-hover, .years_experience .ui-state-focus,\r\n        .years_experience .ui-widget-content .ui-state-focus, .years_experience .ui-widget-header .ui-state-focus {\r\n            background: #ffffff !important;\r\n            border: 2px solid #0E6BB2 !important;\r\n             border-radius: 25px !important;\r\n            \r\n        }\r\n            <\/style>\r\n        <script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.js\"><\/script>\r\n        \r\n        <label style=\"font-weight:bold\" class=\"w-100\">Size<\/label><br />\r\n        <div class=\"template-color epilogue-semiBold mt-4\">\r\n        <span id=\"id-min-years\"><\/span> - \r\n        <span id=\"id-max-years\"><\/span>\r\n        <\/div>\r\n        <div class=\"years_experience\">\r\n        \r\n        <div id=\"slider_years_experience_years_experience\"><\/div>\r\n        <\/div>\r\n        <br />\r\n        <script>\r\n        \r\n        $(function () {\r\n             var v = [ 0,50];\r\n            $(\"#slider_years_experience_years_experience\").slider({\r\n                range: true,\r\n                min: 0,\r\n                max: 50,\r\n                values: v,\r\n                slide: function(event, ui) {\r\n                //return false;\r\n                  if ((ui.values[1] - ui.values[0]) < 2) {\r\n                      return false;\r\n                  }\r\n              \r\n                       \r\n                 document.getElementById('min_num_of_emp').value=ui.values[0];\r\n                 document.getElementById('max_num_of_emp').value=ui.values[1];\r\n                 document.getElementById('id-min-years').innerHTML=ui.values[0];\r\n                 document.getElementById('id-max-years').innerHTML=ui.values[1];\r\n            \r\n                },\r\n                create: function(event, ui) {\r\n                    $(\"#id-min-years\").html(v[0]);\r\n                    $(\"#id-max-years\").html(v[1]);     \r\n                }\r\n            }).trigger('slide');\r\n        });\r\n        $( document ).ready(function() {\r\n            min=document.getElementById('min_num_of_emp').value;\r\n            max=document.getElementById('max_num_of_emp').value;\r\n            mins=100/50*min;\r\n            maxs=100/50*max;\r\n            console.log(\"mins\",mins);\r\n            console.log(\"maxs\",maxs);\r\n                 \r\n                 document.getElementById('id-min-years').innerHTML=min;\r\n                 document.getElementById('id-max-years').innerHTML=max;\r\n                 \r\n                \r\n            document.getElementsByClassName('ui-slider-range ui-widget-header')[0].setAttribute(\"style\",`left: ${mins}%; width: ${maxs-mins}%;`);\r\n            document.getElementsByClassName('ui-slider-handle ui-state-default ui-corner-all')[0].setAttribute(\"style\",`left: ${mins}%;`);\r\n            document.getElementsByClassName('ui-slider-handle ui-state-default ui-corner-all')[1].setAttribute(\"style\",`left: ${maxs}%;`);\r\n          //  $(\"#slider_years_experience_years_experience *\").parent.parent.parent.attr(\"disabled\", \"disabled\").off('click');\r\n        \r\n        });\r\n        \r\n        \r\n        <\/script>\r\n        "
+                        }
+                    },
+                    {
+                        "className": "org.joget.marketplace.AjaxSelectbox",
+                        "properties": {
+                            "afterTypeDelay": "300",
+                            "allowEmpty": "true",
+                            "defaultOptions": "",
+                            "displayField": "label",
+                            "id": "location",
+                            "idField": "label",
+                            "keepTypingMsg": "Continue typing to search",
+                            "label": "Location",
+                            "listId": "listlocationdata",
+                            "lookingForMsg": "Retrieving results",
+                            "minTermLength": "3",
+                            "multiple": "true",
+                            "permissionHidden": "",
+                            "placeholder": "Location",
+                            "readonly": "true",
+                            "readonlyLabel": "",
+                            "requestParams": [],
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "label",
+                            "width": "25%",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "result",
+                            "useDefaultWhenEmpty": "true",
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "saved",
+                            "useDefaultWhenEmpty": "true",
+                            "value": "true",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "saved_labs",
+                            "useDefaultWhenEmpty": "true",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "0",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "min_num_of_emp",
+                            "useDefaultWhenEmpty": "true",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "0",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "max_num_of_emp",
+                            "useDefaultWhenEmpty": "true",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "50",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "tags",
+                            "useDefaultWhenEmpty": "",
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    }
+                ],
+                "properties": {
+                    "customWidth": "",
+                    "horizontal": "",
+                    "label": "",
+                    "width": "100%"
+                }
+            }],
+            "properties": {
+                "comment": "",
+                "id": "section_filter",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionHidden": "",
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field22",
+                            "label": "",
+                            "value": "<style>\r\n/* The Modal (background) */\r\n    .modal {\r\n      display: none; /* Hidden by default */\r\n      position: fixed; /* Stay in place */\r\n      z-index: 999; /* Sit on top */\r\n      left: 0;\r\n      top: 0;\r\n      width: 100%; /* Full width */\r\n      height: 100%; /* Full height */\r\n      overflow: auto; /* Enable scroll if needed */\r\n      background-color: rgb(0,0,0); /* Fallback color */\r\n      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\r\n    }\r\n    \r\n  .modal-content {\r\n    background-color: #ffffff;\r\n    margin: 15% auto;\r\n    padding: 0;\r\n    border: 1px solid #888;\r\n    width: 500px;\r\n    display: block;\r\n}\r\n    \r\n #myModal-advancedSearch .close,\r\n  #myModal-Error .close{\r\n    color: #0E6BB2 !important;\r\n    float: right;\r\n    font-size: 50px;\r\n    font-weight: bold;\r\n    border: 2px solid #0E6BB2 !important;\r\n    opacity: 1;\r\n    position: absolute;\r\n    right: -5px;\r\n    top: -5px;\r\n    background: #fff !important;\r\n    width: 23px !important;\r\n    height: 23px !important;\r\n    line-height: 23px !important;\r\n    text-align: center;\r\n    font-size: 15px;\r\n    border-radius: 50%;\r\n    opacity: 1 !important;\r\n}\r\n    .close:hover,\r\n    .close:focus {\r\n      color: #0E6BB2;\r\n      text-decoration: none;\r\n      cursor: pointer;\r\n    }\r\n    .modal-save .btn.waves-input-wrapper {\r\n    color: #ffffff !important;\r\n    background-color: #0E6BB2 !important;\r\n}\r\n<\/style>\r\n\r\n<div class=\"col bg-white border  p-3 mb-4 d-sm-flex d-md-flex justify-content-between align-items-center rounded-4\">\r\n  <h3 class=\"epilogue-bold template-color  \"  style=\"margin: 0;\">About : <span id=\"total_result\" style=\"size:18px\">0<\/span> results<\/h3>\r\n  <div class=\"d-flex justify-content-end align-items-center\">\r\n    <span class=\"epilogue-regular\">Sort By : <\/span>\r\n    <select class=\"border-none epilogue-medium pe-5\" style=\"width: auto;\" id='sortOption'>\r\n      <option value=\"mostRelevant\">Most relevant<\/option>\r\n      <option value=\"locationAZ\">Location A-Z<\/option>\r\n    <\/select>\r\n    <button class=\" mx-1 px-3 btn-blue float-start rounded-2  fs-6 epilogue-bold btn_export\" disabled>Export<\/button>\r\n    <button type=\"button\" id=\"SaveAdvs\" class=\" mx-1 px-3 btn-blue float-start rounded-2  fs-6 epilogue-bold\" onclick=\"document.getElementById('submit').click()\" disabled>Save<\/button>\r\n  <\/div>\r\n<\/div>\r\n\r\n<div id=\"myModal-advancedSearch\" class=\"modal\">\r\n  <!-- Modal content -->\r\n  <div class=\"modal-content modal-save\">\r\n    <span class=\"close close-modal\">&times;<\/span>\r\n      <h4 class=\"template-color text-center p-3 \" style=\"background-color:#F7F8FA;\">Save a search<\/h4>\r\n    <div id=\"modal-msg text-center  p-3\">\r\n         <div class=\"mx-4\">\r\n            <label class=\"color-blue-1 p-2 text-center w-100 epilogue-semiBold\">Enter search title<\/label>\r\n            <input id=\"save_title_advancedSearch\" class=\"template-color \" placeholder=\"Keyword\" type=\"text\" value=\"\" maxlength=\"40\">\r\n        <\/div>\r\n    <\/div>\r\n    <div class=\" m-3 text-center \">\r\n        <button type=\"button\" class=\"template-color close-modal close-modal-btn text-center ml-2 rounded-8 btn-border   epilogue-semibold\" >Cancel<\/button>\r\n        <input type=\"button\" class=\"bg-template-color rounded-8    epilogue-semiBold\" value=\"Save\" id=\"confirmSaveSearch\"/>\r\n    <\/div>\r\n\r\n  <\/div>\r\n<\/div>\r\n\r\n<script>\r\n     // Get the modal\r\n        var modal2 = document.getElementById(\"myModal-advancedSearch\");\r\n        \r\n       \r\n         // Get the <span> element that closes the modal\r\n        var span = document.getElementsByClassName(\"close-modal\")[0];\r\n        \r\n      \r\n        // When the user clicks on <span> (x), close the modal\r\n        span.onclick = function() {\r\n          modal2.style.display = \"none\";\r\n        }\r\n           // Get the <span> element that closes the modal\r\n        var span1 = document.getElementsByClassName(\"close-modal\")[1];\r\n        \r\n      \r\n        // When the user clicks on <span> (x), close the modal\r\n        span1.onclick = function() {\r\n          modal2.style.display = \"none\";\r\n        }\r\n        function saveSearch(){\r\n        modal2.style.display = \"block\";\r\n        window.addEventListener(\"click\", function(e){ \r\n                if (e.target == modal2) {\r\n                        modal2.style.display = \"none\";\r\n                  }\r\n            });\r\n        }\r\n        \r\n \r\n        \r\n        var confirmSave=document.getElementById(\"confirmSaveSearch\");\r\n        \r\n        confirmSave.onclick = function() {\r\n            var title=document.getElementById(\"save_title_advancedSearch\").value;\r\n            var total_result=document.getElementById(\"saved_talents\").value;\r\n            const queryString = window.location.search;\r\n            const urlParams = new URLSearchParams(queryString);\r\n            const search = urlParams.get('id');\r\n            console.log(\"Title: \",title,\" total: \",total_result);\r\n            if(title!==''){\r\n                    parent.window.location.replace('0E25C6A8F4FE4A66B007A8EFE8E769AB?id='+search+'&title='+title+\"&total_result=\"+total_result);\r\n            }\r\n            \r\n        }\r\n<\/script>"
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "show_results",
+                            "label": "",
+                            "value": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js\"><\/script>\r\n\r\n<script type=\"text/javascript\" src=\"/jw/js/chosen/chosen.jquery.js\"><\/script>\r\n<script type=\"text/javascript\" src=\"/jw/plugin/org.joget.marketplace.AjaxSelectbox/js/jquery.ajaxselect.js\"><\/script>\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/jw/js/chosen/chosen.css\">\r\n<style>\r\n    .blockUI,\r\n    .blockOverlay {\r\n        display: none !important;\r\n    }\r\n\r\n    * {\r\n        box-sizing: border-box;\r\n    }\r\n\r\n    #bookmark-toggle {\r\n        font-size: 25px;\r\n        user-select: none;\r\n    }\r\n\r\n    .repeater-actions-add {\r\n        float: left;\r\n        z-index: 0;\r\n    }\r\n\r\n    .container {\r\n        border-radius: 5px;\r\n        overflow: hidden;\r\n        /*width: 1100px;*/\r\n    }\r\n\r\n    .header {\r\n        color: black;\r\n        padding: 5px 20px;\r\n        width: 1100px;\r\n    }\r\n\r\n    .title {\r\n        margin: 0;\r\n    }\r\n\r\n    .subtitle {\r\n        display: inline-block;\r\n        margin: 5px 0 20px;\r\n        /*opacity: 0.8;*/\r\n    }\r\n\r\n    .users-list {\r\n\r\n        list-style-type: none;\r\n        margin: 0;\r\n        width: 100%;\r\n        padding: 0px;\r\n        box-sizing: content-box;\r\n    }\r\n\r\n    .users-list li {\r\n        margin-bottom: 10px;\r\n    }\r\n\r\n    /*.users-list li:not(:last-of-type) {*/\r\n    /*\tborder-bottom: 1px solid #eee;*/\r\n    /*}*/\r\n\r\n    .users-list li.hide {\r\n        display: none;\r\n    }\r\n\r\n    .users-list li img {\r\n        border-radius: 50%;\r\n        object-fit: cover;\r\n        height: 100px;\r\n        width: 100px;\r\n        margin-bottom: 35px;\r\n    }\r\n\r\n    .user-info {\r\n        margin-left: 10px;\r\n        width: 100%;\r\n        position: relative;\r\n    }\r\n\r\n    .user-info h4 {\r\n        margin: 0 0 10px;\r\n    }\r\n\r\n    .user-info p {\r\n        font-size: 12px;\r\n    }\r\n\r\n    .tags {\r\n        list-style: none;\r\n        margin: 0;\r\n        overflow: hidden;\r\n        padding: 0;\r\n    }\r\n\r\n    .tags li {\r\n        float: left;\r\n    }\r\n\r\n    .tag {\r\n    background: #E871FF;\r\n    border-radius: 25px;\r\n    color: black;\r\n    display: inline-block;\r\n    height: 26px;\r\n    line-height: 26px;\r\n    padding: 0 20px 0 23px;\r\n    position: relative;\r\n    margin: 0 10px 10px 0;\r\n    text-decoration: none;\r\n    overflow: hidden;\r\n    }\r\n\r\n\r\n\r\n    .switch {\r\n        position: relative;\r\n        display: inline-block;\r\n        width: 60px;\r\n        height: 34px;\r\n    }\r\n\r\n    .switch input {\r\n        display: none;\r\n    }\r\n\r\n    .slider {\r\n        position: absolute;\r\n        cursor: pointer;\r\n        top: 0;\r\n        left: 0;\r\n        right: 0;\r\n        bottom: 0;\r\n        background-color: #ccc;\r\n        -webkit-transition: .4s;\r\n        transition: .4s;\r\n    }\r\n\r\n    .slider:before {\r\n        position: absolute;\r\n        content: \"\";\r\n        height: 26px;\r\n        width: 26px;\r\n        left: 4px;\r\n        bottom: 4px;\r\n        background-color: white;\r\n        -webkit-transition: .4s;\r\n        transition: .4s;\r\n    }\r\n\r\n    input:checked+.slider {\r\n        background-color: #2196F3;\r\n    }\r\n\r\n    input:focus+.slider {\r\n        box-shadow: 0 0 1px #2196F3;\r\n    }\r\n\r\n    input:checked+.slider:before {\r\n        -webkit-transform: translateX(26px);\r\n        -ms-transform: translateX(26px);\r\n        transform: translateX(26px);\r\n    }\r\n\r\n    /* Rounded sliders */\r\n    .slider.round {\r\n        border-radius: 34px;\r\n    }\r\n\r\n    .slider.round:before {\r\n        border-radius: 50%;\r\n    }\r\n\r\n    .pagination li {\r\n        display: inline-block;\r\n        padding: 5px;\r\n    }\r\n\r\n    .pagination li a {\r\n        font-weight: 400;\r\n        padding: 0;\r\n        width: 35px;\r\n        height: 35px;\r\n        line-height: 33px !important;\r\n        text-align: center;\r\n        position: relative;\r\n        cursor: pointer;\r\n        display: inline-block;\r\n        z-index: 3;\r\n        border-radius: 3px !important;\r\n        margin-left: 5px;\r\n    }\r\n\r\n    .nav-pagination {\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: center;\r\n    }\r\n\r\n    .nav-pagination [class^=\"btn\"] {\r\n        padding: 8px;\r\n\r\n        color: #337ab7;\r\n        margin: 0 3px;\r\n    }\r\n<\/style>\r\n\r\n<div id=\"myModal-Error\" class=\"modal\">\r\n    <!-- Modal content -->\r\n    <div class=\"modal-content modal-save\">\r\n        <span class=\"close close-modal\">&times;<\/span>\r\n        <h4 class=\"template-color text-center p-3 \" style=\"background-color:#F7F8FA;\"><\/h4>\r\n        <div id=\"modal-msg text-center  p-3\">\r\n            <div class=\"mx-4\">\r\n                <label class=\"color-blue-1 p-2 text-center w-100 epilogue-semiBold\"><\/label>\r\n                <!--<input id=\"filter-error-msg\" class=\"template-color \" placeholder=\"\" type=\"text\" value=\"You must at least fill one filter !\" disabled>-->\r\n            <\/div>\r\n        <\/div>\r\n        <div class=\" m-3 text-center \">\r\n            <button type=\"button\"\r\n                class=\"template-color close-modal close-modal-btn text-center ml-2 rounded-8 btn-border   epilogue-semibold\"\r\n                onclick=\"closeZeroFilterModal();\">Close<\/button>\r\n        <\/div>\r\n    <\/div>\r\n<\/div>\r\n<!-- second modal -->\r\n\r\n<!--  -->\r\n<div id=\"result-div\">\r\n    <ul id=\"list-result\" class=\"users-list list\">\r\n         <div class=\"nav-pagination\">\r\n            <ul class=\"pagination\"><\/ul>\r\n        <\/div>\r\n\r\n    <\/ul>\r\n    <div class=\"nav-pagination\">\r\n        <ul class=\"pagination\"><\/ul>\r\n    <\/div>\r\n<\/div>\r\n<!--<div id=\"empty-block\" class=\"bg-white border rounded-4\">-->\r\n<!--    <img src=\"#appResource.hiring.png#\" alt=\"hirevioo search\" />-->\r\n<!--<\/div>-->\r\n\r\n<div id=\"empty-block\" class=\"bg-white border rounded-4\" style=\"padding-top:120px\">\r\n    <img src=\"#appResource.hiring.png#\" alt=\"hirevioo search\" style=\"width: 250px; height: 250px;\">\r\n    <h4 class=\"epilogue-medium\" style=\"margin-top: 25px;color: #0E6BB2;\">Please enter a search keyword<\/h4>\r\n<\/div>\r\n\r\n<script>\r\n  // function redirect on submit to saved search form\r\n\r\n    function popup_show(oid,id_search) {\r\n        var title= document.getElementById('title').value;\r\n        var popup = new PopupDialog(\"lab_preview?id=\"+oid+\"&search=\"+id_search+\"&title=\"+title+\"&embed=true\", \"\");\r\n        popup.parentWindow = window;\r\n        popup.init();\r\n    }\r\n    \r\n\r\n    \r\n    const result = document.getElementById('list-result');\r\n\r\n    const total = document.getElementById('total');\r\n    const listItems = [];\r\n    \r\n\r\n\r\n    function getData(search_result,id_search) {\r\n        document.getElementById('empty-block').style.display=\"none\";\r\n        \r\n        const data = search_result;\r\n        const jsonData = JSON.parse(data);\r\n        \r\n        console.log('===> data',jsonData);\r\n        var totalResult = jsonData.nb_results;\r\n        if (totalResult > 0) {\r\n            document.getElementById('SaveAdvs').disabled = false;\r\n        }\r\n        document.getElementById(\"total_result\").innerHTML = totalResult;\r\n\r\n\r\n        document.getElementById(\"saved_labs\").value = totalResult;\r\n        // clear\r\n        result.innerHTML = '';\r\n   jsonData.results.forEach(lab => {\r\n            const li = document.createElement('li');\r\n            // store for filter\r\n            listItems.push(li);\r\n            var tags=\"\";\r\n            if(lab.highlight!=\"\" && lab.highlight!=null){\r\n                lab.highlight.forEach(value => {\r\n                        tags += `<p class=\"tag\">${value}<\/p>`\r\n                   \r\n                });\r\n            }\r\n\r\n             var oid = lab._source.doc_id;\r\n            var image=\"data:image/png;base64, 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\";\r\n            \r\n            \r\n            li.innerHTML = `\r\n                <a onclick=\"popup_show('`+ oid + `','`+ id_search + `');return false;\" >\r\n                     <div class=\"d-md-flex  flex-grow-1 align-items-center justify-content-between p-3 mb-2 bg-white border  position-relative talent-advenced-search rounded-8\">\r\n  <div class=\"d-sm-flex w-100\">\r\n  <img class=\"me-4\" src=\"${image}\" alt=\"${lab._source.name}\">\r\n    <div class=\"talent-body d-flex flex-column justify-content-start align-items-center align-items-sm-start\">\r\n      <div class=\"talent-name epilogue-semiBold\">\r\n      \r\n        <h4 class=\"color-black my-3 epilogue-semiBold\" id=\"labname_result\">${lab._source.name}<\/h4>\r\n       \r\n      <\/div>\r\n      <div class=\"talent-job \">\r\n        <h5>\r\n          <span class=\"epilogue-semiBold\">${lab._source.institution}\r\n        <\/h5>\r\n      <\/div>\r\n      <div class=\"skills mt-2\" style=\" min-height: 34px;\">\r\n      <div  class=\" mx-1 px-3 py-1 float-start rounded-2  fs-6 epilogue-bold mb-1\">${tags}<\/div>\r\n      <\/div>\r\n    <\/div>\r\n  <\/div>\r\n    <i class=\"fa fa-heart-o template-color  fs-2 float-end position-absolute\" style=\"right: 15px;top: 15px;\"><\/i>\r\n <\/div>\r\n<\/a>\r\n           `;\r\n\r\n            result.appendChild(li);\r\n\r\n        });\r\n\r\n       var paginationList = new List('result-div', {\r\n                                page: 6,\r\n                                pagination: true\r\n                            });\r\n                            LastFirstButtons(paginationList)\r\n    }\r\n function LastFirstButtons(list){\r\n            if(document.getElementById('divBtnFirstLast')==null){\r\n                $('.nav-pagination').append('<div id=\"divBtnFirstLast\" class=\"btn-next\"> <i class=\"fa fa-angle-right\" style=\"font-size:14px\"><\/i> <\/div><div class=\"btn-last\"> <i class=\"fa fa-angle-double-right\" style=\"font-size:14px;\"><\/i> <\/div>');\r\n                $('.nav-pagination').prepend('<div class=\"btn-first\"> <i class=\"fa fa-angle-double-left\" style=\"font-size:14px;\"><\/i> <\/div><div class=\"btn-prev\"> <i class=\"fa fa-angle-left\" style=\"font-size:14px;\"><\/i> <\/div>');\r\n    \r\n                $('.btn-next').on('click', function(){\r\n                    $('.pagination .active').next().trigger('click');\r\n                })\r\n                $('.btn-prev').on('click', function(){\r\n                    $('.pagination .active').prev().trigger('click');\r\n                })\r\n                $('.btn-first').on('click', function(){\r\n                    list.show(1,6)\r\n                })\r\n                $('.btn-last').on('click', function(){\r\n                    list.show(list.size()-5,6)\r\n                })\r\n            }\r\n        }\r\n        \r\n    function sort_by_key(array, key) {\r\n            return array.sort(function (a, b) {\r\n                var x = a[key]; var y = b[key];\r\n                return ((x < y) ? -1 : ((x > y) ? 1 : 0));\r\n            });\r\n        }\r\n\r\n$(document).ready(function(){\r\n    sessionStorage.setItem(\"pageNav\",\"saved_labs_nav\");\r\n    apiResult=document.getElementById('result').value;\r\n    if(apiResult!=\"\"){\r\n        document.getElementById(\"empty-block\").style.display = \"none\";\r\n        const queryString = window.location.search;\r\n        const urlParams = new URLSearchParams(queryString);\r\n        const id_search = urlParams.get('id');\r\n        \r\n                if (apiResult.includes('filtersMandatory')) {\r\n                    var x='#envVariable.AdvancedSearch400Status#';\r\n                    ModalCallOut(x);\r\n\r\n               } else if(apiResult.includes('serverError')) {\r\n                  // #envVariable.AdvancedSearch400Status#\r\n                    var x='#envVariable.AdvancedSearch500Status#';\r\n                    ModalCallOut(x);\r\n                }else if(apiResult.includes('\"nb_results\":0')){\r\n                    var x='#envVariable.AdvancedSearch0Result#';\r\n                    ModalCallOut(x);\r\n                }else{\r\n                    const queryString = window.location.search;\r\n                    const urlParams = new URLSearchParams(queryString);\r\n                    const id_search = urlParams.get('id');\r\n                    getData(apiResult,id_search);\r\n                 \r\n                }\r\n                \r\n            document.getElementById('sortOption').addEventListener(\"change\", function () {\r\n            var apiResult = document.getElementById('result').value;\r\n            var option = document.getElementById('sortOption').value;\r\n            const jsonSearchResultData = JSON.parse(apiResult);\r\n            console.log(jsonSearchResultData);\r\n            if (option == 'locationAZ') {\r\n                var sortedArray = sort_by_key(jsonSearchResultData.results, 'location');\r\n               // console.log(sortedArray);\r\n             var sortedRes = '{\"results\":' + JSON.stringify(sortedArray) + ',\"nb_results\":'+jsonSearchResultData.nb_results +\"}\";\r\n                getData(sortedRes, id_search);\r\n    \r\n            } else {\r\n                getData(apiResult, id_search);\r\n \r\n            }\r\n        });\r\n    }\r\n})\r\n <\/script>"
+                        }
+                    }
+                ],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "section2",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [{
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field20",
+                        "label": "",
+                        "value": "\r\n<script>\r\n    $(document).ready(function () {\r\n      //industry\r\n      var industry_chosen=document.getElementById('University_chosen');\r\n      //console.log('toul',industry_chosen.childNodes.item(0).childNodes.length);\r\n      if(industry_chosen.childNodes.item(0).childNodes.length==2){\r\n          industry_chosen.parentNode.style.display=\"none\";\r\n        \r\n      }\r\n      //speciality_chosen\r\n      var speciality_chosen=document.getElementById('institution_chosen');\r\n      console.log('toul',speciality_chosen.childNodes.item(0).childNodes.length);\r\n      if(speciality_chosen.childNodes.item(0).childNodes.length==2){\r\n          speciality_chosen.parentNode.style.display=\"none\";\r\n         \r\n      }  \r\n      var research_structure_chosen=document.getElementById('research_structure_chosen');\r\n      console.log('toul',speciality_chosen.childNodes.item(0).childNodes.length);\r\n      if(research_structure_chosen.childNodes.item(0).childNodes.length==1){\r\n          research_structure_chosen.parentNode.style.display=\"none\";\r\n         \r\n      }\r\n       var specialty_chosen=document.getElementById('speciality_chosen');\r\n      console.log('toul',speciality_chosen.childNodes.item(0).childNodes.length);\r\n      if(specialty_chosen.childNodes.item(0).childNodes.length==1){\r\n          specialty_chosen.parentNode.style.display=\"none\";\r\n         \r\n      }\r\n        var research_topics_chosen=document.getElementById('research_topics_chosen');\r\n      console.log('toul',speciality_chosen.childNodes.item(0).childNodes.length);\r\n      if(research_topics_chosen.childNodes.item(0).childNodes.length==1){\r\n          research_topics_chosen.parentNode.style.display=\"none\";\r\n         \r\n      }\r\n      //location_chosen  specialty_chosen\r\n    \r\n      var location_chosen=document.getElementById('location_chosen');\r\n      if(location_chosen.childNodes.item(0).childNodes.length ==1){\r\n         location_chosen.parentNode.style.display=\"none\";\r\n      }\r\n     \r\n      //keywords\r\n        var keywords=document.getElementById('keywords');\r\n      if(keywords.value==\"\"){\r\n         keywords.parentNode.style.display=\"none\";\r\n      }\r\n      //slider  pointer-events:none;\r\n        var slider=document.getElementById(\"slider_years_experience_years_experience\");\r\n       //  slider.parentNode.parentNode.parentNode.style.pointerEvents = \"none\";\r\n       \r\n   // slider hide\r\n    var min=document.getElementById('min_num_of_emp').value;\r\n    var max=document.getElementById('max_num_of_emp').value;\r\n    console.log(min);\r\n    console.log(max);\r\n    if(min==0 && max==50){\r\n      console.log(slider.parentNode.parentNode.parentNode);\r\n      slider.parentNode.parentNode.parentNode.style.display=\"none\";\r\n    }else{\r\n        slider.parentNode.parentNode.parentNode.style.pointerEvents = \"none\"; \r\n    }\r\n     \r\n    //status change\r\n     var active=document.getElementsByName('status')[0];\r\n     var closed=document.getElementsByName('status')[1];\r\n        \r\n     \r\n    \r\n      active.addEventListener(\"click\", function(){\r\n          document.getElementById('submit').click();\r\n          \r\n      },false);\r\n       closed.addEventListener(\"click\", function(){\r\n          document.getElementById('submit').click();\r\n          \r\n      },false);\r\n      \r\n    \r\n      \r\n      });\r\n         \r\n    \r\n      \r\n    \r\n    <\/script>\r\n    <style>\r\n   \r\n    .users-list li img {\r\n  \r\n    margin-bottom: 35px;\r\n    }\r\n    <\/style>\r\n          "
+                    }
+                }],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "section3",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        }
+    ],
+    "properties": {
+        "description": "",
+        "id": "saved_labs_search",
+        "loadBinder": {
+            "className": "org.joget.apps.form.lib.BeanShellFormBinder",
+            "properties": {
+                "autoHandleFiles": "",
+                "autoHandleWorkflowVariable": "",
+                "cacheInterval": "",
+                "script": "import org.joget.apps.form.model.*;\r\nimport org.joget.apps.form.service.*;\r\nimport org.joget.apps.app.service.*;\r\nimport java.sql.*;\r\nimport java.util.*;\r\nimport java.text.*;\r\nimport java.sql.Connection;\r\nimport java.sql.PreparedStatement;\r\nimport java.sql.ResultSet;\r\nimport java.sql.SQLException;\r\nimport javax.sql.DataSource;\r\nimport java.sql.Date;  \r\n\r\n\r\npublic void update(){\r\n    String recordId = \"#requestParam.id#\";\r\n    String title = \"#requestParam.title#\";\r\n    //Get Joget's current datasource configs\r\n    DataSource ds = (DataSource) AppUtil.getApplicationContext().getBean(\"setupDataSource\");\r\n     \r\n    con = ds.getConnection();\r\n     \r\n    if (!con.isClosed()) {\r\n      \r\n            //Here you can query from one or multiple tables using JOIN etc\r\n            String sql = \"UPDATE app_fd_adv_search_labs SET c_title=?, c_saved=? WHERE id = ?;\";\r\n            PreparedStatement stmt = con.prepareStatement(sql);\r\n            stmt.setString(1, title);\r\n            stmt.setString(2, \"true\");\r\n            stmt.setString(3, recordId);\r\n          \r\n            //Execute the SELECT SQL statement\r\n            ////Execute SQL statement\r\n            stmt.executeUpdate();\r\n            \r\n    }\r\n    con.close();\r\n}\r\n\r\nupdate();\r\n\r\nFormRowSet f = new FormRowSet();\r\nf.setMultiRow(true);\r\n \r\n//Get Joget's current datasource configs\r\nDataSource ds = (DataSource) AppUtil.getApplicationContext().getBean(\"setupDataSource\");\r\n \r\ncon = ds.getConnection();\r\n \r\nif (!con.isClosed()) {\r\n    //Get the URL parameter\r\n    String recordId = \"#requestParam.id#\";\r\n  \r\n    //Here you can query from one or multiple tables using JOIN etc\r\n    String sql = \"SELECT c_title,c_date,c_status,c_keywords,c_result,c_min_num_of_emp,c_max_num_of_emp,c_research_topics,c_institution FROM app_fd_adv_search_labs WHERE id=?\";\r\n    PreparedStatement stmt = con.prepareStatement(sql);\r\n    stmt.setString(1, recordId);\r\n  \r\n    //Execute the SELECT SQL statement\r\n    ResultSet rs = stmt.executeQuery();\r\n         \r\n    //Get value from columns of record(s)\r\n    while (rs.next()) {\r\n        FormRow r1 = new FormRow();\r\n        r1.put(\"title\", rs.getString(1));\r\n        r1.put(\"date\", rs.getString(2));\r\n        r1.put(\"status\", rs.getString(3));\r\n        r1.put(\"keywords\", rs.getString(4));\r\n        r1.put(\"result\", rs.getString(5));\r\n        r1.put(\"min_num_of_emp\", rs.getString(6));\r\n        r1.put(\"max_num_of_emp\", rs.getString(7));\r\n        r1.put(\"research_topics\", rs.getString(8));\r\n        r1.put(\"institution\", rs.getString(9));\r\n        f.add(r1);\r\n    }\r\n}\r\ncon.close();\r\nreturn f;\r\n\r\n"
+            }
+        },
+        "name": "Saved labs Search Form",
+        "noPermissionMessage": "",
+        "permission": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessor": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessorRunOn": "create",
+        "storeBinder": {
+            "className": "org.joget.apps.form.lib.BeanShellFormBinder",
+            "properties": {
+                "autoHandleFiles": "",
+                "autoHandleWorkflowVariable": "",
+                "cacheInterval": "",
+                "script": "\nimport org.joget.apps.form.model.*;\nimport org.joget.apps.form.service.*;\nimport org.joget.apps.app.service.*;\nimport java.sql.*;\nimport java.util.*;\nimport java.text.*;\nimport java.sql.Connection;\nimport java.sql.PreparedStatement;\nimport java.sql.ResultSet;\nimport java.sql.SQLException;\nimport javax.sql.DataSource;\nimport java.sql.Date;\nimport org.joget.commons.util.LogUtil;\n\n\n    String recordId = \"#requestParam.id#\";\n    String title = rows.get(0).getProperty(\"title\");\n    String status=rows.get(0).getProperty(\"status\");\n    //LogUtil.info(\"Title hash variable\", title);\n    System.out.println(\"-------------->\"+title);\n    System.out.println(\"-------------->\"+status);\n\n\n    //Get Joget's current datasource configs\n    DataSource ds = (DataSource) AppUtil.getApplicationContext().getBean(\"setupDataSource\");\n     \n    con = ds.getConnection();\n     \n    if (!con.isClosed()) {\n      \n        //Here you can query from one or multiple tables using JOIN etc\n        String sql = \"UPDATE app_fd_adv_search_labs SET c_title=?,c_status=? WHERE id = ?;\";\n        PreparedStatement stmt = con.prepareStatement(sql);\n        stmt.setString(1, title);\n        stmt.setString(2, status);\n        stmt.setString(3, recordId);\n      \n        //Execute the SELECT SQL statement\n        ////Execute SQL statement\n        stmt.executeUpdate();\n            \n    }\n    con.close();\n"
+            }
+        },
+        "tableName": "adv_search_labs"
+    }
+}

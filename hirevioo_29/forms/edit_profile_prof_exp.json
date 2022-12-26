@@ -1,0 +1,469 @@
+{
+    "className": "org.joget.apps.form.model.Form",
+    "elements": [{
+        "className": "org.joget.apps.form.model.Section",
+        "elements": [{
+            "className": "org.joget.apps.form.model.Column",
+            "elements": [
+                {
+                    "className": "org.joget.marketplace.AjaxSelectbox",
+                    "properties": {
+                        "afterTypeDelay": "300",
+                        "allowEmpty": "true",
+                        "defaultOptions": "",
+                        "displayField": "label",
+                        "id": "job_title",
+                        "idField": "label",
+                        "keepTypingMsg": "Continue typing to search",
+                        "label": "Job title",
+                        "listId": "listjobtitles",
+                        "lookingForMsg": "Retrieving results",
+                        "minTermLength": "3",
+                        "multiple": "",
+                        "placeholder": "Job title",
+                        "readonly": "",
+                        "readonlyLabel": "",
+                        "requestParams": [],
+                        "validator": {
+                            "className": "org.joget.apps.form.lib.DefaultValidator",
+                            "properties": {
+                                "mandatory": "true",
+                                "message": "Field mandatory",
+                                "type": ""
+                            }
+                        },
+                        "value": "label",
+                        "width": "40%",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.TextField",
+                    "properties": {
+                        "id": "company",
+                        "label": "Company",
+                        "maxlength": "",
+                        "placeholder": "Company",
+                        "readonly": "",
+                        "readonlyLabel": "",
+                        "size": "",
+                        "storeNumeric": "",
+                        "style": "",
+                        "validator": {
+                            "className": "org.joget.apps.form.lib.DefaultValidator",
+                            "properties": {
+                                "mandatory": "true",
+                                "message": "Field mandatory",
+                                "type": ""
+                            }
+                        },
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.marketplace.AjaxSelectbox",
+                    "properties": {
+                        "afterTypeDelay": "300",
+                        "allowEmpty": "true",
+                        "defaultOptions": "",
+                        "displayField": "label",
+                        "id": "location",
+                        "idField": "label",
+                        "keepTypingMsg": "Continue typing to search",
+                        "label": "Location",
+                        "listId": "listlocationdata",
+                        "lookingForMsg": "Retrieving results",
+                        "minTermLength": "3",
+                        "multiple": "",
+                        "placeholder": "Location",
+                        "readonly": "",
+                        "readonlyLabel": "",
+                        "requestParams": [],
+                        "validator": {
+                            "className": "org.joget.apps.form.lib.DefaultValidator",
+                            "properties": {
+                                "mandatory": "true",
+                                "message": "Field mandatory",
+                                "type": ""
+                            }
+                        },
+                        "value": "label",
+                        "width": "40%",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.CheckBox",
+                    "properties": {
+                        "controlField": "",
+                        "id": "present",
+                        "label": "",
+                        "options": [{
+                            "grouping": "",
+                            "label": "Present",
+                            "value": "present"
+                        }],
+                        "optionsBinder": {
+                            "className": "org.joget.apps.form.lib.BeanShellFormBinder",
+                            "properties": {
+                                "cacheInterval": "",
+                                "script": "import org.apache.commons.lang3.ArrayUtils;\nimport org.joget.apps.form.model.*;\nimport org.joget.apps.form.service.*;\nimport org.joget.apps.app.service.*;\nimport java.sql.*;\nimport java.util.*;\nimport java.text.*;\nimport java.sql.Connection;\nimport java.sql.PreparedStatement;\nimport java.sql.ResultSet;\nimport java.sql.SQLException;\nimport javax.sql.DataSource;\nimport java.sql.Date;  \nimport org.apache.http.HttpResponse;\nimport org.apache.http.client.methods.HttpGet;\nimport org.apache.http.client.methods.HttpRequestBase;\nimport org.apache.http.impl.client.CloseableHttpClient;\nimport org.apache.http.impl.client.HttpClients;\nimport org.apache.http.HttpEntity;\nimport org.apache.http.util.EntityUtils;\nimport java.io.IOException;\nimport java.nio.charset.StandardCharsets;\nimport java.net.URLEncoder;\nimport org.bson.Document;\nimport org.joget.commons.util.LogUtil;\n\nFormRowSet f = new FormRowSet();\nf.setMultiRow(true);\n \n//Get Joget's current datasource configs\nDataSource ds = (DataSource) AppUtil.getApplicationContext().getBean(\"setupDataSource\");\n \ncon = ds.getConnection();\n \nif (!con.isClosed()) {\n    //Get the URL parameter\n    String recordId = \"#requestParam.id#\";\n  \n    //Here you can query from one or multiple tables using JOIN etc\n    String sql = \"SELECT * FROM app_fd_repeter_prof_exp WHERE id=?\";\n    PreparedStatement stmt = con.prepareStatement(sql);\n    stmt.setString(1, recordId);\n  \n    //Execute the SELECT SQL statement\n    ResultSet rs = stmt.executeQuery();\n         \n    //Get value from columns of record(s)\n    while (rs.next()) {\n        FormRow r1 = new FormRow();\n        String strDate=rs.getString(8);\n        if(strDate.contains(\"Aujourd\")||strDate.contains(\"Present\")){\n            r1.put(FormUtil.PROPERTY_VALUE, \"present\");\n            r1.put(FormUtil.PROPERTY_LABEL, \"Present\");\n            r1.put(FormUtil.PROPERTY_SELECTED, \"true\");\n        }else{\n            r1.put(FormUtil.PROPERTY_VALUE, \"present\");\n            r1.put(FormUtil.PROPERTY_LABEL, \"Present\");\n            r1.put(FormUtil.PROPERTY_SELECTED, \"false\");\n        }\n        \n        \n        \n        f.add(r1);\n    }\n}\ncon.close();\nreturn f;"
+                            }
+                        },
+                        "readonly": "",
+                        "readonlyLabel": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field7",
+                        "label": "",
+                        "value": "<label>Start Date <span class=\"form-cell-validator\">*<\/span><\/label>"
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.SelectBox",
+                    "properties": {
+                        "controlField": "",
+                        "id": "start_month",
+                        "label": "",
+                        "multiple": "",
+                        "options": [
+                            {
+                                "grouping": "",
+                                "label": "Month",
+                                "value": ""
+                            },
+                            {
+                                "grouping": "",
+                                "label": "January",
+                                "value": "Jan"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "February",
+                                "value": "Feb"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "March",
+                                "value": "Mar"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "April",
+                                "value": "Apr"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "May",
+                                "value": "May"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "June",
+                                "value": "Jun"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "July",
+                                "value": "Jul"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "August",
+                                "value": "Aug"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "September",
+                                "value": "Sep"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "October",
+                                "value": "Oct"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "November",
+                                "value": "Nov"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "December",
+                                "value": "Dec"
+                            }
+                        ],
+                        "optionsBinder": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "readonly": "",
+                        "readonlyLabel": "",
+                        "size": "",
+                        "validator": {
+                            "className": "org.joget.apps.form.lib.BeanShellValidator",
+                            "properties": {
+                                "decoration": "",
+                                "script": "import org.joget.apps.form.service.FormUtil;\r\nimport org.joget.apps.app.service.AppUtil;\r\nimport org.joget.apps.form.model.Element;\r\nimport org.joget.apps.form.model.FormData;\r\nimport org.joget.apps.form.model.FormRow;\r\nimport org.joget.apps.form.model.FormRowSet;\r\nimport org.joget.commons.util.LogUtil;\r\nimport org.joget.directory.model.service.DirectoryManager;\r\nimport org.joget.directory.model.User;\r\nimport org.joget.commons.util.StringUtil;\r\nimport org.joget.apps.form.model.Form;\r\nimport org.apache.commons.lang3.ArrayUtils;\r\n\r\n\r\npublic boolean validate(Element element,FormData formData,String [] values) {\r\n\r\n    //Present\r\n    String fieldPresent = \"present\";\r\n    Form form = FormUtil.findRootForm(element);\r\n    Element presentElement = FormUtil.findElement(fieldPresent, form, formData);\r\n    String[] presentValue = FormUtil.getElementPropertyValues(presentElement, formData);\r\n    \r\n    //Start Month\r\n    String startMonthValue=values[0];\r\n        \r\n    //Start Year\r\n    String fieldStartYear = \"start_year\";\r\n    Form form = FormUtil.findRootForm(element);\r\n    Element startYearElement = FormUtil.findElement(fieldStartYear, form, formData);\r\n    String[] startYearValue = FormUtil.getElementPropertyValues(startYearElement, formData);\r\n    \r\n    //End Month\r\n    String fieldEndMonth = \"end_month\";\r\n    Form form = FormUtil.findRootForm(element);\r\n    Element endMonthElement = FormUtil.findElement(fieldEndMonth, form, formData);\r\n    String[] endMonthValue = FormUtil.getElementPropertyValues(endMonthElement, formData);\r\n    \r\n    //End Year\r\n    String fieldEndYear = \"end_year\";\r\n    Form form = FormUtil.findRootForm(element);\r\n    Element endYearElement = FormUtil.findElement(fieldEndYear, form, formData);\r\n    String[] endYearValue = FormUtil.getElementPropertyValues(endYearElement, formData);\r\n    \r\n    \r\n    \r\n    if(startMonthValue.equals(\"\") || startYearValue[0].equals(\"\")){\r\n        String id = FormUtil.getElementParameterName(element);\r\n        formData.addFormError(id, \"You need to specify start date and end date\");\r\n        return false;\r\n    }\r\n    else{\r\n        if(presentValue[0].equals(\"\")){\r\n            if(endMonthValue[0].equals(\"\") || endYearValue[0].equals(\"\")){\r\n                String id = FormUtil.getElementParameterName(element);\r\n                formData.addFormError(id, \"You need to specify start date and end date\");\r\n                return false;\r\n            }\r\n            else{\r\n                    if(Integer.valueOf(startYearValue[0])>Integer.valueOf(endYearValue[0])){\r\n                        String id = FormUtil.getElementParameterName(element);\r\n                        formData.addFormError(id, \"Start year must be less than or equal to end year\");\r\n                        return false;\r\n                    }\r\n                    else if(startYearValue[0].equals(endYearValue[0])){\r\n                        String[] months = {\"Jan\",\"Feb\",\"Mar\",\"Apr\",\"May\",\"Jun\",\"Jul\",\"Aug\",\"Sep\",\"Oct\",\"Nov\",\"Dec\"};\r\n                        int startMonth=ArrayUtils.indexOf(months, startMonthValue)+1;\r\n                        int endMonth=ArrayUtils.indexOf(months, endMonthValue[0])+1;\r\n                        if(startMonth>endMonth){\r\n                            String id = FormUtil.getElementParameterName(element);\r\n                            formData.addFormError(id, \"Start month must be less than or equal to end month\");\r\n                            return false;\r\n                        }\r\n                        else{\r\n                            return true;\r\n                        }\r\n                    }\r\n                    else{\r\n                        return true;\r\n                    }\r\n            }\r\n        }\r\n        else{\r\n            return true;\r\n        }\r\n    }\r\n    \r\n    \r\n}\r\n   \r\n//call\r\nreturn validate(element,formData,values);"
+                            }
+                        },
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.SelectBox",
+                    "properties": {
+                        "controlField": "",
+                        "id": "start_year",
+                        "label": "",
+                        "multiple": "",
+                        "options": [],
+                        "optionsBinder": {
+                            "className": "org.joget.apps.form.lib.BeanShellFormBinder",
+                            "properties": {
+                                "cacheInterval": "",
+                                "script": "import org.joget.apps.form.model.*;\r\nimport org.joget.apps.form.service.*;\r\nimport java.util.Date;  \r\n\r\n\r\n\r\npublic FormRowSet Populate() {\r\n    Date d=new Date();  \r\n    int year=d.getYear();\r\n    int currentYear=year+1900;\r\n    \r\n    FormRowSet f = new FormRowSet();\r\n    f.setMultiRow(true);\r\n    \r\n    FormRow r = new FormRow();\r\n    r.put(FormUtil.PROPERTY_VALUE, \"\");\r\n    r.put(FormUtil.PROPERTY_LABEL, \"Year\");\r\n    f.add(r);\r\n    \r\n    for(int i=1980; i<=currentYear;i++){\r\n        FormRow r1 = new FormRow();\r\n        r1.put(FormUtil.PROPERTY_VALUE, String.valueOf(i));\r\n        r1.put(FormUtil.PROPERTY_LABEL, String.valueOf(i));\r\n        f.add(r1);\r\n    }\r\n\r\n    return f;\r\n}\r\n \r\nreturn Populate();"
+                            }
+                        },
+                        "readonly": "",
+                        "readonlyLabel": "",
+                        "size": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field8",
+                        "label": "",
+                        "value": "<label>End Date <span class=\"form-cell-validator\">*<\/span><\/label>"
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.SelectBox",
+                    "properties": {
+                        "controlField": "",
+                        "id": "end_month",
+                        "label": "",
+                        "multiple": "",
+                        "options": [
+                            {
+                                "grouping": "",
+                                "label": "Month",
+                                "value": ""
+                            },
+                            {
+                                "grouping": "",
+                                "label": "January",
+                                "value": "Jan"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "February",
+                                "value": "Feb"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "March",
+                                "value": "Mar"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "April",
+                                "value": "Apr"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "May",
+                                "value": "May"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "June",
+                                "value": "Jun"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "July",
+                                "value": "Jul"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "August",
+                                "value": "Aug"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "September",
+                                "value": "Sep"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "October",
+                                "value": "Oct"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "November",
+                                "value": "Nov"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "December",
+                                "value": "Dec"
+                            }
+                        ],
+                        "optionsBinder": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "readonly": "",
+                        "readonlyLabel": "",
+                        "size": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.SelectBox",
+                    "properties": {
+                        "controlField": "",
+                        "id": "end_year",
+                        "label": "",
+                        "multiple": "",
+                        "options": [],
+                        "optionsBinder": {
+                            "className": "org.joget.apps.form.lib.BeanShellFormBinder",
+                            "properties": {
+                                "cacheInterval": "",
+                                "script": "import org.joget.apps.form.model.*;\r\nimport org.joget.apps.form.service.*;\r\nimport java.util.Date;  \r\n\r\n\r\n\r\npublic FormRowSet Populate() {\r\n    Date d=new Date();  \r\n    int year=d.getYear();\r\n    int currentYear=year+1900;\r\n    \r\n    FormRowSet f = new FormRowSet();\r\n    f.setMultiRow(true);\r\n    \r\n    FormRow r = new FormRow();\r\n    r.put(FormUtil.PROPERTY_VALUE, \"\");\r\n    r.put(FormUtil.PROPERTY_LABEL, \"Year\");\r\n    f.add(r);\r\n    \r\n    for(int i=1980; i<=currentYear;i++){\r\n        FormRow r1 = new FormRow();\r\n        r1.put(FormUtil.PROPERTY_VALUE, String.valueOf(i));\r\n        r1.put(FormUtil.PROPERTY_LABEL, String.valueOf(i));\r\n        f.add(r1);\r\n    }\r\n\r\n    return f;\r\n}\r\n \r\nreturn Populate();"
+                            }
+                        },
+                        "readonly": "",
+                        "readonlyLabel": "",
+                        "size": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field11",
+                        "label": "",
+                        "value": "<script>\n$(document).ready(function(){\n\n    var checkbox = document.getElementById(\"present\");\n    if(checkbox.checked){\n        document.querySelectorAll(\"[id^='end_month']\")[0].disabled = true;\n        document.querySelectorAll(\"[id^='end_year']\")[0].disabled = true;\n    }\n    \n    checkbox.addEventListener('change', function() {\n      if (this.checked) {\n        console.log(\"Checkbox is checked..\");\n        document.querySelectorAll(\"[id^='end_month']\")[0].disabled = true;\n        document.querySelectorAll(\"[id^='end_year']\")[0].disabled = true;\n      } else {\n        console.log(\"Checkbox is not checked..\");\n        document.querySelectorAll(\"[id^='end_month']\")[0].disabled = false;\n        document.querySelectorAll(\"[id^='end_year']\")[0].disabled = false;\n      }\n    });\n});    \n<\/script>"
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.HiddenField",
+                    "properties": {
+                        "id": "id",
+                        "useDefaultWhenEmpty": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field6",
+                        "label": "",
+                        "value": "<style>\n    .form-error-message{\n    display:block !important;\n    width: max-content;\n    /*background-color: red;*/\n    color: red;\n    text-align: center;\n    border-radius: 3px;\n    font-weight: bold !important;\n    height: 15px;\n    padding-top: 2px;\n}\n\n<\/style>"
+                    }
+                }
+            ],
+            "properties": {"width": "100%"}
+        }],
+        "properties": {
+            "comment": "",
+            "id": "section1",
+            "join": "",
+            "label": "Professional Experience",
+            "loadBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "permission": {
+                "className": "",
+                "properties": {}
+            },
+            "permissionReadonly": "",
+            "readonly": "",
+            "readonlyLabel": "",
+            "regex": "",
+            "reverse": "",
+            "storeBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "visibilityControl": "",
+            "visibilityValue": ""
+        }
+    }],
+    "properties": {
+        "description": "",
+        "id": "edit_profile_prof_exp",
+        "loadBinder": {
+            "className": "org.joget.apps.form.lib.BeanShellFormBinder",
+            "properties": {
+                "autoHandleFiles": "",
+                "autoHandleWorkflowVariable": "true",
+                "cacheInterval": "",
+                "script": "import org.apache.commons.lang3.ArrayUtils;\nimport org.joget.apps.form.model.*;\nimport org.joget.apps.form.service.*;\nimport org.joget.apps.app.service.*;\nimport java.sql.*;\nimport java.util.*;\nimport java.text.*;\nimport java.sql.Connection;\nimport java.sql.PreparedStatement;\nimport java.sql.ResultSet;\nimport java.sql.SQLException;\nimport javax.sql.DataSource;\nimport java.sql.Date;  \nimport org.apache.http.HttpResponse;\nimport org.apache.http.client.methods.HttpGet;\nimport org.apache.http.client.methods.HttpRequestBase;\nimport org.apache.http.impl.client.CloseableHttpClient;\nimport org.apache.http.impl.client.HttpClients;\nimport org.apache.http.HttpEntity;\nimport org.apache.http.util.EntityUtils;\nimport java.io.IOException;\nimport java.nio.charset.StandardCharsets;\nimport java.net.URLEncoder;\nimport org.bson.Document;\nimport org.joget.commons.util.LogUtil;\n\n\nString recordId = \"#requestParam.id#\";\n\nFormRowSet f = new FormRowSet();\nf.setMultiRow(true);\n\n//Get Joget's current datasource configs\nDataSource ds = (DataSource) AppUtil.getApplicationContext().getBean(\"setupDataSource\");\n \ncon = ds.getConnection();\n \nif (!con.isClosed()) {\n    //Get the URL parameter\n\n    //Here you can query from one or multiple tables using JOIN etc\n    String sql = \"SELECT * FROM app_fd_repeter_prof_exp WHERE id=?\";\n    PreparedStatement stmt = con.prepareStatement(sql);\n    stmt.setString(1, recordId);\n  \n    //Execute the SELECT SQL statement\n    ResultSet rs = stmt.executeQuery();\n         \n    //Get value from columns of record(s)\n    while (rs.next()) {\n        FormRow r1 = new FormRow();\n        r1.put(\"job_title\", rs.getString(12));\n        r1.put(\"company\", rs.getString(10));\n        r1.put(\"location\", rs.getString(11));\n        String strDate=rs.getString(8);\n        System.out.println(\"-------------------------------------->\"+strDate);\n        if(strDate.contains(\"Aujourd\")||strDate.contains(\"Present\")){\n            String[] arrOfStr = strDate.split(\" \");\n            System.out.println(\"---------------STR1----------------------->\"+arrOfStr[0]+\" \"+arrOfStr[1]);\n            r1.put(\"start_month\", arrOfStr[0]);\n            r1.put(\"start_year\", arrOfStr[1]);\n        }else{\n             String[] arrOfStr = strDate.split(\" \");\n            System.out.println(\"---------------STR1----------------------->\"+arrOfStr[0]+\" \"+arrOfStr[1]);\n            r1.put(\"start_month\", arrOfStr[0]);\n            r1.put(\"start_year\", arrOfStr[1]);\n            System.out.println(\"---------------STR1----------------------->\"+arrOfStr[3]+\" \"+arrOfStr[4]);\n            r1.put(\"end_month\", arrOfStr[3]);\n            r1.put(\"end_year\", arrOfStr[4]);\n        }\n        \n        \n        \n        f.add(r1);\n    }\n}\ncon.close();\nreturn f;\n\n"
+            }
+        },
+        "name": "Edit Profile Edit Professional Experience",
+        "noPermissionMessage": "",
+        "permission": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessor": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessorRunOn": "create",
+        "storeBinder": {
+            "className": "org.joget.apps.form.lib.BeanShellFormBinder",
+            "properties": {
+                "autoHandleFiles": "",
+                "autoHandleWorkflowVariable": "true",
+                "cacheInterval": "",
+                "script": "import org.joget.apps.form.model.FormRowSet;\r\nimport org.joget.apps.form.model.FormRow;\r\nimport org.bson.Document;\r\nimport java.sql.Connection;\r\nimport java.sql.PreparedStatement;\r\nimport java.sql.ResultSet;\r\nimport java.sql.SQLException;\r\nimport javax.sql.DataSource;\r\nimport org.joget.commons.util.LogUtil;\r\nimport org.joget.apps.app.service.AppUtil;\r\nimport org.joget.commons.util.UuidGenerator;\r\nimport org.joget.apps.form.model.FormStoreBinder;\r\nimport org.joget.plugin.base.PluginManager;\r\nimport org.joget.apps.form.model.Element;\r\nimport org.joget.apps.form.model.FormData;\r\nimport org.joget.commons.util.LogUtil;\r\nimport org.apache.commons.lang3.ArrayUtils;\r\nimport java.util.Calendar;\r\n\r\nimport org.apache.http.HttpResponse;\r\nimport org.apache.http.client.methods.HttpGet;\r\nimport org.apache.http.client.methods.HttpRequestBase;\r\nimport org.apache.http.impl.client.CloseableHttpClient;\r\nimport org.apache.http.impl.client.HttpClients;\r\nimport org.apache.http.HttpEntity;\r\nimport org.apache.http.util.EntityUtils;\r\nimport java.io.IOException;\r\nimport java.nio.charset.StandardCharsets;\r\nimport java.net.URLEncoder;\r\n\r\nimport java.sql.Connection;\r\nimport java.sql.PreparedStatement;\r\nimport java.sql.ResultSet;\r\nimport java.sql.SQLException;\r\nimport javax.sql.DataSource;\r\n\r\n\r\npublic void updateProfExp(String id,String date_range, String company, String location, String title, String sortedDate){\r\n\r\n    Connection con = null;\r\n        try {\r\n            // retrieve connection from the default datasource\r\n            DataSource ds = (DataSource)AppUtil.getApplicationContext().getBean(\"setupDataSource\");\r\n            con = ds.getConnection();\r\n            // execute SQL query\r\n            if(!con.isClosed()) {\r\n                PreparedStatement stmt = con.prepareStatement(\"update app_fd_repeter_prof_exp set c_date_range=? , c_company=? , c_location=?, c_title=?, c_sortedDate=? where id=? ;\");\r\n                stmt.setString (1, date_range);\r\n                stmt.setString (2, company);\r\n                stmt.setString (3, location);\r\n                stmt.setString (4, title);\r\n                stmt.setString (5, sortedDate);\r\n                stmt.setString (6, id);\r\n                stmt.execute();\r\n                con.close();\r\n            }\r\n        } catch(Exception e) {\r\n            LogUtil.error(\"Sample app - Form 1\", e, \"Error loading user data in load binder\");\r\n        }\r\n}\r\n\r\npublic String getSortedDate(String present,String start_month,String start_year,String end_month,String end_year){\r\n    String[] months = {\"Jan\",\"Feb\",\"Mar\",\"Apr\",\"May\",\"Jun\",\"Jul\",\"Aug\",\"Sep\",\"Oct\",\"Nov\",\"Dec\"};\r\n    String sortedDate=\"\";\r\n    if(present.equals(\"\")){\r\n        sortedDate=end_year+Integer.toString(ArrayUtils.indexOf(months, end_month)+1)+\"-\"+start_year+Integer.toString(ArrayUtils.indexOf(months, start_month)+1);\r\n    }else{\r\n        Calendar c = Calendar.getInstance();\r\n        int year = c.get(Calendar.YEAR);\r\n        int month = c.get(Calendar.MONTH);\r\n        sortedDate=Integer.toString(year)+Integer.toString(month+1)+\"-\"+start_year+Integer.toString(ArrayUtils.indexOf(months, start_month)+1);\r\n    }\r\n    \r\n    return sortedDate;\r\n}\r\n\r\nString job=rows.get(0).getProperty(\"job_title\");\r\nString company=rows.get(0).getProperty(\"company\");\r\nString location=rows.get(0).getProperty(\"location\");\r\nString present=rows.get(0).getProperty(\"present\");\r\nString start_month=rows.get(0).getProperty(\"start_month\");\r\nString start_year=rows.get(0).getProperty(\"start_year\");\r\nString end_month=rows.get(0).getProperty(\"end_month\");\r\nString end_year=rows.get(0).getProperty(\"end_year\");\r\nString date_range=\"\";\r\n\r\nif(present.equals(\"\")){\r\n    date_range=start_month+\" \"+start_year+\" - \"+end_month+\" \"+end_year;\r\n}else{\r\n    date_range=start_month+\" \"+start_year+\" - Present\";\r\n}\r\n\r\nString sortedDate=getSortedDate(present, start_month, start_year, end_month, end_year);\r\n\r\nString id=rows.get(0).getProperty(\"id\");\r\nupdateProfExp(id,date_range,company,location,job,sortedDate);\r\n"
+            }
+        },
+        "tableName": "profile_prof_exp"
+    }
+}

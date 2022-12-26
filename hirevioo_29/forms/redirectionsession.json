@@ -1,0 +1,52 @@
+{
+    "className": "org.joget.apps.form.model.Form",
+    "elements": [{
+        "className": "org.joget.apps.form.model.Section",
+        "elements": [{
+            "className": "org.joget.apps.form.model.Column",
+            "elements": [{
+                "className": "org.joget.apps.form.lib.CustomHTML",
+                "properties": {
+                    "autoPopulate": "",
+                    "id": "field1",
+                    "label": "",
+                    "value": "\r\n<style>\r\n    \r\n    .navbar-hirevioo{\r\n        display:none !important;\r\n    }\r\n    \r\n    #loading-image {\r\n      z-index: 100;\r\n      width:145px;\r\n    }\r\n\r\n    .page-loader{\r\n        display:none !important;\r\n    }\r\n\r\n    #divloader{\r\n        background-color: white;\r\n        width: 100%;\r\n        height: 100%;\r\n        bottom: 0px;\r\n        right: 0;\r\n        z-index: 1000;\r\n        text-align: center;\r\n        line-height: 50;\r\n        position: fixed;\r\n        display: flex;\r\n        justify-content: center;\r\n        align-items: center;\r\n    }\r\n    #submit{\r\n        display:none;\r\n    }\r\n    .form-cell {\r\n        position: relative;\r\n        height: 100%;\r\n    }\r\n    .form-column{\r\n        width: 100%;\r\n        position: relative;\r\n        height: 100%;\r\n    }\r\n    #section_loader{\r\n        position: relative;\r\n        height: 100vh;\r\n        overflow: hidden;\r\n    }\r\n    .form-section-title{\r\n        display:none !important;\r\n    }\r\n    #section-actions{\r\n        display:none !important;\r\n    }\r\n    .blockUI,.blockOverlay{\r\n        display:none !important;\r\n    }\r\n\r\n<\/style>\r\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js\"><\/script>\r\n\r\n<div id='divloader'>\r\n    <img id=\"loading-image\" src=\"#appResource.loading-Techvioo.gif#\">\r\n<\/div>\r\n<script>\r\n\r\nfunction SessionLogin() {\r\n    const timeout = parseInt('#envVariable.hiervioo_session_expiration#');\r\n    const session = localStorage.getItem(\"Hirevioo_Session\");\r\n\r\n    if (session != null) {\r\n        var key  = CryptoJS.enc.Latin1.parse('#envVariable.hirevioo_session_encryption_key#');\r\n        var iv   = CryptoJS.enc.Latin1.parse('#envVariable.hirevioo_session_encryption_key#');\r\n        var decryptedBytes = CryptoJS.AES.decrypt(session,key,{iv:iv,padding:CryptoJS.pad.ZeroPadding});\r\n        var plaintext = decryptedBytes.toString(CryptoJS.enc.Utf8);\r\n\r\n        const sessionArray = plaintext.split(\"-\");\r\n        let date_session = new Date(sessionArray[2]);\r\n        let date_now = new Date();\r\n\r\n        const days = (date_1, date_2) => {\r\n            let difference = date_1.getTime() - date_2.getTime();\r\n            let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));\r\n            //console.log(Math.abs(TotalDays));\r\n            return Math.abs(TotalDays);\r\n        }\r\n        \r\n        if (days(date_session, date_now) < timeout) {\r\n            var username=sessionArray[1];\r\n            var pw=sessionArray[0];\r\n\r\n            function redirect(){\r\n                window.location.replace(\"dash_board\");\r\n            }\r\n            \r\n            var callback = {\r\n                success : function(response){\r\n                    //response.username && response.isAdmin\r\n                    if(response.username != \"roleAnonymous\"){\r\n                        console.log(\"username (\" + response.username + \") is \" + ((response.isAdmin !== undefined && response.isAdmin === \"true\")?\"admin\":\"not an admin\"));\r\n                        redirect();\r\n                    }else{\r\n                        console.log(\"Fail to login user!\");\r\n                    }\r\n                }\r\n            };\r\n            \r\n            AssignmentManager.login('#envVariable.hirevioo_assignmentManager_loginUrl#',username,pw,callback);\r\n        }\r\n        else {\r\n            console.log(\"Session Expired\");\r\n            localStorage.removeItem(\"Hirevioo_Session\");\r\n            window.location.replace(\"signin\");\r\n        }\r\n        \r\n    }\r\n    else{\r\n        window.location.replace(\"signin\");\r\n    }\r\n\r\n}\r\n\r\nfunction redirect(){\r\n    window.location.replace(\"talents\");\r\n}\r\n\r\nfunction searchRedirection(token) {\r\n\r\n    if (token != null) {\r\n        token=token.replaceAll(' ','+');\r\n        var key  = CryptoJS.enc.Latin1.parse('#envVariable.hirevioo_session_encryption_key#');\r\n        var iv   = CryptoJS.enc.Latin1.parse('#envVariable.hirevioo_session_encryption_key#');\r\n        var decryptedBytes = CryptoJS.AES.decrypt(token,key,{iv:iv});\r\n        var plaintext = decryptedBytes.toString(CryptoJS.enc.Utf8);\r\n        console.log(plaintext);\r\n        const sessionArray = plaintext.split(\";\");\r\n        \r\n        var method=sessionArray[0]\r\n    \r\n        if (method=='linkedin'){\r\n            var pw=sessionArray[1];\r\n            var username=sessionArray[2];\r\n            var profileImg=sessionArray[3];\r\n\r\n            var callback = {\r\n                success : function(response){\r\n                    //response.username && response.isAdmin\r\n                    if(response.username != \"roleAnonymous\"){\r\n                        console.log(\"username (\" + response.username + \") is \" + ((response.isAdmin !== undefined && response.isAdmin === \"true\")?\"admin\":\"not an admin\"));\r\n                        redirect();\r\n                        localStorage.setItem(\"li_profilePicture\", profileImg);\r\n                    }else{\r\n                        console.log(\"Fail to login user!\");\r\n                        window.location.replace(\"signin\");\r\n                    }\r\n                }\r\n            };\r\n            \r\n           AssignmentManager.login('#envVariable.hirevioo_assignmentManager_loginUrl#',username,pw,callback);\r\n\r\n        }else{\r\n            var pw=sessionArray[2];\r\n            var username=sessionArray[1];\r\n\r\n            var callback = {\r\n                success : function(response){\r\n                    //response.username && response.isAdmin\r\n                    if(response.username != \"roleAnonymous\"){\r\n                        console.log(\"username (\" + response.username + \") is \" + ((response.isAdmin !== undefined && response.isAdmin === \"true\")?\"admin\":\"not an admin\"));\r\n                        redirect();\r\n                        localStorage.setItem(\"li_profilePicture\", profileImg);\r\n                    }else{\r\n                        console.log(\"Fail to login user!\");\r\n                        window.location.replace(\"signin\");\r\n                    }\r\n                }\r\n            };\r\n            \r\n           AssignmentManager.login('#envVariable.hirevioo_assignmentManager_loginUrl#',username,pw,callback);\r\n        }\r\n \r\n     }\r\n    else{\r\n        window.location.replace(\"signin\");\r\n    }\r\n\r\n}\r\n\r\n\r\n\r\n    const queryString = window.location.search;\r\n    const urlParams = new URLSearchParams(queryString);\r\n    const search_token = urlParams.get('search_token');\r\n    console.log('Search TOKEN:',search_token);\r\n    if(search_token == null){\r\n        SessionLogin();\r\n    }\r\n    else{\r\n        searchRedirection(search_token);\r\n    }\r\n<\/script>"
+                }
+            }],
+            "properties": {"width": "100%"}
+        }],
+        "properties": {
+            "comment": "",
+            "id": "section_loader",
+            "join": "",
+            "label": "",
+            "loadBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "permission": {
+                "className": "",
+                "properties": {}
+            },
+            "permissionReadonly": "",
+            "readonly": "",
+            "readonlyLabel": "",
+            "regex": "",
+            "reverse": "",
+            "storeBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "visibilityControl": "",
+            "visibilityValue": ""
+        }
+    }],
+    "properties": {
+        "description": "",
+        "id": "redirectionsession",
+        "loadBinder": {"className": "org.joget.apps.form.lib.WorkflowFormBinder"},
+        "name": "Redirection",
+        "storeBinder": {"className": "org.joget.apps.form.lib.WorkflowFormBinder"},
+        "tableName": "redirectionsession"
+    }
+}

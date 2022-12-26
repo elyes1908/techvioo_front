@@ -1,0 +1,207 @@
+{
+    "className": "org.joget.apps.form.model.Form",
+    "elements": [
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [{
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field3",
+                        "label": "",
+                        "value": "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n<style>\r\n* {\r\n  box-sizing: border-box;\r\n}\r\n\r\n/* Add a gray background color with some padding */\r\nbody {\r\n  font-family: Arial;\r\n  padding: 20px;\r\n  background: #f1f1f1;\r\n}\r\n\r\n/* Header/Blog Title */\r\n.header {\r\n  padding: 30px;\r\n  font-size: 40px;\r\n  text-align: center;\r\n  background: white;\r\n}\r\n\r\n\r\n\r\n/* left column */\r\n.leftcolumn {\r\n  float: left;\r\n  width: 60%;\r\n  margin-left:30px;\r\n \r\n}\r\n\r\n/* Fake image */\r\n.fakeimg {\r\n  background-color: #ffffff;\r\n  width: 50%;\r\n  border-radius:60px;\r\n  padding: 20px;\r\n}\r\n\r\n/* Add a card effect for articles */\r\n.card {\r\n   background-color: lightgray;\r\n   padding: 20px;\r\n   margin-top: 20px;\r\n}\r\n\r\n/* Clear floats after the columns */\r\n.row:after {\r\n  content: \"\";\r\n  display: table;\r\n  clear: both;\r\n}\r\n\r\n/* Footer */\r\n.footer {\r\n  padding: 20px;\r\n  text-align: center;\r\n  background: #ddd;\r\n  margin-top: 20px;\r\n}\r\n\r\n/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */\r\n@media screen and (max-width: 800px) {\r\n  .leftcolumn, .rightcolumn {   \r\n    width: 100%;\r\n    padding: 0;\r\n  }\r\n}\r\n<\/style>\r\n<\/head>\r\n<body>\r\n\r\n\r\n<div class=\"row\">\r\n  <div class=\"leftcolumn\">\r\n    <div class=\"card\">\r\n    <center>\r\n      <div class=\"fakeimg\" style=\"height:100px;\">Image<\/div>\r\n      <h2>John Doe<\/h2>\r\n      <h5>Company name<\/h5>\r\n     <\/center>\r\n      <p>Total searches 100<\/p>\r\n      <p>Total saved talents 1250<\/p>\r\n      <br><br>\r\n      <p>Find talent<\/p>\r\n      <p>Recommendations<\/p>\r\n      <p>Saved talents<\/p>\r\n      <p>Saved searches<\/p>\r\n      <p>Recruitment agencies<\/p>\r\n      <br><br>\r\n      <p>Insights<\/p>\r\n      <label style=\"font-size:8px;\">Purchase this feature<\/label>\r\n    <\/div>\r\n    \r\n    <div class=\"card\">\r\n      <h2>Recently viewed<\/h2>\r\n      <h5>Profiles<\/h5>\r\n      <ul>\r\n          <li>Isaa Yaqoob<\/li>\r\n          <li>Aisha khaliq<\/li>\r\n          <li>Sa'd Iman<\/li>\r\n      <\/ul>\r\n      <h5>Companies<\/h5>\r\n      <ul>\r\n          <li>Wevioo<\/li>\r\n          <li>Focus<\/li>\r\n          <li>Adactim<\/li>\r\n      <\/ul>\r\n      <h5>Schools<\/h5>\r\n      <ul>\r\n          <li>INSAT<\/li>\r\n          <li>SupCom<\/li>\r\n          <li>FST<\/li>\r\n      <\/ul>\r\n      \r\n    <\/div>\r\n  <\/div>\r\n\r\n<\/div>\r\n\r\n\r\n<\/body>\r\n<\/html>\r\n"
+                    }
+                }],
+                "properties": {
+                    "customWidth": "340px",
+                    "horizontal": "",
+                    "label": "",
+                    "width": "340px"
+                }
+            }],
+            "properties": {
+                "comment": "",
+                "id": "section1",
+                "join": "",
+                "label": "Save history",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field5",
+                            "label": "",
+                            "value": "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n\r\n<style>\r\n    .tuto{\r\n        width:600px;\r\n        margin-bottom:70px;\r\n    }\r\n<\/style>\r\n\r\n<\/head>\r\n<body>\r\n\r\n\r\n<div class=\"tuto\">\r\n  <div class=\"\">\r\n    <div class=\"card\">\r\n      <h2>Tutorial<\/h2>\r\n      <h5>Title description, Dec 7, 2017<\/h5>\r\n      <p>Some text..<\/p>\r\n      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.<\/p>\r\n      <Button>Get Started<\/Button>\r\n    <\/div>\r\n  <\/div>\r\n<\/div>\r\n\r\n\r\n<\/body>\r\n<\/html>\r\n"
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.Grid",
+                        "properties": {
+                            "errorMessage": "Invalid number of rows",
+                            "id": "field2",
+                            "label": "Saved searches",
+                            "loadBinder": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "options": [
+                                {
+                                    "label": "Search",
+                                    "value": "search"
+                                },
+                                {
+                                    "label": "Start date",
+                                    "value": "start_date"
+                                },
+                                {
+                                    "label": "End date",
+                                    "value": "end_date"
+                                },
+                                {
+                                    "label": "Duration",
+                                    "value": "duration"
+                                },
+                                {
+                                    "label": "Last update",
+                                    "value": "last_update"
+                                },
+                                {
+                                    "label": "Talents",
+                                    "value": "talents"
+                                },
+                                {
+                                    "label": "Status",
+                                    "value": "status"
+                                }
+                            ],
+                            "readonly": "",
+                            "storeBinder": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "validateMaxRow": "",
+                            "validateMinRow": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            }
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.Grid",
+                        "properties": {
+                            "errorMessage": "Invalid number of rows",
+                            "id": "field1",
+                            "label": "Saved Talents",
+                            "loadBinder": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "options": [
+                                {
+                                    "label": "Job titles",
+                                    "value": "job_titles"
+                                },
+                                {
+                                    "label": "Last update",
+                                    "value": "last_update"
+                                },
+                                {
+                                    "label": "Number",
+                                    "value": "number"
+                                }
+                            ],
+                            "readonly": "",
+                            "storeBinder": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "validateMaxRow": "",
+                            "validateMinRow": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            }
+                        }
+                    }
+                ],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "id": "section2",
+                "label": "Section"
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [{
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field4",
+                        "label": "",
+                        "value": "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n<style>\r\n* {\r\n  box-sizing: border-box;\r\n}\r\n\r\n/* Add a gray background color with some padding */\r\n\r\n\r\n/* Header/Blog Title */\r\n.header {\r\n  padding: 30px;\r\n  font-size: 40px;\r\n  text-align: center;\r\n  background: white;\r\n}\r\n\r\n/* Right column */\r\n.rightcolumn {\r\n  float: left;\r\n  width: 60%;\r\n  margin-left:100px;\r\n \r\n}\r\n\r\n\r\n/* Add a card effect for articles */\r\n.card {\r\n   background-color: lightgray;\r\n   padding: 20px;\r\n   margin-top: 20px;\r\n}\r\n\r\n/* Clear floats after the columns */\r\n.row:after {\r\n  content: \"\";\r\n  display: table;\r\n  clear: both;\r\n}\r\n\r\n\r\n\r\n/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */\r\n@media screen and (max-width: 800px) {\r\n  .leftcolumn, .rightcolumn {   \r\n    width: 100%;\r\n    padding: 0;\r\n  }\r\n}\r\n\r\n\r\n/* Float four columns side by side */\r\n.column {\r\n  float: left;\r\n  width: 50%;\r\n  padding: 0 10px;\r\n}\r\n\r\n/* Remove extra left and right margins, due to padding */\r\n.row {margin: 0 -5px;}\r\n\r\n/* Clear floats after the columns */\r\n.row:after {\r\n  content: \"\";\r\n  display: table;\r\n  clear: both;\r\n}\r\n\r\n\r\n\r\n/* Style the counter cards */\r\n.card {\r\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\r\n  padding: 16px;\r\n  text-align: center;\r\n  background-color: #f1f1f1;\r\n}\r\n<\/style>\r\n<\/head>\r\n<body>\r\n\r\n\r\n<div class=\"row\">\r\n    <div class=\"rightcolumn\">\r\n        <div class=\"card\">\r\n         <h5>This month on Hirevioo<\/h5>\r\n            <div class=\"row\">\r\n      \r\n                <div class=\"column\">\r\n                    <div class=\"card\">\r\n                      <p>5000<\/p>\r\n                      <p>new talents<\/p>\r\n                    <\/div>\r\n                <\/div>\r\n      \r\n                <div class=\"column\">\r\n                    <div class=\"card\">\r\n                        <p>120<\/p>\r\n                        <p>Job changes<\/p>\r\n                    <\/div>\r\n                <\/div>\r\n  \r\n            <\/div>\r\n     \r\n            <div class=\"row\">\r\n\r\n               <div class=\"column\">\r\n                    <div class=\"card\">\r\n                      <p>25<\/p>\r\n                      <p>new profiles<\/p>\r\n                    <\/div>\r\n               <\/div>\r\n      \r\n               <div class=\"column\">\r\n                    <div class=\"card\">\r\n                      <p>120<\/p>\r\n                      <p>Job changes<\/p>\r\n                    <\/div>\r\n                <\/div>\r\n  \r\n            <\/div>\r\n    \r\n        <\/div>\r\n    <\/div>\r\n<\/div>\r\n\r\n<div class=\"row\">\r\n    <div class=\"rightcolumn\">\r\n        <div class=\"card\">\r\n        <h5>Past week most viewed talents<\/h5>\r\n            <div class=\"row\">\r\n                <ul>\r\n                  <li>Isaa Yaqoob<\/li>\r\n                  <li>Aisha khaliq<\/li>\r\n                  <li>Sa'd Iman<\/li>\r\n                   <li>Isaa Yaqoob<\/li>\r\n                  <li>Aisha khaliq<\/li>\r\n                  <li>Sa'd Iman<\/li>\r\n                   <li>Isaa Yaqoob<\/li>\r\n                  <li>Aisha khaliq<\/li>\r\n                  <li>Sa'd Iman<\/li>\r\n                <\/ul>\r\n     \r\n            <\/div>   \r\n        <\/div>\r\n    <\/div>\r\n<\/div>\r\n    \r\n\r\n<\/body>\r\n<\/html>\r\n"
+                    }
+                }],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "id": "section3",
+                "label": "Section"
+            }
+        }
+    ],
+    "properties": {
+        "description": "",
+        "id": "save_history",
+        "loadBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "name": "Save History",
+        "noPermissionMessage": "",
+        "permission": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessor": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessorRunOn": "create",
+        "storeBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "tableName": "save_history"
+    }
+}

@@ -1,0 +1,155 @@
+{
+    "className": "org.joget.apps.form.model.Form",
+    "elements": [{
+        "className": "org.joget.apps.form.model.Section",
+        "elements": [{
+            "className": "org.joget.apps.form.model.Column",
+            "elements": [
+                {
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field2",
+                        "label": "",
+                        "value": "\n<style>\n    \n    .navbar-hirevioo{\n        display:none !important;\n    }\n    \n    #loading {\n      position: fixed;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      width: 100%;\n      height: 100%;\n      top: 0;\n      left: 0;\n      opacity: 1;\n      background-color: #fff;\n      z-index: 99;\n    }\n\n    #loading-image {\n      z-index: 100;\n      width:145px;\n    }\n\n    .page-loader{\n        display:none !important;\n    }\n\n    #divloader{\n        background-color: white;\n        width: 100%;\n        height: 100%;\n        bottom: 0px;\n        right: 0;\n        z-index: 1000;\n        text-align: center;\n        line-height: 50;\n        position: fixed;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n    }\n    #submit{\n        display:none;\n    }\n    .form-cell {\n        position: relative;\n        height: 100%;\n    }\n    .form-column{\n        width: 100%;\n        position: relative;\n        height: 100%;\n    }\n    #section_loader{\n        position: relative;\n        height: 100vh;\n        overflow: hidden;\n    }\n    .form-section-title{\n        display:none !important;\n    }\n    #section-actions{\n        display:none !important;\n    }\n    .blockUI,.blockOverlay{\n        display:none !important;\n    }\n\n<\/style>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js\"><\/script>\n\n<div id='divloader'>\n    <img id=\"loading-image\" src=\"#appResource.loading-Techvioo.gif#\">\n<\/div>\n\n<script>\n\n    \n    $( document ).ready(function() {\n    console.log( \"ready!\" );\n    var id=document.getElementById('li_id').value;\n    var email=document.getElementById('li_email').value;\n    var prenom=document.getElementById('li_firstname').value;\n    var nom=document.getElementById('li_lastname').value;\n    var image=document.getElementById('li_image').value;\n    var redirection=document.getElementById('redirection').value;\n    var token= document.getElementById('token').value;\n    console.log('---------->Loding sign in: ',token);\n        if(redirection==\"active\" && token==\"\"){\n            localStorage.setItem(\"li_profilePicture\", image);\n            var data=id+\"-\"+email+\"-\"+new Date();\n            var key  = CryptoJS.enc.Latin1.parse('#envVariable.hirevioo_session_encryption_key#');\n            var iv   = CryptoJS.enc.Latin1.parse('#envVariable.hirevioo_session_encryption_key#');  \n            var encryptedAES = CryptoJS.AES.encrypt(\n              data,\n              key,\n              {iv:iv,mode:CryptoJS.mode.CBC,padding:CryptoJS.pad.ZeroPadding\n            });\n\n            console.log(\"---------------->ENCRYPTED: \",encryptedAES.toString());\n            localStorage.setItem(\"Hirevioo_Session\",encryptedAES.toString()); \n            window.location.replace(\"dash_board\");\n        }else if(redirection==\"active\" && token!=\"\"){\n            localStorage.setItem(\"Hirevioo_Session\",token); \n            window.location.replace(\"dash_board\");\n        }else if(redirection==\"linkedin_url\"){\n            var encryptedAES = CryptoJS.AES.encrypt(email+\"-\"+prenom+\"-\"+nom, '#envVariable.hirevioo_session_encryption_key#');\n            console.log(\"---------------->ENCRYPTED: \",encryptedAES.toString());\n            window.location.replace(\"linkedin_url?token=\"+encryptedAES);\n        }else if(redirection==\"404\"){\n            window.location.replace(\"page_not_found\");\n        }\n        else{\n            window.location.replace(\"pending\");\n        }\n    });\n\n<\/script>"
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.HiddenField",
+                    "properties": {
+                        "id": "lcode",
+                        "useDefaultWhenEmpty": "",
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.HiddenField",
+                    "properties": {
+                        "id": "li_id",
+                        "useDefaultWhenEmpty": "",
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.HiddenField",
+                    "properties": {
+                        "id": "li_email",
+                        "useDefaultWhenEmpty": "",
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.HiddenField",
+                    "properties": {
+                        "id": "li_firstname",
+                        "useDefaultWhenEmpty": "",
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.HiddenField",
+                    "properties": {
+                        "id": "li_lastname",
+                        "useDefaultWhenEmpty": "",
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.HiddenField",
+                    "properties": {
+                        "id": "li_image",
+                        "useDefaultWhenEmpty": "",
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.HiddenField",
+                    "properties": {
+                        "id": "token",
+                        "useDefaultWhenEmpty": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.HiddenField",
+                    "properties": {
+                        "id": "redirection",
+                        "useDefaultWhenEmpty": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                }
+            ],
+            "properties": {"width": "100%"}
+        }],
+        "properties": {
+            "comment": "",
+            "id": "section_loader",
+            "join": "",
+            "label": "",
+            "loadBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "permission": {
+                "className": "",
+                "properties": {}
+            },
+            "permissionReadonly": "",
+            "readonly": "",
+            "readonlyLabel": "",
+            "regex": "",
+            "reverse": "",
+            "storeBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "visibilityControl": "",
+            "visibilityValue": ""
+        }
+    }],
+    "properties": {
+        "description": "",
+        "id": "loadingsignin",
+        "loadBinder": {
+            "className": "org.joget.apps.form.lib.BeanShellFormBinder",
+            "properties": {
+                "autoHandleFiles": "",
+                "autoHandleWorkflowVariable": "true",
+                "cacheInterval": "",
+                "script": "\nimport org.joget.apps.form.model.FormRowSet;\nimport org.joget.apps.form.model.FormRow;\nimport org.joget.apps.app.service.*;\nimport org.joget.apps.form.model.*;\nimport org.joget.apps.form.service.*;\nimport java.util.*;\nimport java.util.Set;\nimport org.joget.apps.app.service.AppUtil;\nimport org.joget.commons.util.SecurityUtil;\nimport org.joget.directory.dao.UserDao;\nimport org.joget.directory.dao.RoleDao;\nimport org.joget.directory.model.User;\nimport org.joget.directory.model.service.DirectoryUtil;\nimport org.joget.directory.model.service.UserSecurity;\nimport org.joget.apps.workflow.security.WorkflowUserDetails;\nimport org.joget.directory.model.service.DirectoryManager;\nimport org.joget.workflow.model.service.WorkflowUserManager;\nimport org.springframework.security.authentication.UsernamePasswordAuthenticationToken;\nimport org.springframework.security.core.Authentication;\nimport org.joget.workflow.util.WorkflowUtil;\nimport org.springframework.security.core.context.SecurityContextHolder;\nimport javax.servlet.http.HttpSession;\nimport javax.servlet.http.HttpServletRequest;\nimport org.springframework.security.web.savedrequest.HttpSessionRequestCache;\nimport org.springframework.security.web.savedrequest.SavedRequest;\nimport org.joget.commons.util.StringUtil;\n\nimport org.apache.http.HttpResponse;\nimport org.apache.http.client.methods.HttpGet;\nimport org.apache.http.client.methods.HttpPost;\nimport org.apache.http.client.methods.HttpRequestBase;\nimport org.apache.http.impl.client.CloseableHttpClient;\nimport org.apache.http.impl.client.HttpClients;\nimport org.apache.http.HttpEntity;\nimport org.apache.http.util.EntityUtils;\nimport java.io.IOException;\nimport java.nio.charset.StandardCharsets;\nimport java.net.URLEncoder;\nimport org.bson.Document;\nimport org.joget.commons.util.LogUtil;\n\nimport java.util.ArrayList;\nimport java.util.Collection;\n\nimport java.util.Base64;\nimport java.util.Base64.Decoder;\nimport javax.crypto.*;\nimport javax.crypto.spec.*;\n\npublic String decrypt(String token){\n    try\n        {\n            String key = \"#envVariable.hirevioo_session_encryption_key#\";\n            String iv = \"#envVariable.hirevioo_session_encryption_key#\";\n\n            Decoder decoder = Base64.getDecoder();   \n            byte[] encrypted1 = decoder.decode(token);\n\n            Cipher cipher = Cipher.getInstance(\"AES/CBC/NoPadding\");\n            SecretKeySpec keyspec = new SecretKeySpec(key.getBytes(), \"AES\");\n            IvParameterSpec ivspec = new IvParameterSpec(iv.getBytes());\n\n            cipher.init(Cipher.DECRYPT_MODE, keyspec, ivspec);\n\n            byte[] original = cipher.doFinal(encrypted1);\n            String originalString = new String(original);\n            System.out.println(originalString.trim());\n            return originalString.trim();\n        }\n        catch (Exception e) {\n            e.printStackTrace();\n        }\n}\n\n\n// consume API\npublic String fetchAccessToken(String code){\n    try{\n        String jsonUrl = \"https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=\"+code+\"&redirect_uri=#envVariable.linkedin_redirect_uri#&client_id=#envVariable.linkedin_client_id#&client_secret=#envVariable.linkedin_client_secret#\";\n    \n        CloseableHttpClient client = null;\n        CloseableHttpClient client = HttpClients.createDefault();\n     \n        HttpRequestBase request = null;\n        request = new HttpPost(jsonUrl);\n    \n        HttpResponse response = client.execute(request);\n        HttpEntity entity = response.getEntity();\n        // Read the contents of an entity and return it as a String.\n        String res = EntityUtils.toString(entity,StandardCharsets.UTF_8);\n        request.releaseConnection();\n        client.close();\n       \n        Document doc= Document.parse(res);\n        String token = doc.getString(\"access_token\");\n            \n        return token;\n     \n    } catch (Exception ex) {\n            System.out.println(ex);\n    }\n}\n\npublic String[] fetchFullName(String token){\n    try{\n        String jsonUrl=\"https://api.linkedin.com/v2/me?oauth2_access_token=\"+token+\"&projection=(id,localizedFirstName,localizedLastName,profilePicture(displayImage~digitalmediaAsset:playableStreams))\";\n        \n        CloseableHttpClient client = null;\n        CloseableHttpClient client = HttpClients.createDefault();\n     \n        HttpRequestBase request = null;\n        request = new HttpGet(jsonUrl);\n    \n        HttpResponse response = client.execute(request);\n        HttpEntity entity = response.getEntity();\n        // Read the contents of an entity and return it as a String.\n        String res = EntityUtils.toString(entity,StandardCharsets.UTF_8);\n        request.releaseConnection();\n        client.close();\n        \n        Document doc= Document.parse(res);\n        String id = doc.getString(\"id\");\n        String firstName = doc.getString(\"localizedFirstName\");\n        String lastName = doc.getString(\"localizedLastName\");\n        Document DisplayImg=doc.get(\"profilePicture\").get(\"displayImage~\");\n        Collection elements = new ArrayList();\n        elements = DisplayImg.get(\"elements\");\n        System.out.println(\"--------------elements------------>\"+elements.get(0));\n        Collection identifiers = new ArrayList();\n        identifiers = elements.get(0).get(\"identifiers\");\n        String image=identifiers.get(0).getString(\"identifier\");\n        System.out.println(\"--------------Image------------>\"+image);\n        String [] resultat = {id,firstName,lastName,image};\n        return resultat;\n\n     \n    } catch (Exception ex) {\n            System.out.println(ex);\n    }\n}\n\npublic String fetchEmail(String token){\n    try{\n        String jsonUrl = \"https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))&oauth2_access_token=\"+token;\n    \n        CloseableHttpClient client = null;\n        CloseableHttpClient client = HttpClients.createDefault();\n     \n        HttpRequestBase request = null;\n        request = new HttpGet(jsonUrl);\n    \n        HttpResponse response = client.execute(request);\n        HttpEntity entity = response.getEntity();\n        // Read the contents of an entity and return it as a String.\n        String res = EntityUtils.toString(entity,StandardCharsets.UTF_8);\n        request.releaseConnection();\n        client.close();\n        \n        Document doc= Document.parse(res);\n        Collection array = new ArrayList();\n        array = doc.get(\"elements\");\n        return array.get(0).get(\"handle~\").getString(\"emailAddress\");\n\n     \n    } catch (Exception ex) {\n            System.out.println(ex);\n    }\n}\n\nUserSecurity us = DirectoryUtil.getUserSecurity();\n  \nUserDao userDao = (UserDao) AppUtil.getApplicationContext().getBean(\"userDao\");\nRoleDao roleDao = (RoleDao) AppUtil.getApplicationContext().getBean(\"roleDao\");\n\n\nSystem.out.println(\"Strat LOAD BINDER SIGN IN SPINNER------------->\");\nString code=\"#requestParam.code#\";\nString token=\"#requestParam.token#\";\nif(!code.equals(\"\")){\n    System.out.println(\"Code------------->\"+code);\n    String token=fetchAccessToken(code);\n    System.out.println(\"Token------------->\"+token);\n    \n    \n    String[] resFullName=fetchFullName(token);\n    String id = resFullName[0];\n    String nom = resFullName[1];\n    String prenom = resFullName[2];\n    String image = resFullName[3];\n    String email = fetchEmail(token);\n    String username=email;\n    results = new FormRowSet();\n    FormRow row = new FormRow();\n    row.put(\"li_id\",id);\n    row.put(\"li_lastname\",nom);\n    row.put(\"li_firstname\",prenom);\n    row.put(\"li_email\",email);\n    row.put(\"li_image\",image);\n    \n    \n    UserSecurity us = DirectoryUtil.getUserSecurity();\n  \n    UserDao userDao = (UserDao) AppUtil.getApplicationContext().getBean(\"userDao\");\n    RoleDao roleDao = (RoleDao) AppUtil.getApplicationContext().getBean(\"roleDao\");\n        \n    //Get service beans\n    DirectoryManager dm = (DirectoryManager) AppUtil.getApplicationContext().getBean(\"directoryManager\");\n    WorkflowUserManager workflowUserManager = (WorkflowUserManager) AppUtil.getApplicationContext().getBean(\"workflowUserManager\");\n      \n    //Login by Email (username=email)\n    User user = dm.getUserByUsername(username);\n    \n    if(user==null){\n        //Create an User\n        User user = new User();\n        user.setId(id);\n        user.setLastName(nom);\n        user.setFirstName(prenom);\n        user.setEmail(email);\n        user.setUsername(username);\n        user.setActive(0);\n        if (us != null) {\n            user.setPassword(us.encryptPassword(id, id));\n        } else {\n            user.setPassword(StringUtil.md5Base16(id));\n        }\n        user.setConfirmPassword(id);\n          \n        //set role\n        Set roleSet = new HashSet();\n        roleSet.add(roleDao.getRole(\"ROLE_USER\"));\n        user.setRoles(roleSet);\n          \n        userDao.addUser(user);\n        if (us != null) {\n            us.insertUserPostProcessing(user);\n        }  \n        \n        row.put(\"redirection\",\"linkedin_url\");\n    \n    }\n    else{\n        if(user.getActive()==1){\n            user.setPassword(StringUtil.md5Base16(id));\n            user.setConfirmPassword(id);\n            userDao.updateUser(user);\n            \n            WorkflowUserDetails userDetail = new WorkflowUserDetails(user);\n            //Generate an authentication token without a password\n            UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userDetail.getUsername(),\"\", userDetail.getAuthorities());\n            auth.setDetails(userDetail);\n            //Login the user\n            SecurityContextHolder.getContext().setAuthentication(auth);\n            workflowUserManager.setCurrentThreadUser(user.getUsername());\n            \n            // generate new session to avoid session fixation vulnerability\n            HttpServletRequest httpRequest = WorkflowUtil.getHttpServletRequest();\n            HttpSession session = httpRequest.getSession(false);\n            if (session != null) {\n                SavedRequest savedRequest = (SavedRequest) session.getAttribute(\"SPRING_SECURITY_SAVED_REQUEST_KEY\");\n                session.invalidate();\n                session = httpRequest.getSession(true);\n                if (savedRequest != null) {\n                    session.setAttribute(\"SPRING_SECURITY_SAVED_REQUEST_KEY\", savedRequest);\n                }\n            }\n            //Store SecurityContext to session to avoid spring security to clean it.\n            session.setAttribute(\"SPRING_SECURITY_CONTEXT\", SecurityContextHolder.getContext());\n            \n            row.put(\"redirection\",\"active\");\n        }else{\n            row.put(\"redirection\",\"pending\");\n        }\n    }\n    results.add(row);\n    return results;\n}\nif(!token.equals(\"\")){\n    System.out.println(token);\n    String decryptedToken=decrypt(token);\n    String [] userInfo=decryptedToken.split(\"-\");\n\n    String email = userInfo[1];\n    String username=email;\n    results = new FormRowSet();\n    FormRow row = new FormRow();\n    row.put(\"token\",token);\n    \n    \n    UserSecurity us = DirectoryUtil.getUserSecurity();\n  \n    UserDao userDao = (UserDao) AppUtil.getApplicationContext().getBean(\"userDao\");\n    RoleDao roleDao = (RoleDao) AppUtil.getApplicationContext().getBean(\"roleDao\");\n        \n    //Get service beans\n    DirectoryManager dm = (DirectoryManager) AppUtil.getApplicationContext().getBean(\"directoryManager\");\n    WorkflowUserManager workflowUserManager = (WorkflowUserManager) AppUtil.getApplicationContext().getBean(\"workflowUserManager\");\n      \n    //Login by Email (username=email)\n    User user = dm.getUserByUsername(username);\n    \n    if(user==null){\n        row.put(\"redirection\",\"404\");\n    }\n    else{\n        if(user.getActive()==1){\n            WorkflowUserDetails userDetail = new WorkflowUserDetails(user);\n  \n            //Generate an authentication token without a password\n            UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userDetail.getUsername(), \"\", userDetail.getAuthorities());\n            auth.setDetails(userDetail);\n            //Login the user\n            SecurityContextHolder.getContext().setAuthentication(auth);\n            workflowUserManager.setCurrentThreadUser(user.getUsername());\n         \n            // generate new session to avoid session fixation vulnerability\n            HttpServletRequest httpRequest = WorkflowUtil.getHttpServletRequest();\n            HttpSession session = httpRequest.getSession(false);\n            if (session != null) {\n                SavedRequest savedRequest = (SavedRequest) session.getAttribute(\"SPRING_SECURITY_SAVED_REQUEST_KEY\");\n                session.invalidate();\n                session = httpRequest.getSession(true);\n                if (savedRequest != null) {\n                    session.setAttribute(\"SPRING_SECURITY_SAVED_REQUEST_KEY\", savedRequest);\n                }\n            }\n            //Store SecurityContext to session to avoid spring security to clean it.\n            session.setAttribute(\"SPRING_SECURITY_CONTEXT\", SecurityContextHolder.getContext());\n            \n            row.put(\"redirection\",\"active\");\n        }else{\n            row.put(\"redirection\",\"pending\");\n        }\n    }\n    results.add(row);\n    return results;\n}"
+            }
+        },
+        "name": "Loading sign in",
+        "noPermissionMessage": "",
+        "permission": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessor": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessorRunOn": "create",
+        "storeBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "tableName": "signin"
+    }
+}

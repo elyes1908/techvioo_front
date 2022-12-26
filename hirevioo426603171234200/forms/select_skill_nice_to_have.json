@@ -1,0 +1,142 @@
+{
+    "className": "org.joget.apps.form.model.Form",
+    "elements": [{
+        "className": "org.joget.apps.form.model.Section",
+        "elements": [{
+            "className": "org.joget.apps.form.model.Column",
+            "elements": [
+                {
+                    "className": "org.joget.apps.form.lib.HiddenField",
+                    "properties": {
+                        "id": "id_master",
+                        "useDefaultWhenEmpty": "",
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.marketplace.AjaxSelectbox",
+                    "properties": {
+                        "afterTypeDelay": "300",
+                        "allowEmpty": "true",
+                        "defaultOptions": "",
+                        "displayField": "label",
+                        "id": "skill_name",
+                        "idField": "label",
+                        "keepTypingMsg": "Continue typing to search",
+                        "label": "",
+                        "listId": "listskillsdata",
+                        "lookingForMsg": "Retrieving results",
+                        "minTermLength": "2",
+                        "multiple": "",
+                        "placeholder": "Skill",
+                        "readonly": "",
+                        "readonlyLabel": "",
+                        "requestParams": [],
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "value": "label",
+                        "width": "40%",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.SelectBox",
+                    "properties": {
+                        "controlField": "",
+                        "id": "exp_skill",
+                        "label": "Seniority",
+                        "multiple": "",
+                        "options": [
+                            {
+                                "grouping": "",
+                                "label": "Seniority",
+                                "value": ""
+                            },
+                            {
+                                "grouping": "",
+                                "label": "Junior",
+                                "value": "junior"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "Mid-level",
+                                "value": "mid-level"
+                            },
+                            {
+                                "grouping": "",
+                                "label": "Senior",
+                                "value": "senior"
+                            }
+                        ],
+                        "optionsBinder": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "readonly": "",
+                        "readonlyLabel": "",
+                        "size": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                }
+            ],
+            "properties": {"width": "100%"}
+        }],
+        "properties": {
+            "comment": "",
+            "id": "section2",
+            "join": "",
+            "label": "Nice to have Skills",
+            "loadBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "permission": {
+                "className": "",
+                "properties": {}
+            },
+            "permissionReadonly": "",
+            "readonly": "",
+            "readonlyLabel": "",
+            "regex": "",
+            "reverse": "",
+            "storeBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "visibilityControl": "",
+            "visibilityValue": ""
+        }
+    }],
+    "properties": {
+        "description": "",
+        "id": "select_skill_nice_to_have",
+        "loadBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "name": "Select Nice to have Skill",
+        "noPermissionMessage": "",
+        "permission": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessor": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessorRunOn": "create",
+        "storeBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "tableName": "nice_to_have_skills"
+    }
+}

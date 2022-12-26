@@ -1,0 +1,48 @@
+{
+    "actions": [],
+    "binder": {
+        "className": "org.joget.apps.datalist.lib.FormRowDataListBinder",
+        "properties": {
+            "extraCondition": "",
+            "formDefId": "institutionsdata"
+        }
+    },
+    "buttonPosition": "bottomLeft",
+    "checkboxPosition": "left",
+    "columns": [{
+        "filterable": true,
+        "hidden": "false",
+        "id": "column_0",
+        "label": "label",
+        "name": "label",
+        "sortable": "false"
+    }],
+    "considerFilterWhenGetTotal": "",
+    "description": "",
+    "disableResponsive": "",
+    "filters": [],
+    "hidePageSize": "",
+    "id": "institution_data_list",
+    "name": "Institutions Data",
+    "order": "",
+    "orderBy": "",
+    "pageSize": "0",
+    "pageSizeSelectorOptions": "10,20,30,40,50,100",
+    "responsiveView": [
+        {
+            "breakpoint": "",
+            "columns": "",
+            "view": "Mobile"
+        },
+        {
+            "breakpoint": "",
+            "columns": "",
+            "view": "Tablet"
+        }
+    ],
+    "rowActions": [],
+    "searchPopup": "",
+    "showDataWhenFilterSet": "",
+    "showPageSizeSelector": "true",
+    "useSession": ""
+}
