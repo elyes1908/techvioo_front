@@ -1,0 +1,807 @@
+{
+    "className": "org.joget.apps.form.model.Form",
+    "elements": [
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field30",
+                            "label": "",
+                            "value": "<style>\r\n    #loading-image {\r\n      z-index: 100;\r\n      width:145px;\r\n    }\r\n<\/style>\r\n\r\n<div id=\"loading_ext\">\r\n      <img id=\"loading-image\" src=\"#appResource.loading-Techvioo.gif#\" alt=\"Loading...\" />\r\n<\/div>\r\n\r\n<script>\r\n    window.onload = (event) => {\r\n        console.log(\"page is fully loaded\");\r\n        document.getElementById('loading_ext').style.display=\"none\";\r\n    };\r\n<\/script>"
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field20",
+                            "label": "",
+                            "value": "<style>\n    body .ui-dialog .ui-dialog-titlebar-close span{\n    line-height: 13px !important;\n    left: 2px !important;\n}\nhr {\n    color: #D6DDEB;\n    height: 0.5px !important;\n    opacity: 1;\n}\n\n<\/style>\n<center>\n    <h2 id=\"search_title\"><\/h2>\n<\/center>\n\n<script>\n    $( document ).ready(function() { \n        const queryString = window.location.search;\n        const urlParams = new URLSearchParams(queryString);\n        var title = urlParams.get('title');\n        document.getElementById('search_title').innerHTML=title;\n    });\n<\/script>"
+                        }
+                    }
+                ],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "section12",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field6",
+                            "label": "",
+                            "value": "<div class=\"d-flex  flex-grow-1 align-items-center justify-content-start  py-3 mb-2 position-relative\">\n <img class=\"avatar w-25 h-25 me-2 rounded-circle\" style=\"max-width: 60px;\" id=\"pro_img\" src=\"\" />\n  <div class=\"position-relative\">\n      <h3 class=\"epilogue-semiBold color-blue-1 mb-3\" id=\"fullnameleft\"><\/h3>\n    <span style=\"font-size:11px\" class=\"mt-2\"><span id=\"job_companydiv\" class=\"template-color epilogue-bold mb-2\"><\/span> <\/span>\n    <div class=\"talent-city mt-3\">\n        <i class=\"template-color fs-2 fa fa-map-marker\"><\/i> <span id=\"locationdiv\" class=\"epilogue-regular text-black\"><\/span>\n         <i class=\"template-color fa fa-star template-color  ml-4\"><\/i> <span id=\"scorediv\"><\/span>\n      <\/div>\n  <\/div>\n   <i class=\"fa fa-heart ml-4 template-color position-absolute top-0 end-0\"><\/i>\n     \n<\/div>\n\n<script>\n//     var userInfoDiv = document.getElementsByClassName(\"field6\")[0];\n//   // console.log(userInfoDiv.childNodes);\n//     var iconBookmark=userInfoDiv.childNodes.item(1).childNodes.item(1).childNodes.item(3).childNodes.item(3);\n//     iconBookmark.classList.remove(\"fa-bookmark-o\");\n//     iconBookmark.classList.add(\"fa-bookmark\");\n<\/script>"
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field26",
+                            "label": "",
+                            "value": "  <button type=\"button\" class=\"mt-3 w-100 btn-linkedin btn-icon-text rounded-8 waves-effect btn waves-button waves-float\" id=\"btnContactLink\" onclick=\"RedirectProfileLinkedIn()\">\n      Send LinkedIn message\n       <i class=\"fa fa-linkedin  ms-2\" style=\"font-size:20px\"><\/i>\n    <\/button>\n   <hr />\n    <h3>Contact<\/h3>\n<div class=\"d-flex  flex-grow-1   py-3 item\">\n      <i class=\"fa fa-envelope me-3 icon-lg text-muted\"><\/i>\n      <div class=\"d-flex flex-column justify-content-around\">\n        <small class=\"mb-1 text-muted \">Email<\/small>\n        <h5 class=\"me-2 mb-0 template-color\" id=\"emaildiv\"><\/h5>\n      <\/div>\n    <\/div>\n    <div class=\"d-flex  flex-grow-1   py-3 item\">\n      <i class=\"fa fa-phone me-3 icon-lg text-muted\"><\/i>\n      <div class=\"d-flex flex-column justify-content-around\">\n        <small class=\"mb-1 text-muted\">Phone<\/small>\n        <h5 class=\"me-2 mb-0 template-color\" id=\"phonediv\"><\/h5>\n      <\/div>\n    <\/div>\n    <div class=\"d-flex  flex-grow-1  py-3 item\">\n      <i class=\"fa fa-linkedin me-3 icon-lg text-muted\"><\/i>\n      <div class=\"d-flex flex-column justify-content-around\">\n        <small class=\"mb-1 text-muted\">Linkedin<\/small>\n        <h5 class=\"me-2 mb-0 template-color\" id=\"linkedindiv\" style=\"cursor:pointer\"><\/h5>\n      <\/div>\n    <\/div>\n    <div class=\"d-flex  flex-grow-1  py-3 item\">\n      <i class=\"fa fa-twitter me-3 icon-lg text-muted\"><\/i>\n      <div class=\"d-flex flex-column justify-content-around\">\n        <small class=\"mb-1 text-muted\">Twitter<\/small>\n        <h5 class=\"me-2 mb-0 template-color\" id=\"twitterdiv\"><\/h5>\n      <\/div>\n    <\/div>\n    <div class=\"d-flex  flex-grow-1   py-3 item\">\n      <i class=\"fa fa-globe me-3 icon-lg text-muted\"><\/i>\n      <div class=\"d-flex flex-column justify-content-around\">\n        <small class=\"mb-1 text-muted\">Website<\/small>\n        <h5 class=\"me-2 mb-0 template-color\" id=\"websitediv\"><\/h5>\n      <\/div>\n    <\/div>\n    \n   "
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "profile_image",
+                            "useDefaultWhenEmpty": "true",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "#appResource.defaultProfilePicture.png#",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "id": "fullname",
+                            "label": "Namee",
+                            "maxlength": "",
+                            "permissionHidden": "",
+                            "placeholder": "",
+                            "readonly": "true",
+                            "readonlyLabel": "true",
+                            "size": "",
+                            "storeNumeric": "",
+                            "style": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "Isa Yaqoob",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "id": "job_company",
+                            "label": "Job",
+                            "maxlength": "",
+                            "permissionHidden": "",
+                            "placeholder": "",
+                            "readonly": "true",
+                            "readonlyLabel": "true",
+                            "size": "",
+                            "storeNumeric": "",
+                            "style": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "Data Scientist at Company",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "id": "location",
+                            "label": "<i style='font-size:24px' class='fas'>&#xf3c5;<\/i>",
+                            "maxlength": "",
+                            "permissionHidden": "",
+                            "placeholder": "",
+                            "readonly": "true",
+                            "readonlyLabel": "true",
+                            "size": "",
+                            "storeNumeric": "",
+                            "style": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "Tunis, Tunisia",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "id": "score",
+                            "label": "Score:",
+                            "maxlength": "",
+                            "permissionHidden": "",
+                            "placeholder": "",
+                            "readonly": "true",
+                            "readonlyLabel": "true",
+                            "size": "",
+                            "storeNumeric": "",
+                            "style": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "id": "email",
+                            "label": "<i style=\"font-size:18px\" class=\"fa\">&#xf0e0;<\/i>",
+                            "maxlength": "",
+                            "permissionHidden": "",
+                            "placeholder": "",
+                            "readonly": "true",
+                            "readonlyLabel": "true",
+                            "size": "",
+                            "storeNumeric": "",
+                            "style": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "email@gmail.com",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "id": "facebook",
+                            "label": "<i style=\"font-size:18px\" class=\"fa\">&#xf09a;<\/i>",
+                            "maxlength": "",
+                            "permissionHidden": "",
+                            "placeholder": "",
+                            "readonly": "true",
+                            "readonlyLabel": "true",
+                            "size": "",
+                            "storeNumeric": "",
+                            "style": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "/isayaqoob",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "id": "phone",
+                            "label": "<i style=\"font-size:18px\" class=\"fa\">&#xf095;<\/i>",
+                            "maxlength": "",
+                            "permissionHidden": "",
+                            "placeholder": "",
+                            "readonly": "true",
+                            "readonlyLabel": "true",
+                            "size": "",
+                            "storeNumeric": "",
+                            "style": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "+216 22 22 22 22",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "id": "linkedin",
+                            "label": "<i style=\"font-size:18px\" class=\"fa\">&#xf0e1;<\/i>",
+                            "maxlength": "",
+                            "permissionHidden": "",
+                            "placeholder": "",
+                            "readonly": "true",
+                            "readonlyLabel": "true",
+                            "size": "",
+                            "storeNumeric": "",
+                            "style": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "/in/isa-yaqoob",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "id": "twitter",
+                            "label": "<i style=\"font-size:18px\" class=\"fa\">&#xf099;<\/i>",
+                            "maxlength": "",
+                            "permissionHidden": "",
+                            "placeholder": "",
+                            "readonly": "true",
+                            "readonlyLabel": "true",
+                            "size": "",
+                            "storeNumeric": "",
+                            "style": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "@isayaqoob",
+                            "workflowVariable": ""
+                        }
+                    }
+                ],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "section2",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [{
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field27",
+                        "label": "",
+                        "value": "<h4 class=\"py-3 template-color epilogue-semibold\">Information<\/h4>\n<div class=\"row\">\n  <div class=\"col-md-7\">\n    <h5 class=\"epilogue-regular color-gray-3\">Full Name<\/h5>\n    <p class=\"mb-4 color-blue-1\" id=\"fullnamediv\"><\/p>\n    <h5 class=\"epilogue-regular color-gray-3\">Highest education <\/h5>\n    <ul id=\"edu_list\" class=\"mb-4 list-unstyled \"><\/ul>\n  <\/div>\n  <div class=\"col-md-5\">\n    <h5 class=\"epilogue-regular color-gray-3\">Language<\/h5>\n   <ul id=\"lan_list\" class=\"list-unstyled color-blue-1 epilogue-bold\"><\/ul>\n  <\/div>\n  <\/div>\n<hr />"
+                    }
+                }],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "section11",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [
+                    {
+                        "className": "org.joget.SubformRepeater",
+                        "properties": {
+                            "collapsedByDefault": "",
+                            "collapsible": "true",
+                            "editFormDefId": "",
+                            "errorMessage": "@@form.formgrid.invalidNumberOfRow@@",
+                            "formDefId": "profileprofessionalexp",
+                            "id": "repeter_prof_exp",
+                            "label": "",
+                            "loadBinder": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "permissionHidden": "",
+                            "readonly": "true",
+                            "readonlyLabel": "true",
+                            "storeBinder": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "uniqueKey": "",
+                            "validateMaxRow": "",
+                            "validateMinRow": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            }
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field22",
+                            "label": "",
+                            "value": "<h4 class=\"py-3  template-color  epilogue-semibold\">Professional exp<\/h4>\n<ul id=\"exp_list\" class=\"list-unstyled\"><\/ul>\n<hr />"
+                        }
+                    }
+                ],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "prof_exp",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [
+                    {
+                        "className": "org.joget.SubformRepeater",
+                        "properties": {
+                            "collapsedByDefault": "",
+                            "collapsible": "true",
+                            "editFormDefId": "",
+                            "errorMessage": "@@form.formgrid.invalidNumberOfRow@@",
+                            "formDefId": "profileeducation",
+                            "id": "repeter_education",
+                            "label": "",
+                            "loadBinder": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "permissionHidden": "",
+                            "readonly": "true",
+                            "readonlyLabel": "true",
+                            "storeBinder": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "uniqueKey": "",
+                            "validateMaxRow": "",
+                            "validateMinRow": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            }
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field23",
+                            "label": "",
+                            "value": "<ul id=\"edu_list\"><\/ul>"
+                        }
+                    }
+                ],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "education",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [
+                    {
+                        "className": "org.joget.SubformRepeater",
+                        "properties": {
+                            "collapsedByDefault": "",
+                            "collapsible": "true",
+                            "editFormDefId": "",
+                            "errorMessage": "@@form.formgrid.invalidNumberOfRow@@",
+                            "formDefId": "profilelanguages",
+                            "id": "repeter_languages",
+                            "label": "",
+                            "loadBinder": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "permissionHidden": "",
+                            "readonly": "true",
+                            "readonlyLabel": "true",
+                            "storeBinder": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "uniqueKey": "",
+                            "validateMaxRow": "",
+                            "validateMinRow": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            }
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field24",
+                            "label": "",
+                            "value": "<ul id=\"lan_list\"><\/ul>"
+                        }
+                    }
+                ],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "spoken_language",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [
+                    {
+                        "className": "org.joget.SubformRepeater",
+                        "properties": {
+                            "collapsedByDefault": "",
+                            "collapsible": "true",
+                            "editFormDefId": "",
+                            "errorMessage": "@@form.formgrid.invalidNumberOfRow@@",
+                            "formDefId": "profileskills",
+                            "id": "repeter_skills",
+                            "label": "",
+                            "loadBinder": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "permissionHidden": "",
+                            "readonly": "true",
+                            "readonlyLabel": "true",
+                            "storeBinder": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "uniqueKey": "",
+                            "validateMaxRow": "",
+                            "validateMinRow": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            }
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field25",
+                            "label": "",
+                            "value": "<h4 class=\"py-3  template-color  epilogue-semibold\">Skills<\/h4>\r\n<ul id=\"skill_list\" class=\"list-unstyled d-inline-block \"><\/ul>\r\n<hr />\r\n\r\n\r\n"
+                        }
+                    }
+                ],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "skills",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [{
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field17",
+                        "label": "",
+                        "value": "<style>\n #seeMoreBtn{\n        width: 150px;\n        padding: 12px;\n        border: none;\n        margin: 5px 0;\n        opacity: 0.85;\n        display: inline-block;\n        font-size: 17px;\n        line-height: 20px;\n        text-decoration: none; \n        background-color: #0077b5;\n        color: white;\n        border-radius: 4px;\n        text-align: center;\n        margin-top:20px;\n\n    }\n\n    #seeMoreBtn:hover {\n        cursor: pointer;\n        color: white;\n        opacity:1;\n    } \n    #submit,.print-button{\n        display:none;\n    }\n<\/style>\n<center>\n    <a id=\"seeMoreBtn\" class=\"py-3 px-5 rounded-8 fs-6 epilogue-bold bg-template-color text-white\" onclick=\"redirection()\" > See full resume <\/a>\n\n<\/center>\n\n<script>\nlet id;\nlet search;\nlet title;\n $( document ).ready(function() { \n    const queryString = window.location.search;\n    const urlParams = new URLSearchParams(queryString);\n    id = urlParams.get('id');\n    search = urlParams.get('search');\n    title = urlParams.get('title');\n });\n\n    function redirection(){\n        if(window.top!==window.self)\n            window.open(\"talentProfile?id=\"+id+\"&search=\"+search+\"&title=\"+title, '_blank');\n              //parent.window.location.replace(\"C596C1EB72A8458B816AA30CE82FA188?id=\"+id+\"&search=\"+search+\"&title=\"+title);\n    }\n    \n        \n    \n<\/script>"
+                    }
+                }],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "section5",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "bookmark",
+                            "useDefaultWhenEmpty": "",
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "review_hf",
+                            "useDefaultWhenEmpty": "",
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    }
+                ],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "section7",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [{
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field26",
+                        "label": "",
+                        "value": "<style>\r\n    #paList{\r\n    display: none!important;\r\n}\r\n#html section{\r\n    display: none!important;\r\n}\r\n.subform-container{\r\n    display: none!important;\r\n}\r\n<\/style>\r\n<script>\r\n    $( document ).ready(function() {\r\n   \r\n   insertExperience();\r\n   insertSkills();\r\n   \r\n   insertLanguages();\r\n   SetProfileImage();\r\n   //HideSection();\r\n   RedirectProfileLinkedIn();\r\n   // linkedin cursor\r\n  Ldiv = document.getElementById(\"linkedin\").parentNode.childNodes.item(3).style.cursor='pointer';\r\n   // linkedin cursor\r\n\r\n    HideContacts();\r\n    insertEducation();\r\n   \r\n});\r\n\r\n    \r\n\r\n    $('#fullname,#job_company,#location,#score,#email,#facebook,#phone,#linkedin,#twitter').parent('div').addClass('d-none');\r\n    \r\n    $(\"#section2\").addClass('profile-pop-div col-md-3 bg-white  py-4 border  px-4').removeClass('form-section');\r\n           \r\n       $(\"#section11\").addClass('profile-pop-div  profile-pop-details');\r\n      $(\"#prof_exp\").addClass('profile-pop-div  profile-pop-details');\r\n      $(\"#education\").addClass('profile-pop-div  profile-pop-details');\r\n      $(\"#spoken_language\").addClass('profile-pop-div  profile-pop-details');\r\n      $(\"#onetalentprofileoverlay #skills\").addClass('profile-pop-div  profile-pop-details');\r\n      $('#onetalentprofileoverlay .profile-pop-div').wrapAll('  <div class=\" d-inline-flex flex-column flex-md-row w-100 w-100 min-height-80vh\"><\/div>');\r\n      $('#prof_contact').wrapAll('  <div class=\"col-md-4   px-2\"><\/div>');\r\n       $('#onetalentprofileoverlay .profile-pop-details').wrapAll('  <div class=\"col-md-9   px-0 mt-2 px-md-2 mt-md-0\"><div class=\"bg-white border h-100  py-4 px-4\"><\/div><\/div>');\r\n    \r\n        $('#headerOverlay').wrapAll('  <div class=\"col-md-12   px-2 bg-white  mb-3\"><\/div>');\r\n        \r\n        $('#edu_list').addClass('row');\r\n          function HideContacts(){\r\n        var emailInpyt=document.getElementById('emaildiv');\r\n        var emailWrapper=emailInpyt.parentNode.parentNode;\r\n        var phoneInput=document.getElementById('phonediv');\r\n        var phoneWrapper=phoneInput.parentNode.parentNode;\r\n        var twitterInput=document.getElementById('twitterdiv');\r\n        var twitterWrapper=twitterInput.parentNode.parentNode;\r\n        var webInput=document.getElementById('websitediv');\r\n        var webWrapper=webInput.parentNode.parentNode;\r\n        if(document.getElementById('email').value.length==0){\r\n         \r\n            emailWrapper.style.cssText = 'display:none !important';\r\n        }\r\n        if(document.getElementById('phone').value.length==0){\r\n         \r\n            phoneWrapper.style.cssText = 'display:none !important';\r\n        }\r\n         if(document.getElementById('twitter').value.length==0){\r\n         \r\n            twitterWrapper.style.cssText = 'display:none !important';\r\n        }\r\n        if(webInput.innerHTML.length==0){\r\n         \r\n            webWrapper.style.cssText = 'display:none !important';\r\n        }\r\n        \r\n    }\r\n            \r\n  function GetElementInsideContainer(containerID, childID) {\r\n    let elm = {};\r\n    let elms = document.getElementById(containerID).getElementsByTagName(\"*\");\r\n    for (let i = 0; i < elms.length; i++) {\r\n      if (elms[i].id === childID) {\r\n        elm = elms[i];\r\n        break;\r\n      }\r\n    }\r\n    return { elm, containerID }\r\n\r\n  }\r\n\r\n//   function Exp_Array() {\r\n//     let i, j,lim;\r\n//     var Array_exp = [];\r\n//     let prof_exp_table = GetElementInsideContainer('prof_exp', 'paList');\r\n//     let table_elm = prof_exp_table.elm.childNodes.item(1).nextSibling.nextSibling.childNodes;\r\n//     //  console.log(table_elm);\r\n//     if(table_elm.length>3){\r\n//          lim=4;\r\n//     }else{\r\n//         lim=table_elm.length;\r\n//     }\r\n//      //  console.log(table_elm);\r\n//     for (i = 1; i < lim; i++) {\r\n//       object = {\r\n//         \"exp_id\": i,\r\n//         \"linkedin\": table_elm.item(i).childNodes.item(1).childNodes.item(0)\r\n//           .getElementsByTagName(\"input\")[3].value,\r\n//         \"company_id\": table_elm.item(i).childNodes.item(1).childNodes.item(0)\r\n//           .getElementsByTagName(\"input\")[4].value,\r\n//         \"title\": table_elm.item(i).childNodes.item(1).childNodes.item(0)\r\n//           .getElementsByTagName(\"input\")[5].value,\r\n//         \"company\": table_elm.item(i).childNodes.item(1).childNodes.item(0)\r\n//           .getElementsByTagName(\"input\")[6].value,\r\n//         \"date_range\": table_elm.item(i).childNodes.item(1).childNodes.item(0)\r\n//           .getElementsByTagName(\"input\")[7].value,\r\n//         \"location\": table_elm.item(i).childNodes.item(1).childNodes.item(0)\r\n//           .getElementsByTagName(\"input\")[8].value,\r\n//         \"sortedDate\": table_elm.item(i).childNodes.item(1).childNodes.item(0)\r\n//                     .getElementsByTagName(\"input\")[9].value\r\n//       }\r\n//       Array_exp.push(object);\r\n\r\n\r\n//     }\r\n//     // console.log(Array_exp);\r\n//     Array_exp.sort(function (a, b) {\r\n//             return a.sortedDate.localeCompare(b.sortedDate);\r\n//     }).reverse();\r\n//     return Array_exp;\r\n//   }\r\n    function Exp_Array() {\r\n        let i, j;\r\n        var Array_exp = [];\r\n        let prof_exp_table = GetElementInsideContainer('prof_exp', 'paList');\r\n        let table_elm = prof_exp_table.elm.childNodes.item(1).nextSibling.nextSibling.childNodes;\r\n        //console.log(table_elm);\r\n        for (i = 1; i < table_elm.length; i++) {\r\n            object = {\r\n                \"exp_id\": i,\r\n                \"linkedin\": table_elm.item(i).childNodes.item(1).childNodes.item(0)\r\n                    .getElementsByTagName(\"input\")[3].value,\r\n                \"company_id\": table_elm.item(i).childNodes.item(1).childNodes.item(0)\r\n                    .getElementsByTagName(\"input\")[4].value,\r\n                \"company\": table_elm.item(i).childNodes.item(1).childNodes.item(0)\r\n                    .getElementsByTagName(\"input\")[6].value,\r\n                \"title\": table_elm.item(i).childNodes.item(1).childNodes.item(0)\r\n                    .getElementsByTagName(\"input\")[5].value,\r\n                \"date_range\": table_elm.item(i).childNodes.item(1).childNodes.item(0)\r\n                    .getElementsByTagName(\"input\")[7].value,\r\n                \"location\": table_elm.item(i).childNodes.item(1).childNodes.item(0)\r\n                    .getElementsByTagName(\"input\")[8].value,\r\n                \"sortedDate\": table_elm.item(i).childNodes.item(1).childNodes.item(0)\r\n                    .getElementsByTagName(\"input\")[9].value\r\n                \r\n            }\r\n            Array_exp.push(object);\r\n\r\n        }\r\n        //console.log(Array_exp);\r\n        Array_exp.sort(function (a, b) {\r\n            return a.sortedDate.localeCompare(b.sortedDate);\r\n        }).reverse();\r\n        return Array_exp.slice(0, 3);\r\n\r\n    }\r\n\r\n  function redirectCompany(x) {\r\n    exps = Exp_Array();\r\n    for (const exp in exps) {\r\n      if (x == exps[exp].exp_id) {\r\n        //console.log(x,'-------',exps[exp].exp_id)\r\n        var id = exps[exp].id;\r\n        var linkedin = exps[exp].linkedin;\r\n        break;\r\n      }\r\n    }\r\n    if (!id == \"\") {\r\n      var popup = new PopupDialog(\"/jw/web/userview/hirevioo/hv/_/FEB515C880BB49159D65BC4003354F0F?\" + id + \"embed=true\", \"\");\r\n      popup.init();\r\n      // console.log('id');\r\n\r\n    } else if (!linkedin == \"\") {\r\n      window.open(linkedin);\r\n      //  console.log(\"linkdin\");\r\n\r\n    }\r\n  }\r\n  function insertExperience() {\r\n    exps = Exp_Array();\r\n    exps.length==0||exps==''?document.getElementsByClassName('form-cell customHtml no_label field22')[0].style.display=\"none\":false;\r\n    let list = document.getElementById('exp_list');\r\n    for (const exp in exps) {\r\n      const li = document.createElement('li');\r\n\r\n     li.innerHTML = `   <p>\r\n                      <span>${exps[exp].title} <\/span>\r\n                      <span class=\"epilogue-regular\">@ <a onclick=' redirectCompany(${exps[exp].exp_id})'  class=\"epilogue-bold color-blue-1\" >${exps[exp].company}<\/a><\/span>\r\n                      <span class=\"epilogue-medium\"><span>${exps[exp].location}<\/span>\r\n                    <\/p>\r\n                    <div class=\"mb-4\">\r\n                      <span class=\"epilogue-medium color-gray-3\">Exp in Years : <span class=\"epilogue-bold\">${exps[exp].date_range}<\/span><\/span>\r\n                    <\/div>                \r\n             `;\r\n      list.appendChild(li);\r\n    }\r\n  }\r\n\r\n  function Edu_Array() {\r\n    let i, j;\r\n    var Array_edu = [];\r\n    let prof_edu_table = GetElementInsideContainer(\"education\", \"paList\");\r\n    \r\n    let table_elm =\r\n    prof_edu_table.elm.childNodes.item(1).nextSibling.nextSibling.childNodes;\r\n    \r\n    for (i = 1; i < 2; i++) {\r\n\r\n\r\n      object = {\r\n        'degree': table_elm\r\n          .item(i)\r\n          .childNodes.item(1)\r\n          .childNodes.item(0)\r\n          .getElementsByTagName(\"input\")[3].value,\r\n        'university': table_elm\r\n          .item(i)\r\n          .childNodes.item(1)\r\n          .childNodes.item(0)\r\n          .getElementsByTagName(\"input\")[4].value,\r\n        'date_range': table_elm\r\n          .item(i)\r\n          .childNodes.item(1)\r\n          .childNodes.item(0)\r\n          .getElementsByTagName(\"input\")[5].value\r\n      };\r\n      Array_edu.push(object);\r\n    }\r\n    //\tconsole.log(Array_edu);\r\n    return Array_edu;\r\n        \r\n    \r\n\r\n\r\n  }\r\n  function insertEducation() {\r\n    edus = Edu_Array();\r\n    // edus==null ? :true;\r\n    edus.length==0?document.getElementsByClassName('epilogue-regular color-gray-3')[1].style.display=\"none\":false;\r\n    let list = document.getElementById('edu_list');\r\n    for (const edu in edus) {\r\n      const li = document.createElement('li');\r\n\r\n      li.innerHTML = `\r\n          <h6 class=\"epilogue-bold color-blue-1 mt-2\" style=\"line-height: 15px;\" >${edus[edu].degree} from ${edus[edu].university}<\/h6>\r\n           <p class=\"color-gray-3 epilogue-regular\">${edus[edu].date_range}<\/p>\r\n             `;\r\n      list.appendChild(li);\r\n    }\r\n  }\r\n  function Skills_Array() {\r\n    let i, j,lim;\r\n    var Array_skills = [];\r\n    let prof_skills_table = GetElementInsideContainer(\"skills\", \"paList\");\r\n    let table_elm =\r\n      prof_skills_table.elm.childNodes.item(1).nextSibling.nextSibling.childNodes;\r\n      if(table_elm.length>10){\r\n         lim=11;\r\n    }else{\r\n        lim=table_elm.length;\r\n    }\r\n\r\n    for (i = 1; i <lim; i++) {\r\n      skill = table_elm\r\n        .item(i)\r\n        .childNodes.item(1)\r\n        .childNodes.item(0)\r\n        .getElementsByTagName(\"input\")[3].value,\r\n        Array_skills.push(skill);\r\n    }\r\n    // console.log(\"skills--------------------------------->\", Array_skills);\r\n    return Array_skills;\r\n  }\r\n  function insertSkills() {\r\n    skills = Skills_Array();\r\n    skills.length==0||skills==''?document.getElementsByClassName('form-cell customHtml no_label field25')[0].style.display=\"none\":false;\r\n    // console.log(skills);\r\n    let list = document.getElementById('skill_list');\r\n    // console.log(list)\r\n    for (const skill in skills) {\r\n      const li = document.createElement('li');\r\n      li.innerHTML = `${skills[skill]}`;\r\n      list.appendChild(li);\r\n    }\r\n        $(\"ul#skill_list li\").addClass('float-start mx-1 mb-2 px-3 py-2 btn-yellow rounded-2 fs-5 epilogue-semiBold');\r\n      $(\"ul#skill_list li\").css('float','left')\r\n  }\r\n\r\n  function language_Array() {\r\n    let i, j;\r\n    var Array_language = [];\r\n    let lan_table = GetElementInsideContainer(\"spoken_language\", \"paList\");\r\n    let table_elm =\r\n      lan_table.elm.childNodes.item(1).nextSibling.nextSibling.childNodes;\r\n\r\n    for (i = 1; i < table_elm.length; i++) {\r\n      language = table_elm\r\n        .item(i)\r\n        .childNodes.item(1)\r\n        .childNodes.item(0)\r\n        .getElementsByTagName(\"input\")[3].value,\r\n        Array_language.push(language);\r\n    }\r\n    //console.log(\"langauges--------------------------------->\", Array_language);\r\n    return Array_language;\r\n  }\r\n  function insertLanguages() {\r\n    languages = language_Array();\r\n    languages.length==0?document.getElementsByClassName('col-md-5')[0].style.display=\"none\":false;\r\n    // console.log(skills);\r\n    let list = document.getElementById('lan_list');\r\n    // console.log(list)\r\n    for (const language in languages) {\r\n      const li = document.createElement('li');\r\n      li.innerHTML = `<p>${languages[language]}<\/p>`;\r\n      list.appendChild(li);\r\n    }\r\n  }\r\n  function SetProfileImage(){\r\n        let image=document.getElementById(\"profile_image\").value;\r\n        let pro_image=document.getElementById(\"pro_img\");\r\n        pro_image.src = image;\r\n        pro_image.addEventListener(\"error\",imageError = () => {\r\n            pro_image.onerror = \"\";\r\n            pro_image.src = \"https://samoritahospital.org/wp-content/uploads/2013/08/tumblr_mc8ujbmGuk1rndl7do1_1280-300x300.png\";\r\n            return true;\r\n        });\r\n    }\r\n     function HideSection() {\r\n\t        \r\n          let arr=[];\r\n     let spoken_language = GetElementInsideContainer('spoken_language','paList');\r\n     let prof_exp = GetElementInsideContainer('prof_exp','paList');\r\n     let education = GetElementInsideContainer('education','paList');\r\n     let skills = GetElementInsideContainer('skills','paList');\r\n     arr.push(spoken_language);\r\n     arr.push(prof_exp);\r\n     arr.push(education);\r\n     arr.push(skills);\r\n     \r\n     for (let i = 0 ; i< arr.length ; i++){\r\n         if(arr[i].containerID , arr[i].elm.childNodes.item(1).nextSibling.nextSibling.childNodes.length==1){\r\n          document.getElementById(arr[i].containerID).style.display=\"none\";\r\n         }\r\n         \r\n     }\r\n     document.getElementById('html section').style.display=\"none\";\r\n     }\r\n         function RedirectProfileLinkedIn() {\r\n             console.log('clicked');\r\n            let url = \"\";\r\n            let link = document.getElementById('linkedin').value;\r\n            url = url.concat('https://www.linkedin.com', link);\r\n            window.open(url, '_blank');\r\n    }\r\n\r\n<\/script>\r\n<\/head>\r\n\r\n"
+                    }
+                }],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "html section",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        }
+    ],
+    "properties": {
+        "description": "",
+        "id": "onetalentprofileoverlay",
+        "loadBinder": {
+            "className": "org.joget.apps.form.lib.BeanShellFormBinder",
+            "properties": {
+                "autoHandleFiles": "",
+                "autoHandleWorkflowVariable": "true",
+                "cacheInterval": "",
+                "script": "import org.apache.commons.lang3.ArrayUtils;\nimport org.joget.apps.form.model.*;\nimport org.joget.apps.form.service.*;\nimport org.joget.apps.app.service.*;\nimport java.sql.*;\nimport java.util.*;\nimport java.text.*;\nimport java.sql.Connection;\nimport java.sql.PreparedStatement;\nimport java.sql.ResultSet;\nimport java.sql.SQLException;\nimport javax.sql.DataSource;\nimport java.sql.Date;  \nimport org.apache.http.HttpResponse;\nimport org.apache.http.client.methods.HttpGet;\nimport org.apache.http.client.methods.HttpRequestBase;\nimport org.apache.http.impl.client.CloseableHttpClient;\nimport org.apache.http.impl.client.HttpClients;\nimport org.apache.http.HttpEntity;\nimport org.apache.http.util.EntityUtils;\nimport java.io.IOException;\nimport java.nio.charset.StandardCharsets;\nimport java.net.URLEncoder;\n\n// consume API\npublic String getScore(String id_search,String id_profile){\n    try{\n        String jsonUrl = \"#envVariable.backend_hirevioo_url_api#/getScore?id_search=\"+id_search+\"&id_profile=\"+id_profile;\n    \n        CloseableHttpClient client = null;\n        CloseableHttpClient client = HttpClients.createDefault();\n     \n        HttpRequestBase request = null;\n        request = new HttpGet(jsonUrl);\n    \n        HttpResponse response = client.execute(request);\n        HttpEntity entity = response.getEntity();\n        // Read the contents of an entity and return it as a String.\n        String res = EntityUtils.toString(entity,StandardCharsets.UTF_8);\n        //System.out.println(\"------------->content:\"+res);\n        request.releaseConnection();\n        client.close();\n        return res;\n     \n    } catch (Exception ex) {\n            System.out.println(ex);\n    }\n}\n\n\nString id=\"#requestParam.id#\";\nString id_search=\"#requestParam.search#\";\n\n\nFormRowSet f = new FormRowSet();\nf.setMultiRow(true);\n \n//Get Joget's current datasource configs\nDataSource ds = (DataSource) AppUtil.getApplicationContext().getBean(\"setupDataSource\");\n \ncon = ds.getConnection();\n \nif (!con.isClosed()) {\n    //Get the URL parameter\n    String recordId = \"#requestParam.id#\";\n  \n    //Here you can query from one or multiple tables using JOIN etc\n    String sql = \"SELECT * FROM app_fd_talent_profile WHERE id=?\";\n    PreparedStatement stmt = con.prepareStatement(sql);\n    stmt.setString(1, recordId);\n  \n    //Execute the SELECT SQL statement\n    ResultSet rs = stmt.executeQuery();\n         \n    //Get value from columns of record(s)\n    while (rs.next()) {\n        FormRow r1 = new FormRow();\n        r1.put(\"fullname\", rs.getString(22));\n        r1.put(\"job_company\", rs.getString(11));\n        r1.put(\"location\", rs.getString(20));\n        r1.put(\"profile_image\",\"data:image/png;base64, \"+rs.getString(38));\n        r1.put(\"score\",getScore(id_search,id));\n        r1.put(\"linkedin\",rs.getString(13).replace(\"https://www.linkedin.com\",\"\"));\n        if(rs.getString(24)==null)\n            r1.put(\"email\",\"\");\n        else\n            r1.put(\"email\",rs.getString(24));\n        if(rs.getString(17)==null)\n            r1.put(\"phone\",\"\");\n        else\n            r1.put(\"phone\",rs.getString(17));\n        \n        if(rs.getString(17)==null)\n            r1.put(\"twitter\",\"\");\n        else\n            r1.put(\"twitter\",rs.getString(17));\n            \n        if(rs.getString(17)==null)\n            r1.put(\"facebook\",\"\");\n        else\n            r1.put(\"facebook\",rs.getString(17));\n        f.add(r1);\n    }\n}\ncon.close();\nreturn f;"
+            }
+        },
+        "name": "One talent profile overlay",
+        "noPermissionMessage": "",
+        "permission": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessor": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessorRunOn": "create",
+        "storeBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "tableName": "talent_profile"
+    }
+}
