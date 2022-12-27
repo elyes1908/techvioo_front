@@ -840,7 +840,7 @@
                         "id": "2446B05262CB4F9B9C8D211158488BDB",
                         "keyName": "",
                         "label": "Saved Firms List",
-                        "rowCount": "",
+                        "rowCount": "true",
                         "selectionType": "multiple",
                         "userviewCacheDuration": "20",
                         "userviewCacheScope": ""
