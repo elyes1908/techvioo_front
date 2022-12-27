@@ -680,7 +680,7 @@
                         "id": "91DD2A97331E40D0901E5EBED03FA6FE",
                         "keyName": "",
                         "label": "Saved Startups List",
-                        "rowCount": "",
+                        "rowCount": "true",
                         "selectionType": "multiple",
                         "userviewCacheDuration": "20",
                         "userviewCacheScope": ""
