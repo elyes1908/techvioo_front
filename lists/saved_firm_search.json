@@ -64,6 +64,14 @@
             "label": "tags",
             "name": "tags",
             "sortable": "false"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "id": "column_4",
+            "label": "saved_firms",
+            "name": "saved_firms",
+            "sortable": "false"
         }
     ],
     "considerFilterWhenGetTotal": "",
@@ -159,7 +167,7 @@
             "deleteFiles": "",
             "deleteGridData": "",
             "deleteSubformData": "",
-            "formDefId": "advanced_search_firms",
+            "formDefId": "advaced_search_firms",
             "label": "Delete",
             "rules": []
         },
