@@ -159,7 +159,7 @@
             "deleteFiles": "",
             "deleteGridData": "",
             "deleteSubformData": "",
-            "formDefId": "advaced_search_startups",
+            "formDefId": "advanced_search_firms",
             "label": "Delete",
             "rules": []
         },
