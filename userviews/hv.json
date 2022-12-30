@@ -582,7 +582,7 @@
                         "redirectTargetOnComplete": "",
                         "redirectUrlAfterComplete": "",
                         "redirectUrlOnCancel": "",
-                        "showInPopupDialog": "Yes",
+                        "showInPopupDialog": "",
                         "submitButtonLabel": "",
                         "userviewCacheDuration": "30",
                         "userviewCacheScope": ""
