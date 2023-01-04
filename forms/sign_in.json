@@ -1,0 +1,307 @@
+{
+    "className": "org.joget.apps.form.model.Form",
+    "elements": [
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [{
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field1",
+                        "label": "",
+                        "value": "<style>\r\n@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');\r\n    body #form-canvas #partners-section.form-section {\r\n background: white !important;\r\n}\r\n    .form-message{\r\n        display:none !important;\r\n    }\r\n    #section-action{\r\n        display:none !important;\r\n    }\r\n    a.menu-link {\r\n        font-size: 18px !important;\r\n        color: #363848 !important;\r\n    }\r\n    .brand {\r\n        font-family: inherit;\r\n        font-size: 1.5rem;\r\n        font-weight: 600;\r\n        line-height: 1.5;\r\n        letter-spacing: -1px;\r\n        text-transform: uppercase;\r\n        color: green;\r\n   }\r\n    .header {\r\n        position: fixed;\r\n        left: 0;\r\n        top: 0;\r\n        width: 100%;\r\n        height: auto;\r\n        z-index: 10;\r\n        margin: 0 auto;\r\n       \r\n       \r\n   }\r\n   #signin .navbar {\r\n        display: flex;\r\n        flex-direction: row;\r\n        align-items: center;\r\n        justify-content: space-between; \r\n        column-gap: 1rem;\r\n        width: 100%;\r\n        height: 87px;\r\n        margin: 0 auto;\r\n   }\r\n    .menu {\r\n        position: fixed;\r\n        top: 0;\r\n        left: -100%;\r\n        width: 80%;\r\n        height: 100%;\r\n        z-index: 10;\r\n        overflow-y: auto;\r\n        background-color: white;\r\n        transition: all 0.45s ease-in-out;\r\n   \r\n   }\r\n    .menu.is-active {\r\n        top: 0;\r\n        left: 0;\r\n   }\r\n    .menu-inner {\r\n        display: flex;\r\n        flex-direction: column;\r\n        row-gap: 1.25rem;\r\n        margin: 1.25rem;\r\n   }\r\n    .menu-link {\r\n        font-family: inherit;\r\n        font-size: 1rem;\r\n        font-weight: 500;\r\n        line-height: 1.5;\r\n        text-transform: uppercase;\r\n            text-decoration:none !important;\r\n       color:#515B6F !important;\r\n        transition: all 0.3s ease;\r\n   }\r\n   .menu-link:hover{\r\n       color:#A85FFF !important;\r\n   }\r\n    .menu-block {\r\n        display: inline-block;\r\n        font-family: inherit;\r\n        font-weight: 500;\r\n        line-height: 1.25;\r\n        user-select: none;\r\n        text-align: center;\r\n        white-space: nowrap;\r\n        padding: 0.65rem 1.35rem;\r\n        transition: all 0.3s ease-in-out;\r\n   }\r\n   .started-btn,.signup-btn {\r\n       background-color:#A85FFF;\r\n       border:1px solid #A85FFF;\r\n       color:white;\r\n   }\r\n   \r\n   .login-btn:hover{\r\n       border:none;\r\n   }\r\n   .login-btn,.signup-btn,.started-btn:hover{\r\n       border:1px solid #0E6BB2;\r\n       background-color:#fff;\r\n       color:#0E6BB2;\r\n   }\r\n   a{\r\n       text-decoration:none!important;\r\n   }\r\n   a.login-btn {\r\n        background-color:#0E6BB2 !important;\r\n        color:white!important;\r\n        border-radius: 37px;\r\n        font-size: 16px !important;\r\n        border: none;\r\n   }\r\n   \r\n   a.menu-block.login-btn.rounded-4.text-decoraiotn-none {\r\n    background: linear-gradient(180deg, #A85FFF 0%, #EC75E7 99.98%, rgba(146, 54, 255, 0.569132) 99.99%, rgba(116, 0, 255, 0) 100%) !important;\r\n    padding: 16px 20px 16px 15px;\r\n    }\r\n   #sign_in a.tag.menu-block.login-btn.rounded-4.text-decoraiotn-none {\r\n    font-weight: 400 !important;\r\n    color: #666666 !important;\r\n    padding: 0 !important;\r\n  \r\n}\r\n    @media only screen and (min-width: 48rem) {\r\n        .menu {\r\n            position: relative;\r\n            top: 0;\r\n            left: 0;\r\n            width: auto;\r\n            height: auto;\r\n            background: none;\r\n            box-shadow: none;\r\n            width:44%;\r\n       }\r\n\r\n       a.tag.menu-block.login-btn.rounded-4.text-decoraiotn-none {\r\n           background: #f8f9fd !important;\r\n            color: #15074F !important;\r\n            padding: 16px 40px !important;\r\n        }\r\n        .menu-inner {\r\n            display: flex;\r\n            flex-direction: row;\r\n            column-gap: 50px;\r\n            margin: 0 auto;\r\n            width: 60%;\r\n            justify-content: center !important;\r\n       }\r\n        .menu-link {\r\n            text-transform: capitalize;\r\n       }\r\n        .menu-block {\r\n            margin-left: 2rem;\r\n       }\r\n   }\r\n    .burger {\r\n        position: relative;\r\n        display: block;\r\n        cursor: pointer;\r\n        order: -1;\r\n        width: 1.75rem;\r\n        height: auto;\r\n        border: none;\r\n        outline: none;\r\n        visibility: visible;\r\n   }\r\n    .burger-line {\r\n        display: block;\r\n        cursor: pointer;\r\n        width: 100%;\r\n        height: 2px;\r\n        margin: 6px auto;\r\n        transform: rotate(0deg);\r\n        background-color: black;\r\n        transition: all 0.3s ease-in-out;\r\n   }\r\n    @media only screen and (min-width: 48rem) {\r\n        .burger {\r\n            display: none;\r\n            visibility: hidden;\r\n       }\r\n   }\r\n    .overlay {\r\n        position: fixed;\r\n        top: 0;\r\n        left: 0;\r\n        width: 100%;\r\n        height: 100%;\r\n        z-index: 9;\r\n        opacity: 0;\r\n        visibility: hidden;\r\n        background-color: rgba(0, 0, 0, 0.65);\r\n        transition: all 0.3s ease-in-out;\r\n   }\r\n    .overlay.is-active {\r\n        display: block;\r\n        opacity: 1;\r\n        visibility: visible;\r\n   }\r\n    header.navbar{\r\n        display:none;\r\n    }\r\n    \r\n    #landing_page .navbar #btn-menu-login {\r\n    display: flex;\r\n}\r\n\r\n#landing_page .navbar #btn-menu-login input.form-control.border-0.bg-light {\r\n    height: 50px;\r\n    background: #FFFFFF !important;\r\n    border-radius: 37px;\r\n}\r\n\r\n\r\n\r\n#landing_page nav.navbar {\r\n    background: #F8F9FD;\r\n}\r\n\r\n\r\n\r\n#landing_page .navbar #btn-menu-login i.fa.fa-search {\r\n    font-size: 16px !important;\r\n    color: #646464;\r\n}\r\n\r\n#landing_page .navbar #btn-menu-login input.form-control.border-0.bg-light::placeholder {\r\n    color: #818181 !important;\r\n    font-size: 20px;\r\n    font-family: 'Open Sans';\r\n    font-style: normal;\r\n    font-weight: 400;\r\n    font-size: 18px;\r\n    padding: 16px 30px;\r\n    line-height: 25px;\r\n}\r\n\r\n#landing_page .navbar #btn-menu-login .p-1.bg-light .input-group {\r\n    height: 50px;\r\n    background: #FFFFFF !important;\r\n    border-radius: 37px;\r\n}\r\n\r\n#landing_page .navbar #btn-menu-login input.form-control.border-0.bg-light:focus {\r\n    border: none !important;\r\n}\r\n\r\n#loading-image {\r\n  z-index: 100;\r\n  width:145px;\r\n}\r\n \r\n   <\/style>\r\n   <header class=\"header header-home\">\r\n       <div class=\"container\">\r\n           <nav class=\"navbar\">\r\n               <div  class=\"brand \" id=\"logo-img\"><div class=\" skeleton skeleton-logo-img\"><\/div><\/div>\r\n               <div class=\"burger\" id=\"burger\">\r\n                   <span class=\"burger-line\"><\/span>\r\n                   <span class=\"burger-line\"><\/span>\r\n                   <span class=\"burger-line\"><\/span>\r\n               <\/div>\r\n               <span class=\"overlay\"><\/span>\r\n               <div class=\"menu\" id=\"menu\">\r\n                   <ul class=\"menu-inner justify-content-between text-decoration-none list-unstyled\">\r\n                       <li class=\"menu-item\"><a class=\"menu-link\" href=\"landing_page#about\" id=\"link-menu-1\">\r\n                           <div class=\" skeleton skeleton-menu-link\"><\/div><\/a><\/li>\r\n                       <li class=\"menu-item\">\r\n                           <a class=\"menu-link\" href=\"landing_page#partners\" id=\"link-menu-2\">\r\n                           <div class=\" skeleton skeleton-menu-link\"><\/div>\r\n                           <\/a>\r\n                           <\/li>\r\n                       <li class=\"menu-item\"><a class=\"menu-link\" href=\"landing_page#contact\" id=\"link-menu-5\"><div class=\" skeleton skeleton-menu-link\"><\/div><\/a><\/li>\r\n                   <\/ul>\r\n               <\/div>\r\n               <div>\r\n                <div id=\"btn-menu-login\">   \r\n                 <div class=\"skeleton skeleton-menu-link\"><\/div>\r\n               <\/div>\r\n               <!--<a href=\"\" class=\"menu-block started-btn rounded-4 text-decoration-none\">Get started<\/a>-->\r\n               <\/div>\r\n           <\/nav>\r\n       <\/div>\r\n   <\/header>\r\n   \r\n    <div id=\"loading_ext\">\r\n      <img id=\"loading-image\" src=\"#appResource.loading-Techvioo.gif#\" alt=\"Loading...\" />\r\n    <\/div>\r\n   \r\n   <script>\r\n   \r\n   $(window).scroll(function(){\r\n       if ($(window).scrollTop() > 5) {\r\n           $('.header-home').addClass('bg-gray-1');\r\n       }\r\n       else {\r\n           $('.header-home').removeClass('bg-gray-1');\r\n       }\r\n   });\r\n   \r\n       const navbarMenu = document.getElementById(\"menu\");\r\n   const burgerMenu = document.getElementById(\"burger\");\r\n   const bgOverlay = document.querySelector(\".overlay\");\r\n   \r\n   // Show Menu when Click the Burger\r\n   // Hide Menu when Click the Overlay\r\n   if (burgerMenu && navbarMenu && bgOverlay) {\r\n       burgerMenu.addEventListener(\"click\", () => {\r\n           navbarMenu.classList.toggle(\"is-active\");\r\n           bgOverlay.classList.toggle(\"is-active\");\r\n       });\r\n   \r\n       bgOverlay.addEventListener(\"click\", () => {\r\n           navbarMenu.classList.toggle(\"is-active\");\r\n           bgOverlay.classList.toggle(\"is-active\");\r\n       });\r\n   }\r\n   \r\n   // Hide Menu when Click the Links\r\n   document.querySelectorAll(\".menu-link\").forEach((link) => {\r\n       link.addEventListener(\"click\", () => {\r\n           navbarMenu.classList.remove(\"is-active\");\r\n           bgOverlay.classList.remove(\"is-active\");\r\n       });\r\n   });\r\n   \r\n   <\/script>\r\n   <script>\r\n       document.getElementById(\"logo-img\").innerHTML = `<img class=\"\" src=\"#appResource.logo-hirevioo.png#\" alt=\"logo\" /> `;\r\n       document.getElementById(\"link-menu-1\").textContent = \"About\";\r\n       document.getElementById(\"link-menu-2\").textContent = \"Partners\";\r\n       document.getElementById(\"link-menu-5\").textContent = \"Contact Us\";\r\n       \r\n       \r\n       document.getElementById(\"btn-menu-login\").innerHTML = `<form action=\"\">\r\n          <a href=\"#\" class=\"tag menu-block login-btn rounded-4 text-decoraiotn-none\">Not a member?<\/a><a href=\"landing_page#contact\" class=\"menu-block login-btn rounded-4 text-decoraiotn-none\">Get early access<\/a>`;\r\n   <\/script>"
+                    }
+                }],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "headerSection",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "true",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "textLoginPage",
+                            "label": "",
+                            "value": "<style>\n    body:not(.embeded) {\n    margin-top: 0;\n    height: 100%;\n}\n#sign_in{\n    margin-top:0px!important;\n     height: 100%!important;\n}\n<\/style>\n\n<h1 class=\"Epilogue-ExtraBold\">Glad to see you !<\/h1>\n<h4>You're one password away from hiring top talents<\/h4>"
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "id": "email",
+                            "label": "Email",
+                            "maxlength": "",
+                            "placeholder": "Email",
+                            "readonly": "",
+                            "readonlyLabel": "",
+                            "size": "",
+                            "storeNumeric": "",
+                            "style": "",
+                            "validator": {
+                                "className": "org.joget.apps.form.lib.BeanShellValidator",
+                                "properties": {
+                                    "decoration": "",
+                                    "script": "import org.joget.apps.form.service.FormUtil;\r\nimport org.joget.apps.app.service.AppUtil;\r\nimport org.joget.apps.form.model.Element;\r\nimport org.joget.apps.form.model.FormData;\r\nimport org.joget.apps.form.model.FormRow;\r\nimport org.joget.apps.form.model.FormRowSet;\r\nimport org.joget.commons.util.LogUtil;\r\nimport org.joget.directory.model.service.DirectoryManager;\r\nimport org.joget.directory.model.User;\r\nimport org.joget.commons.util.StringUtil;\r\nimport org.joget.apps.form.model.Form;\r\n\r\n\r\n\r\npublic boolean validate(Element element,FormData formData,String [] values) {\r\n    \r\n    \r\n    if (values[0].length()> 0) {\r\n        DirectoryManager dm = (DirectoryManager) AppUtil.getApplicationContext().getBean(\"directoryManager\");\r\n        try {\r\n            //get user by Email (username=email)\r\n            User user = dm.getUserByUsername(values[0]);\r\n            if(user==null){\r\n                String id = FormUtil.getElementParameterName(element);\r\n                formData.addFormError(id, \"Email does not exist\");\r\n                System.out.println(\"Email does not exist!!!\");\r\n                return false;  \r\n            }else{\r\n                return true;\r\n            }\r\n            \r\n        } catch(Exception e) {\r\n            LogUtil.error(\"HV app - Form Sign in\", e, \"Error validating user email in sign in\");\r\n        } \r\n    }else{\r\n        String id = FormUtil.getElementParameterName(element);\r\n        formData.addFormError(id, \"Field mandatory\");\r\n        return false;\r\n    }\r\n  \r\n    \r\n}\r\n   \r\n//call\r\nreturn validate(element,formData,values);"
+                                }
+                            },
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.PasswordField",
+                        "properties": {
+                            "id": "password",
+                            "label": "Password",
+                            "maxlength": "",
+                            "readonly": "",
+                            "readonlyLabel": "",
+                            "size": "",
+                            "validator": {
+                                "className": "org.joget.apps.form.lib.BeanShellValidator",
+                                "properties": {
+                                    "decoration": "",
+                                    "script": "import org.joget.apps.form.service.FormUtil;\r\nimport org.joget.apps.app.service.AppUtil;\r\nimport org.joget.apps.form.model.Element;\r\nimport org.joget.apps.form.model.FormData;\r\nimport org.joget.apps.form.model.FormRow;\r\nimport org.joget.apps.form.model.FormRowSet;\r\nimport org.joget.commons.util.LogUtil;\r\nimport org.joget.directory.model.service.DirectoryManager;\r\nimport org.joget.directory.model.User;\r\nimport org.joget.commons.util.StringUtil;\r\nimport org.joget.apps.form.model.Form;\r\n\r\n\r\n\r\npublic boolean validate(Element element,FormData formData,String [] values) {\r\n    \r\n    String plateforme=\"Hv\";\r\n    String fieldEmail = \"email\";\r\n    Form form = FormUtil.findRootForm(element);\r\n    Element emailElement = FormUtil.findElement(fieldEmail, form, formData);\r\n    //get value of field 1\r\n    String[] emailValue = FormUtil.getElementPropertyValues(emailElement, formData);\r\n    \r\n    if (values[0].length()> 0) {\r\n        DirectoryManager dm = (DirectoryManager) AppUtil.getApplicationContext().getBean(\"directoryManager\");\r\n        try {\r\n            //get user by Email (username=email)\r\n            User user = dm.getUserByUsername(emailValue[0]);\r\n            if(user!=null){\r\n                String givenPassword= StringUtil.md5Base16(values[0]);\r\n                if(!givenPassword.equals(user.getPassword())){\r\n                    String id = FormUtil.getElementParameterName(element);\r\n                    formData.addFormError(id, \"Invalid password\");\r\n                    System.out.println(\"Invalid Password\");\r\n                    return false;   \r\n                }\r\n                else{\r\n                    return true;\r\n                }\r\n            }\r\n        } catch(Exception e) {\r\n            LogUtil.error(\"HV app - Form Sign in\", e, \"Error validating user email in sign in\");\r\n        } \r\n    }else{\r\n        String id = FormUtil.getElementParameterName(element);\r\n        formData.addFormError(id, \"Field mandatory\");\r\n        return false;\r\n    }\r\n  \r\n    \r\n}\r\n   \r\n//call\r\nreturn validate(element,formData,values);"
+                                }
+                            },
+                            "value": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field12",
+                            "label": "",
+                            "value": "\r\n<span class=\"remember_me\"> <label tabindex=\"0\">\r\n    <input grouping=\"\" id=\"remember_me\" name=\"remember_me\" type=\"checkbox\" value=\"remember\">\r\n    <i><\/i>\r\n    Remember Me\r\n    <\/label><\/span>\r\n<span class=\"forgot-password\"><a id=\"forgot_password\" href=\"forgot_password\">Forgot password ?<\/a><\/span>\r\n<style>\r\n\r\nspan.remember_me label {\r\n    font-weight: 400 !important;\r\n    font-size: 14px !important;\r\n    line-height: 26px;\r\n    color: #666666 !important;\r\n    margin: 12px 0;\r\n    width: 60%;\r\n    font-family: 'Poppins', sans-serif;\r\n}\r\n\r\n\r\nspan.forgot-password a {\r\n    font-weight: 400 !important;\r\n    font-size: 14px !important;\r\n    line-height: 26px !important;\r\n    color: #666666 !important;\r\n    font-family: 'Poppins', sans-serif;\r\n}\r\n\r\nspan.forgot-password {\r\n    margin: 12px 0 !important;\r\n}\r\n<\/style>\r\n\r\n"
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field4",
+                            "label": "",
+                            "value": "<!doctype html>\r\n<html lang=\"fr\">\r\n<head>\r\n   <style>\r\n   span.forgot-password {\r\n    width: 50%;\r\n    float: right;\r\n    text-align: right;\r\n}\r\n    span.remember_me{\r\n    \r\n        width: 50%;\r\n        float: left;\r\n    }\r\n\r\n   #signin .form-cell input {\r\n    background: #FFFFFF;\r\n    border-radius: 8px;\r\n    border: none;\r\n    height: 45px;\r\n    font-family: 'Poppins', sans-serif;\r\n    font-style: normal;\r\n    font-weight: 400;\r\n    font-size: 14px;\r\n    -webkit-text-fill-color: #203060 !important;\r\n    }\r\n    \r\n    #signin .form-cell input::placeholder {\r\n    font-family: 'Poppins', sans-serif;\r\n    font-style: normal;\r\n    font-weight: 400;\r\n    font-size: 16px;\r\n    color: #203060 !important;\r\n    }\r\n    \r\n    #email{\r\n        margin-top: 70px;\r\n        /*width:300px;*/\r\n    }\r\n    \r\n    \r\n    #socialDivBtn{\r\n    margin-top:10px;\r\n\r\n    }\r\n    #section1{\r\n        height:70vh;\r\n    }\r\n    \r\n   .form-error-message{\r\n       visibility: visible !important;\r\n   }\r\n\r\n    #liBtn{\r\n        width: 100%;\r\n        padding: 12px;\r\n        border: none;\r\n        margin: 5px 0;\r\n        opacity: 0.85;\r\n        display: inline-block;\r\n        font-size: 14px;\r\n        line-height: 20px;\r\n        text-decoration: none; \r\n        color: white;\r\n        background: #0E76A8;\r\n        border-radius: 37px;\r\n        height: 45px;\r\n        font-weight: 700 !important;\r\n        font-size: 16px !important;\r\n        font-family: 'Poppins', sans-serif;\r\n        \r\n    }\r\n\r\n    #liBtn:hover {\r\n        cursor: pointer;\r\n        color: white;\r\n        box-shadow: 0 0 7px 1px #6495ED;\r\n        opacity:1;\r\n    }   \r\n \r\n    #signInBtn{\r\n        border-radius: 37px;\r\n        height: 45px;\r\n        width: 100%;\r\n        background-color:#C367F5;\r\n        color:white;\r\n        margin-bottom:15px;\r\n        font-weight: 700 !important;\r\n        font-size: 14px !important;\r\n        line-height: 26px !important;\r\n        font-family: 'Poppins', sans-serif;\r\n    }\r\n  \r\n    #signInBtn:hover,#signInBtn:focus{\r\n        background: linear-gradient(180deg, #A85FFF 0%, #EC75E7 99.98%, rgba(146, 54, 255, 0.569132) 99.99%, rgba(116, 0, 255, 0) 100%) !important;\r\n        border: 1px solid #A85FFF;\r\n        color: #ffffff !important;\r\n    }\r\n  \r\n    .divider {\r\n        display: block;\r\n        text-align: center;\r\n        overflow: hidden;\r\n        white-space: nowrap; \r\n        /*margin-left:20px;*/\r\n        }\r\n    \r\n        .divider > span {\r\n            position: relative;\r\n            display: inline-block;\r\n        }\r\n    \t\r\n        .divider > span:before,\r\n        .divider > span:after {\r\n            content: \"\";\r\n            position: absolute;\r\n            top: 50%;\r\n            width: 230px;\r\n            height: 1px;\r\n            background: lightgray;\r\n        }\r\n    \r\n        .divider > span:before {\r\n            right: 100%;\r\n            margin-right: 15px;\r\n        }\r\n    \r\n        .divider > span:after {\r\n            left: 100%;\r\n            margin-left: 15px;\r\n        }\r\n    \r\n        body label > input[type=checkbox] + i:after {\r\n            font-family: Font Awesome\\ 5 Free;\r\n            font-weight: 900;\r\n            content: \"\\f096\";\r\n            color: #dde6e9;\r\n            display: inline-block;\r\n            margin-right: -20px;\r\n            cursor: pointer;\r\n            width: 20px;\r\n            height: 20px;\r\n            vertical-align: middle;\r\n            border: 1px solid #ccc;\r\n            border-radius: 4px;\r\n            background: #fff;\r\n        }\r\n\r\n<\/style>\r\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js\"><\/script>\r\n\r\n<\/head>\r\n\r\n<body>\r\n<button type=\"button\" onclick=\"genTokenAndRedirect();\" id=\"signInBtn\">Sign In<\/button>\r\n\r\n<div class=\"divider\"><span style=\"color:lightgray;\">OR<\/span><\/div>\r\n\r\n<div class=\"col\" id=\"socialDivBtn\">\r\n\r\n      \r\n<a id=\"liBtn\" href=\"https://www.linkedin.com/oauth/v2/authorization?response_type=code&amp;state=987654321&amp;scope=r_liteprofile%20r_emailaddress&amp;client_id=78bp9835y4kyss&amp;redirect_uri=#envVariable.linkedin_redirect_uri#\">\r\n        <span class=\"lin-btn\" style = \"position:relative; \" >Sign in with<\/span>\r\n        <i class=\"fa fa-linkedin fa-fw\"><\/i>\r\n    <\/a>\r\n<\/div>\r\n\r\n<script>\r\n    function genTokenAndRedirect(){\r\n        \r\n        var data=document.getElementById('password').value+\"-\"+document.getElementById('email').value+\"-\"+new Date();\r\n        var key  = CryptoJS.enc.Latin1.parse('#envVariable.hirevioo_session_encryption_key#');\r\n        var iv   = CryptoJS.enc.Latin1.parse('#envVariable.hirevioo_session_encryption_key#');  \r\n        var encryptedAES = CryptoJS.AES.encrypt(\r\n              data,\r\n              key,\r\n              {iv:iv,mode:CryptoJS.mode.CBC,padding:CryptoJS.pad.ZeroPadding\r\n        });\r\n        document.getElementById('token').value=encryptedAES;\r\n        if (document.getElementById('remember_me').checked && document.getElementById('password').value!=\"\" && document.getElementById('email').value!=\"\") {\r\n            localStorage.setItem(\"remember_me\", encryptedAES);\r\n        } \r\n        document.getElementById('submit').click();\r\n    }\r\n    \r\n    $(document).keypress(\r\n            function (event) {\r\n                if (event.which == '13') {\r\n                    event.preventDefault();\r\n                    genTokenAndRedirect();\r\n                }\r\n            });\r\n    \r\n    $(document).ready(function () {\r\n        const remember = localStorage.getItem(\"remember_me\");\r\n\r\n        if (remember != null) {\r\n            var key  = CryptoJS.enc.Latin1.parse('#envVariable.hirevioo_session_encryption_key#');\r\n            var iv   = CryptoJS.enc.Latin1.parse('#envVariable.hirevioo_session_encryption_key#');\r\n            var decryptedBytes = CryptoJS.AES.decrypt(remember,key,{iv:iv,padding:CryptoJS.pad.ZeroPadding});\r\n            var plaintext = decryptedBytes.toString(CryptoJS.enc.Utf8);\r\n    \r\n            const rememberArray = plaintext.split(\"-\");\r\n            var username=rememberArray[1];\r\n            var pw=rememberArray[0];\r\n            document.getElementById('password').value=pw;\r\n            document.getElementById('email').value=username;\r\n            document.getElementById('remember_me').checked=true;\r\n        }\r\n            \r\n    });\r\n        \r\n<\/script>\r\n\r\n\r\n<\/body>\r\n\r\n<\/html>"
+                        }
+                    }
+                ],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "leftSection",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [{
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field3",
+                        "label": "",
+                        "value": "<style>\r\nbody.horizontal_menu header.navbar {\r\n    display: none !important;\r\n}\r\n<\/style>\r\n<script>\r\n    document.getElementById('password').placeholder=\"Password\";\r\n<\/script>\r\n\r\n\r\n"
+                    }
+                }],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "rightSection",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionHidden": "",
+                "permissionReadonly": "",
+                "readonly": "true",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "token",
+                            "useDefaultWhenEmpty": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "lid",
+                            "useDefaultWhenEmpty": "",
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "lnom",
+                            "useDefaultWhenEmpty": "",
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "lprenom",
+                            "useDefaultWhenEmpty": "",
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "lmail",
+                            "useDefaultWhenEmpty": "",
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "lcode",
+                            "useDefaultWhenEmpty": "",
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    }
+                ],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "data_section",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        }
+    ],
+    "properties": {
+        "description": "",
+        "id": "sign_in",
+        "loadBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "name": "Sign In",
+        "noPermissionMessage": "",
+        "permission": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessor": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessorRunOn": "create",
+        "storeBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "tableName": "signin"
+    }
+}

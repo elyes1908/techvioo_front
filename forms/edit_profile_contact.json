@@ -1,0 +1,141 @@
+{
+    "className": "org.joget.apps.form.model.Form",
+    "elements": [{
+        "className": "org.joget.apps.form.model.Section",
+        "elements": [{
+            "className": "org.joget.apps.form.model.Column",
+            "elements": [
+                {
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field4",
+                        "label": "",
+                        "value": "<style>\r\n    #submit{\r\n        display:none!important;\r\n    }\r\n<\/style>\r\n<script>\r\n\r\nfunction clearEmpty(){\r\n    var tr = document.getElementById(\"paList\").getElementsByTagName(\"tr\");\r\n\r\ndo{\r\n    var b=false;\r\n    for (let i = 1; i < tr.length; i++) {\r\n    if (\r\n      tr[i].getElementsByTagName(\"td\")[2].getElementsByTagName(\"select\")[0]\r\n        .value == \"\"   ||\r\n      tr[i].getElementsByTagName(\"td\")[3].childNodes[0].childNodes[7].childNodes[1].value==\"\"\r\n    ) {\r\n      console.log( tr[i].getElementsByTagName(\"td\")[3].childNodes[0].childNodes[7].childNodes[1]);\r\n      tr[i].getElementsByTagName(\"td\")[4].childNodes[0].click();\r\n      b=true;\r\n    }\r\n      \r\n     \r\n  }\r\n}while(b==true);\r\n\r\n  document.getElementById('submit').click();\r\n}\r\n\r\n<\/script>"
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.TextField",
+                    "properties": {
+                        "id": "twitter",
+                        "label": "Twitter",
+                        "maxlength": "",
+                        "placeholder": "Twitter link",
+                        "readonly": "",
+                        "readonlyLabel": "",
+                        "size": "",
+                        "storeNumeric": "",
+                        "style": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "value": "",
+                        "workflowVariable": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field3",
+                        "label": "",
+                        "value": "<script>\n       window.addEventListener('load', (event) => {\n       document.getElementsByClassName('repeater-actions-add')[0].textContent=\"+ Add a website\";\n});\n<\/script>"
+                    }
+                },
+                {
+                    "className": "org.joget.SubformRepeater",
+                    "properties": {
+                        "addMode": "enable",
+                        "collapsedByDefault": "",
+                        "collapsible": "true",
+                        "deleteMode": "enable",
+                        "editFormDefId": "",
+                        "editMode": "enable",
+                        "enableSorting": "",
+                        "errorMessage": "",
+                        "formDefId": "profile_socials",
+                        "id": "repeter_socials",
+                        "label": "Socials",
+                        "loadBinder": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "readonly": "",
+                        "readonlyLabel": "",
+                        "storeBinder": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "uniqueKey": "",
+                        "validateMaxRow": "",
+                        "validateMinRow": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        }
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field5",
+                        "label": "",
+                        "value": "<input name=\"submit\" class=\"waves-button-input PopupCustomSubmit\" type=\"button\" value=\"Save\" onclick=\"clearEmpty()\" style=\"background-color:rgba(0,0,0,0);\">"
+                    }
+                }
+            ],
+            "properties": {"width": "100%"}
+        }],
+        "properties": {
+            "comment": "",
+            "id": "section1",
+            "join": "",
+            "label": "Social links",
+            "loadBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "permission": {
+                "className": "",
+                "properties": {}
+            },
+            "permissionReadonly": "",
+            "readonly": "",
+            "readonlyLabel": "",
+            "regex": "",
+            "reverse": "",
+            "storeBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "visibilityControl": "",
+            "visibilityValue": ""
+        }
+    }],
+    "properties": {
+        "description": "",
+        "id": "edit_profile_contact",
+        "loadBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "name": "Edit Profile Contact",
+        "noPermissionMessage": "",
+        "permission": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessor": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessorRunOn": "create",
+        "storeBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "tableName": "talent_profile"
+    }
+}

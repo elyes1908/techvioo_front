@@ -1,0 +1,96 @@
+{
+    "className": "org.joget.apps.form.model.Form",
+    "elements": [{
+        "className": "org.joget.apps.form.model.Section",
+        "elements": [{
+            "className": "org.joget.apps.form.model.Column",
+            "elements": [
+                {
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field2",
+                        "label": "",
+                        "value": "<style>\r\n    #submit{\r\n        display:none!important;\r\n    }\r\n<\/style>\r\n<script>\r\n\r\n\r\n\r\n\r\n$(document).ready(function(){\r\n    document.getElementsByClassName('repeater-actions-add')[0].textContent=\"+ Add a skill\";\r\n});\r\nfunction clearEmpty(){\r\n    var tr = document.getElementById(\"paList\").getElementsByTagName(\"tr\");\r\n\r\n\r\n\r\ndo{\r\n    var b=false;\r\n    for (let i = 1; i < tr.length; i++) {\r\n    if (\r\n      tr[i].getElementsByTagName(\"td\")[1].getElementsByTagName(\"select\")[0]\r\n        .value == \"\" ||\r\n      tr[i].getElementsByTagName(\"td\")[1].getElementsByTagName(\"select\")[0]\r\n        .value == null\r\n    ) {\r\n\r\n\r\n\r\n     tr[i].getElementsByTagName(\"td\")[2].childNodes[0].click();\r\n      b=true;\r\n    }\r\n      \r\n     \r\n      \r\n  }\r\n}while(b==true);\r\n\r\n  document.getElementById('submit').click();\r\n}\r\n\r\n\r\n\r\n<\/script>"
+                    }
+                },
+                {
+                    "className": "org.joget.SubformRepeater",
+                    "properties": {
+                        "addMode": "enable",
+                        "collapsedByDefault": "",
+                        "collapsible": "true",
+                        "deleteMode": "enable",
+                        "editFormDefId": "",
+                        "editMode": "enable",
+                        "enableSorting": "",
+                        "errorMessage": "",
+                        "formDefId": "profileskills",
+                        "id": "repeter_skills",
+                        "label": "",
+                        "loadBinder": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "readonly": "",
+                        "readonlyLabel": "",
+                        "storeBinder": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "uniqueKey": "",
+                        "validateMaxRow": "",
+                        "validateMinRow": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        }
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field3",
+                        "label": "",
+                        "value": "<input name=\"EditSkillSubmit\" class=\"waves-button-input PopupCustomSubmit\" type=\"button\" value=\"Save\" onclick=\"clearEmpty()\" style=\"background-color:rgba(0,0,0,0);\">"
+                    }
+                }
+            ],
+            "properties": {"width": "100%"}
+        }],
+        "properties": {
+            "comment": "",
+            "id": "section1",
+            "join": "",
+            "label": "Skills",
+            "loadBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "permission": {
+                "className": "",
+                "properties": {}
+            },
+            "permissionReadonly": "",
+            "readonly": "",
+            "readonlyLabel": "",
+            "regex": "",
+            "reverse": "",
+            "storeBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "visibilityControl": "",
+            "visibilityValue": ""
+        }
+    }],
+    "properties": {
+        "description": "",
+        "id": "edit_profile_skills",
+        "loadBinder": {"className": "org.joget.apps.form.lib.WorkflowFormBinder"},
+        "name": "Edit Profile Skills",
+        "storeBinder": {"className": "org.joget.apps.form.lib.WorkflowFormBinder"},
+        "tableName": "talent_profile"
+    }
+}
