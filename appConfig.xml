@@ -31,7 +31,8 @@
          <id>backend_hirevioo_url_api</id>
          <appId>hirevioo</appId>
          <appVersion>29</appVersion>
-         <value>http://127.0.0.1:8000</value>
+         <value>http://127.0.0.1:8002</value>
+         <remarks></remarks>
       </environmentVariable>
       <environmentVariable>
          <id>elasticsearch_hirevioo_url_api</id>
