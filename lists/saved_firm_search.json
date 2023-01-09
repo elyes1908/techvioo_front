@@ -165,8 +165,8 @@
             "confirmation": "Are you sure you want to delete this element ?",
             "datalist_type": "row_action",
             "deleteFiles": "",
-            "deleteGridData": "",
-            "deleteSubformData": "",
+            "deleteGridData": "true",
+            "deleteSubformData": "true",
             "formDefId": "advaced_search_firms",
             "label": "Delete",
             "rules": []
