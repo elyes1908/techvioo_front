@@ -474,6 +474,6 @@
             "className": "org.joget.apps.form.lib.WorkflowFormBinder",
             "properties": {}
         },
-        "tableName": "firms"
+        "tableName": "adv_search_firms"
     }
 }
