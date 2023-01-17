@@ -4,7 +4,7 @@
         "className": "org.joget.apps.datalist.lib.FormRowDataListBinder",
         "properties": {
             "extraCondition": "c_saved='true' and createdBy='#currentUser.username#'",
-            "formDefId": "advaced_search_startups"
+            "formDefId": "advaced_search_firms"
         }
     },
     "buttonPosition": "bottomLeft",
@@ -68,9 +68,9 @@
         {
             "filterable": true,
             "hidden": "false",
-            "id": "column_4",
-            "label": "saved_startups",
-            "name": "saved_startups",
+            "id": "column_5",
+            "label": "saved_firms",
+            "name": "saved_firms",
             "sortable": "false"
         }
     ],
