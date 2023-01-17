@@ -3,7 +3,7 @@
     "binder": {
         "className": "org.joget.apps.datalist.lib.FormRowDataListBinder",
         "properties": {
-            "extraCondition": "c_saved='true' and createdBy='#currentUser.username#'",
+            "extraCondition": "",
             "formDefId": "advaced_search_firms"
         }
     },
