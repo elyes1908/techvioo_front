@@ -64,15 +64,6 @@
                         "value": "",
                         "workflowVariable": ""
                     }
-                },
-                {
-                    "className": "org.joget.apps.form.lib.CustomHTML",
-                    "properties": {
-                        "autoPopulate": "",
-                        "id": "test",
-                        "label": "",
-                        "value": "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js\"><\/script>\r\n<script>\r\n$(document).ready(function(){\r\n  i = 0;\r\n   $('#save_value').click(function () {\r\n       var arr = [];\r\n       $('.ads_Checkbox:checked').each(function () {\r\n           arr[i++] = $(this).val();\r\n       });\r\n       console.log(arr);\r\n   });\r\n});\r\n<\/script>\r\n<\/head>\r\n<body>\r\n<input id=\"ad_Checkbox1\" class=\"ads_Checkbox\" type=\"checkbox\" value=\"1\" />\r\n<input id=\"ad_Checkbox2\" class=\"ads_Checkbox\" type=\"checkbox\" value=\"2\" />\r\n<input id=\"ad_Checkbox3\" class=\"ads_Checkbox\" type=\"checkbox\" value=\"3\" />\r\n<input id=\"ad_Checkbox4\" class=\"ads_Checkbox\" type=\"checkbox\" value=\"4\" />\r\n<input type=\"button\" id=\"save_value\" name=\"save_value\" value=\"Save\" />\r\n\r\n<\/body>\r\n<\/html>\r\n"
-                    }
                 }
             ],
             "properties": {"width": "100%"}
