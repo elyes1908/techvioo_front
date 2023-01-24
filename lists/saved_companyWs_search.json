@@ -68,9 +68,9 @@
         {
             "filterable": true,
             "hidden": "false",
-            "id": "column_5",
-            "label": "saved_firms",
-            "name": "saved_firms",
+            "id": "column_4",
+            "label": "saved_companiesWs",
+            "name": "saved_companiesWs",
             "sortable": "false"
         }
     ],
