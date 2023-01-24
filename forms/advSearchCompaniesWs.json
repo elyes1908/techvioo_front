@@ -320,7 +320,7 @@
             "className": "org.joget.apps.form.lib.WorkflowFormBinder",
             "properties": {}
         },
-        "name": "adv CompaniesWs Search",
+        "name": "Advanced CompaniesWs search",
         "noPermissionMessage": "",
         "permission": {
             "className": "",
