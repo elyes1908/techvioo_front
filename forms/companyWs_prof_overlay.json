@@ -1,0 +1,488 @@
+{
+    "className": "org.joget.apps.form.model.Form",
+    "elements": [
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field30",
+                            "label": "",
+                            "value": "<style>\r\n    #loading-image {\r\n      z-index: 100;\r\n      width:145px;\r\n    }\r\n<\/style>\r\n\r\n<div id=\"loading_ext\">\r\n      <img id=\"loading-image\" src=\"#appResource.loading-Techvioo.gif#\" alt=\"Loading...\" />\r\n<\/div>\r\n\r\n<script>\r\n    window.onload = (event) => {\r\n        document.getElementById('loading_ext').style.display=\"none\";\r\n    };\r\n<\/script>"
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field20",
+                            "label": "",
+                            "value": "<style>\n#jqueryDialogDiv body.horizontal_menu #main {\n    margin-top: 0 !important;\n}\n#section-actions{\n    display:none;\n}\n\n  a{\n      text-decoration: none;\n  }\n    .previous, .next {\n    background-color: #614ac1;\n    color: white;\n    height: 30px;\n    display: inline-block;\n    width: 28px;\n    font-size: 19px;\n    padding: 0;\n    line-height: 30px;\n    text-align: center;\n    margin-bottom:5px;\n    }\n    \n.previous, .next {\n    font-size: 21px !important;\n}\n    \n    .round {\n      border-radius: 50%;\n    }\n    \n#nextP{\n    width:99.6%;\n}\n\nhr {\n    color: #D6DDEB !important;\n    height: 0.5px !important;\n    opacity: 1 !important;\n}\n   \n<\/style>\n<div id=\"nextP\" class=\"d-flex justify-content-between p-3 align-items-center border bg-white mb-2\">\n<a href=\"#\" id=\"btnPrev\" class=\"previous round\" onclick=previous() >&#8249;<\/a>\n<h3 id=\"search_title\" class=\"template-color\"><\/h3>\n<a href=\"#\" id=\"btnNext\" class=\"next round\" onclick=next()>&#8250;<\/a>\n<\/div>\n<script>\n\n    let nextClicked=false;\n    let previousClicked=false;\n    function next(){\n        nextClicked=true;\n        const queryString = window.location.search;\n        const urlParams = new URLSearchParams(queryString);\n        const title = urlParams.get('title');\n        const id_search = urlParams.get('search');\n        var nextIndex=document.getElementById('next').value;\n        var uri = \"firm_preview?id=\"+nextIndex+\"&title=\"+title+\"&search=\"+id_search+\"&embed=true\";\n        window.location.replace(uri);\n    }\n    \n    function previous(){\n        previousClicked=true;\n        const queryString = window.location.search;\n        const urlParams = new URLSearchParams(queryString);\n        const title = urlParams.get('title');\n        const id_search = urlParams.get('search');\n        var previousIndex=document.getElementById('previous').value;\n        var uri = \"firm_preview?id=\"+previousIndex+\"&title=\"+title+\"&search=\"+id_search+\"&embed=true\";\n        window.location.replace(uri);\n    }\n    \n    \n    $( document ).ready(function() {\n        const queryString = window.location.search;\n        const urlParams = new URLSearchParams(queryString);\n        const id = urlParams.get('id');\n        const title = urlParams.get('title');\n        document.getElementById('search_title').innerHTML=title;\n        var nextIndex=document.getElementById('next').value;\n        var previousIndex=document.getElementById('previous').value;\n        \n        if(id==nextIndex){\n            document.getElementById(\"btnNext\").style.pointerEvents = \"none\";\n        }else if (id==previousIndex) {\n            document.getElementById(\"btnPrev\").style.pointerEvents = \"none\";\n        }\n        else{\n            document.getElementById(\"btnNext\").style.pointerEvents = \"auto\";\n            document.getElementById(\"btnPrev\").style.pointerEvents = \"auto\";\n        }\n    \n\n    });\n\n<\/script>"
+                        }
+                    }
+                ],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "headerOverlay_1",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field6",
+                            "label": "",
+                            "value": "\r\n    <style>\r\n    /* The Modal (background) */\r\n    .modal {\r\n      display: none; /* Hidden by default */\r\n      position: fixed; /* Stay in place */\r\n      z-index: 999; /* Sit on top */\r\n      left: 0;\r\n      top: 0;\r\n      width: 100%; /* Full width */\r\n      height: 100%; /* Full height */\r\n      overflow: auto; /* Enable scroll if needed */\r\n      background-color: rgb(0,0,0); /* Fallback color */\r\n      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\r\n    }\r\n    #myModal .btn:hover{\r\n        border-color:#0E6BB2 !important;\r\n    }\r\n    /* Modal Content/Box */\r\n    .modal-content {\r\n      background-color: #fefefe;\r\n      margin: 15% auto;/* 15% from the top and centered */\r\n      padding: 0;\r\n      border: 1px solid #888;\r\n      width: 500px; /* Could be more or less, depending on screen size */\r\n      display:block;\r\n    }\r\n    \r\n    /* The Close Button */\r\n\r\n\r\n#myModal .close {\r\n    color: #0E6BB2 !important;\r\n    float: right;\r\n    font-size: 50px;\r\n    font-weight: bold;\r\n    border: 2px solid #0E6BB2 !important;\r\n    opacity: 1;\r\n    position: absolute;\r\n    right: -5px;\r\n    top: -5px;\r\n    background: #fff !important;\r\n    width: 23px !important;\r\n    height: 23px !important;\r\n    line-height: 23px !important;\r\n    text-align: center;\r\n    font-size: 15px;\r\n    border-radius: 50%;\r\n    opacity: 1 !important;\r\n}\r\n    .close:hover,\r\n    .close:focus {\r\n      color: #0E6BB2;\r\n      text-decoration: none;\r\n      cursor: pointer;\r\n    }\r\n    <\/style>\r\n\r\n<div class=\"d-flex  flex-grow-1 align-items-center justify-content-start  py-3 mb-2 position-relative\">\r\n <img class=\"avatar w-25 h-25 me-2 rounded-circle\" style=\"max-width: 60px;\" id=\"pro_img\" src=\"#appResource.StartupDefault.jpg#\" />\r\n <div class=\"position-relative\">\r\n      <h3 class=\"epilogue-semiBold color-blue-1 mb-3\" id=\"nameP\"><\/h3>\r\n   \r\n  <\/div>\r\n     <i id=\"bookmarkE\" class=\"fa fa-heart-o ml-4 template-color position-absolute top-0 end-0 t\" style=\"right: 15px;top: 15px;cursor:pointer\"><\/i>\r\n<\/div>\r\n<div id=\"myModal\" class=\"modal\">\r\n\r\n  <!-- Modal content -->\r\n  <div class=\"modal-content modal-save\">\r\n    <span class=\"close close-modal\">&times;<\/span>\r\n    <h4 class=\"template-color text-center p-3 \" style=\"background-color:#F7F8FA;\">Save a search<\/h4>\r\n    <div id=\"modal-msg text-center  p-3\">\r\n         <div class=\"mx-4\">\r\n            <label class=\"color-blue-1 p-2 text-center w-100 epilogue-semiBold\">Enter search title<\/label>\r\n            <input id=\"save_title\" class=\"template-color \" placeholder=\"Keyword\" type=\"text\" value=\"\">\r\n        <\/div>\r\n    <\/div>\r\n    <div class=\" m-3 text-center \">\r\n        <button type=\"button\" class=\"template-color close-modal close-modal-btn text-center ml-2 rounded-8 btn-border   epilogue-semibold\" >Cancel<\/button>\r\n        <input type=\"button\" class=\"bg-template-color rounded-8    epilogue-semiBold\" value=\"Save\" id=\"confirmSave\"/>\r\n    <\/div>\r\n  <\/div>\r\n<\/div>\r\n<script>\r\n    \r\n    function updateBookmark(id_search, id_profile){ \r\n            fetch('#envVariable.backend_hirevioo_url_api#/updateBookmark?id_search='+id_search+'&id_profile='+id_profile)\r\n              .then(res => res.json())\r\n              .then(data => {\r\n                  console.log(data)\r\n                  return data;\r\n              })\r\n              .catch(error => {\r\n              //console.log(error)\r\n              });  \r\n            \r\n    }\r\n\r\n\r\n    $(document).ready(function(){\r\n      \r\n         document.getElementById('pro_img').src=document.getElementById('profile_image').value;\r\n  \r\n        var bookmark=document.getElementById('bookmarkE');\r\n        bookmark.addEventListener(\"click\", function(){\r\n        const queryString = window.location.search;\r\n        const urlParams = new URLSearchParams(queryString);\r\n        let saved = urlParams.get('saved');\r\n        let id = urlParams.get('id');\r\n        let search = urlParams.get('search');\r\n        var modal = document.getElementById(\"myModal\"); \r\n        if(saved==\"false\"){\r\n            modal.style.display = \"block\";\r\n        }else{\r\n                if(bookmark.classList.contains('fa-bookmark-o')){\r\n                    bookmark.classList.remove('fa-bookmark-o');\r\n                    bookmark.classList.add('fa-bookmark');\r\n                    updateBookmark(search,id);\r\n                }else{\r\n                    bookmark.classList.remove('fa-bookmark');\r\n                    bookmark.classList.add('fa-bookmark-o');\r\n                    updateBookmark(search,id);\r\n                }\r\n        }\r\n       \r\n    });\r\n            \r\n        // Get the modal\r\n        var modal = document.getElementById(\"myModal\");\r\n        \r\n        // Get the <span> element that closes the modal\r\n        var span = document.getElementsByClassName(\"close-modal\")[0];\r\n        \r\n        // When the user clicks on <span> (x), close the modal\r\n        span.onclick = function() {\r\n          modal.style.display = \"none\";\r\n        }\r\n        \r\n        // When the user clicks anywhere outside of the modal, close it\r\n        window.onclick = function(event) {\r\n          if (event.target == modal) {\r\n            modal.style.display = \"none\";\r\n          }\r\n        }\r\n     \r\n        $('body').on('keypress', function() {\r\n            if (event.key === \"Enter\") {\r\n                if(document.getElementById('save_title').value!=''){\r\n                    event.preventDefault();\r\n            \r\n                    document.getElementById(\"confirmSave\").click();\r\n                }\r\n            \r\n        }\r\n            });\r\n        \r\n        var confirmSave=document.getElementById(\"confirmSave\");\r\n        \r\n        confirmSave.onclick = function() {\r\n            var title=document.getElementById(\"save_title\").value;\r\n             const queryString = window.location.search;\r\n            const urlParams = new URLSearchParams(queryString);\r\n            let id = urlParams.get('search');\r\n            if(title!=='' && window.top!==window.self){\r\n                parent.window.location.replace('saved_firm_search_form?id='+id+'&title='+title);\r\n                \r\n            }\r\n        }\r\n    })\r\n<\/script>\r\n\r\n"
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field26",
+                            "label": "",
+                            "value": "\r\n    <style>\r\n    /* The Modal (background) */\r\n    .modal {\r\n      display: none; /* Hidden by default */\r\n      position: fixed; /* Stay in place */\r\n      z-index: 999; /* Sit on top */\r\n      left: 0;\r\n      top: 0;\r\n      width: 100%; /* Full width */\r\n      height: 100%; /* Full height */\r\n      overflow: auto; /* Enable scroll if needed */\r\n      background-color: rgb(0,0,0); /* Fallback color */\r\n      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\r\n    }\r\n    #myModal .btn:hover{\r\n        border-color:#0E6BB2 !important;\r\n    }\r\n    /* Modal Content/Box */\r\n    .modal-content {\r\n      background-color: #fefefe;\r\n      margin: 15% auto;/* 15% from the top and centered */\r\n      padding: 0;\r\n      border: 1px solid #888;\r\n      width: 500px; /* Could be more or less, depending on screen size */\r\n      display:block;\r\n    }\r\n    \r\n    /* The Close Button */\r\n\r\n\r\n#myModal .close {\r\n    color: #ffffff !important;\r\n    float: right;\r\n    font-weight: 500;\r\n    position: absolute;\r\n    right: -11px;\r\n    top: -10px;\r\n    width: 25px !important;\r\n    height: 25px !important;\r\n    line-height: 24px !important;\r\n    text-align: center;\r\n    font-size: 19px;\r\n    border-radius: 50%;\r\n    border: 0 !important;\r\n    box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;\r\n    background: #614ac1 !important;\r\n    text-shadow: none;\r\n    opacity: 1 !important;\r\n}\r\n    .close:hover,\r\n    .close:focus {\r\n      color: #0E6BB2;\r\n      text-decoration: none;\r\n      cursor: pointer;\r\n    }\r\n    <\/style>\r\n\r\n    \r\n<div id=\"myModal\" class=\"modal\">\r\n\r\n  <!-- Modal content -->\r\n  <div class=\"modal-content modal-save\">\r\n    <span class=\"close close-modal\">&times;<\/span>\r\n    <h4 class=\"template-color text-center p-3 \" style=\"background-color:#F7F8FA;\">Save a search<\/h4>\r\n    <div id=\"modal-msg text-center  p-3\">\r\n         <div class=\"mx-4\">\r\n            <label class=\"color-blue-1 p-2 text-center w-100 epilogue-semiBold\">Enter search title<\/label>\r\n            <input id=\"save_title\" class=\"template-color \" placeholder=\"Keyword\" type=\"text\" value=\"\">\r\n        <\/div>\r\n    <\/div>\r\n    <div class=\" m-3 text-center \">\r\n        <button type=\"button\" class=\"template-color close-modal close-modal-btn text-center ml-2 rounded-8 btn-border   epilogue-semibold\" onclick=\"document.getElementById('myModal').style.display='none'\" >Cancel<\/button>\r\n        <input type=\"button\" class=\"bg-template-color rounded-8    epilogue-semiBold\" value=\"Save\" id=\"confirmSave\"/>\r\n    <\/div>\r\n  <\/div>\r\n<\/div>\r\n\r\n<span id=\"review\" style=\"width:100%; padding:0px\">\r\n    <select class=\"review-box w-100\" disabled style=\"\">\r\n        <option value=\"\" disabled selected>Review<\/option>\r\n        <option value=\"Yes\">Yes<\/option>\r\n        <option value=\"Maybe\">Maybe<\/option>\r\n        <option value=\"No\">No<\/option>\r\n        <option value=\"Active\">Active<\/option>\r\n        <option value=\"Hired\">Hired<\/option>\r\n    <\/select>\r\n<\/span>\r\n\r\n<script>\r\nconst getRecordRechercheInter  = (id_search, id_profile) => {\r\n      return new Promise((resolve, reject) => (\r\n        fetch(\"#envVariable.backend_hirevioo_url_api#/getRecordRechercheInter?id_search=\"+id_search+\"&id_profile=\"+id_profile, {\r\n        method: 'GET'\r\n        }))\r\n            .then(res => res.json())\r\n            .then(data => resolve([data.review,data.score,data.nextIndex,data.previousIndex]))\r\n            .catch(err => reject(err))\r\n        )\r\n    }\r\n\r\n    async function infoRecordRechercheInter(id_search, id_profile,saved,total_result){\r\n        var info=await getRecordRechercheInter(id_search, id_profile);\r\n        document.getElementById(\"review_hf\").value=info[0];\r\n        document.getElementById(\"next\").value=info[2];\r\n        document.getElementById(\"previous\").value=info[3];\r\n\r\n        if(id_profile==info[2]){\r\n            document.getElementById(\"btnNext\").style.pointerEvents = \"none\";\r\n        }\r\n        if (id_profile==info[3]) {\r\n            document.getElementById(\"btnPrev\").style.pointerEvents = \"none\";\r\n        }\r\ngetReviewProfile(info[0]);\r\nvar modal = document.getElementById(\"myModal\");\r\n        \r\n        // Get the <span> element that closes the modal\r\n        var span = document.getElementsByClassName(\"close-modal\")[0];\r\n        \r\n        // When the user clicks on <span> (x), close the modal\r\n        span.onclick = function() {\r\n          modal.style.display = \"none\";\r\n        }\r\n        \r\n        // When the user clicks anywhere outside of the modal, close it\r\n        window.onclick = function(event) {\r\n          if (event.target == modal) {\r\n            modal.style.display = \"none\";\r\n          }\r\n        }\r\n     \r\n        $('body').on('keypress', function() {\r\n            if (event.key === \"Enter\") {\r\n                if(document.getElementById('save_title').value!=''){\r\n                    event.preventDefault();\r\n            \r\n                    document.getElementById(\"confirmSave\").click();\r\n                }\r\n            \r\n        }\r\n            });\r\n        \r\n        var confirmSave=document.getElementById(\"confirmSave\");\r\n        \r\n        confirmSave.onclick = function() {\r\n            var title=document.getElementById(\"save_title\").value;\r\n            if(title!=='' && window.top!==window.self){\r\n              parent.window.location.replace('savedFirmsSearch?id='+search+'&title='+title+'&firm='+id+\"&total_result=\"+total_result);\r\n                \r\n            }\r\n        }\r\n        \r\n        \r\n        $('.review-box').on('change', function() {\r\n                var reviewValue = $(this).find(\":selected\").text();\r\n                var idSearch = search;\r\n                var talent_id = id;\r\n                updateReview(idSearch, talent_id,reviewValue);\r\n          \r\n        });\r\n        \r\n        $('.review-box').on('click', function() {\r\n                if(saved==\"false\"){\r\n                    $(this).blur();  \r\n                    modal.style.display = \"block\";\r\n                }\r\n        });\r\n\r\n\r\n}\r\n    function updateReview(id_search, id_profile,reviewValue){ \r\n            fetch('#envVariable.backend_hirevioo_url_api#/updateReview?id_search='+id_search+'&id_profile='+id_profile+'&review='+reviewValue)\r\n              .then(res => res.json())\r\n              .then(data => {\r\n                  console.log(data)\r\n                  return data;\r\n              })\r\n              .catch(error => {\r\n              //console.log(error)\r\n              });  \r\n            \r\n    }\r\n\r\n    function getReviewProfile (reviewValue) {\r\n            var userInfoDiv = document.getElementsByClassName(\"field6\")[0];\r\n            var iconBookmark=userInfoDiv.childNodes.item(1).childNodes.item(3).childNodes.item(3).childNodes.item(3);\r\n                console.log('review ' + reviewValue);\r\n                    if (reviewValue == \"Yes\") {\r\n                        document.getElementById('review').innerHTML=`\r\n                        <select class=\"review-box\" style=\"\">\r\n                                <option value=\"\" disabled>Review<\/option>\r\n                                <option value=\"Yes\" selected>Yes<\/option>\r\n                                <option value=\"Maybe\">Maybe<\/option>\r\n                                <option value=\"No\">No<\/option>\r\n                                <option value=\"Active\">Active<\/option>\r\n                                <option value=\"Hired\">Hired<\/option>\r\n                        <\/select>`;\r\n                        iconBookmark.classList.remove(\"fa fa-heart-o\");\r\n                        iconBookmark.classList.add(\"fa fa-heart\");\r\n                    } else if (reviewValue == \"Maybe\") {\r\n                        document.getElementById('review').innerHTML=`<select class=\"review-box\" style=\"\" enabled>\r\n                                <option value=\"\" disabled>Review<\/option>\r\n                                  <option value=\"Yes\" >Yes<\/option>\r\n                                  <option value=\"Maybe\" selected>Maybe<\/option>\r\n                                  <option value=\"No\">No<\/option>\r\n                                  <option value=\"Active\">Active<\/option>\r\n                                  <option value=\"Hired\">Hired<\/option>\r\n                                <\/select>`;\r\n                            iconBookmark.classList.remove(\"fa fa-heart-o\");\r\n                            iconBookmark.classList.add(\"fa fa-heart\");\r\n                    }  else if (reviewValue == \"No\") {\r\n                        document.getElementById('review').innerHTML=`<select class=\"review-box\" style=\"\" enabled>\r\n                                <option value=\"\" disabled>Review<\/option>\r\n                                  <option value=\"Yes\" >Yes<\/option>\r\n                                  <option value=\"Maybe\" >Maybe<\/option>\r\n                                  <option value=\"No\" selected>No<\/option>\r\n                                  <option value=\"Active\">Active<\/option>\r\n                                  <option value=\"Hired\">Hired<\/option>\r\n                                <\/select>`;\r\n                            iconBookmark.classList.remove(\"fa fa-heart-o\");\r\n                            iconBookmark.classList.add(\"fa fa-heart\");\r\n                    }else if (reviewValue == \"Active\") {\r\n                        document.getElementById('review').innerHTML=`<select class=\"review-box\" style=\"\" enabled>\r\n                                <option value=\"\" disabled>Review<\/option>\r\n                                  <option value=\"Yes\" >Yes<\/option>\r\n                                  <option value=\"Maybe\" >Maybe<\/option>\r\n                                  <option value=\"No\">No<\/option>\r\n                                  <option value=\"Active\" selected>Active<\/option>\r\n                                  <option value=\"Hired\">Hired<\/option>\r\n                                <\/select>`;\r\n                            iconBookmark.classList.remove(\"fa fa-heart-o\");\r\n                            iconBookmark.classList.add(\"fa fa-heart\");\r\n                    }else if (reviewValue == \"Hired\") {\r\n                        document.getElementById('review').innerHTML=`<select class=\"review-box\" style=\"\" enabled>\r\n                                <option value=\"\" disabled>Review<\/option>\r\n                                  <option value=\"Yes\" >Yes<\/option>\r\n                                  <option value=\"Maybe\" >Maybe<\/option>\r\n                                  <option value=\"No\">No<\/option>\r\n                                  <option value=\"Active\">Active<\/option>\r\n                                  <option value=\"Hired\" selected>Hired<\/option>\r\n                                <\/select>`;\r\n                            iconBookmark.classList.remove(\"fa fa-heart-o\");\r\n                            iconBookmark.classList.add(\"fa fa-heart\");\r\n                    }else {\r\n                        document.getElementById('review').innerHTML=`<select class=\"review-box\" style=\"\" enabled>\r\n                                 <option value=\"\" disabled selected>Review<\/option>\r\n                                  <option value=\"Yes\" >Yes<\/option>\r\n                                  <option value=\"Maybe\" >Maybe<\/option>\r\n                                  <option value=\"No\" >No<\/option>\r\n                                  <option value=\"Active\">Active<\/option>\r\n                                  <option value=\"Hired\">Hired<\/option>\r\n                                <\/select>`;\r\n                    }\r\n            \r\n            \r\n        \r\n    }\r\n    \r\n    $( document ).ready(function() {\r\n        const queryString = window.location.search;\r\n        const urlParams = new URLSearchParams(queryString);\r\n        const id = urlParams.get('id');\r\n        const search = urlParams.get('search');\r\n        let saved = urlParams.get('saved');\r\n        const total_result = urlParams.get('total_result');\r\n        infoRecordRechercheInter(search,id,saved,total_result);\r\n        \r\n    });\r\n    \r\n    \r\n    \r\n    \r\n    \r\n    \r\n<\/script>\r\n\r\n\r\n\r\n  <button type=\"button\" class=\"mt-3 w-100 btn-linkedin btn-icon-text rounded-8 waves-effect btn waves-button waves-float\" id=\"btnContactLink\" onclick=\"buttonLinkedinProfile()\">\r\n       LinkedIn Profile\r\n       <i class=\"fa fa-linkedin  ms-2\" style=\"font-size:20px\"><\/i>\r\n    <\/button>\r\n   <hr />\r\n    <h3>Contact<\/h3>\r\n\r\n    <div class=\"d-flex  flex-grow-1   py-3 item\">\r\n      <i class=\"fa fa-phone me-3 icon-lg text-muted\"><\/i>\r\n      <div class=\"d-flex flex-column justify-content-around\">\r\n        <small class=\"mb-1 text-muted\">Phone<\/small>\r\n        <h5 class=\"me-2 mb-0 template-color\" id=\"phonediv\"><\/h5>\r\n      <\/div>\r\n    <\/div>\r\n    <div class=\"d-flex  flex-grow-1  py-3 item\">\r\n      <i class=\"fa fa-linkedin me-3 icon-lg text-muted\"><\/i>\r\n      <div class=\"d-flex flex-column justify-content-around\">\r\n        <small class=\"mb-1 text-muted\">Linkedin<\/small>\r\n        <h5 class=\"me-2 mb-0 template-color\" id=\"linkedindiv\" style=\"cursor:pointer\"><\/h5>\r\n      <\/div>\r\n    <\/div>\r\n  \r\n    <div class=\"d-flex  flex-grow-1   py-3 item\">\r\n      <i class=\"fa fa-globe me-3 icon-lg text-muted\"><\/i>\r\n      <div class=\"d-flex flex-column justify-content-around\">\r\n        <small class=\"mb-1 text-muted\">Website<\/small>\r\n        <h5 class=\"me-2 mb-0 template-color\" id=\"websitediv\"><\/h5>\r\n      <\/div>\r\n    <\/div>\r\n"
+                        }
+                    }
+                ],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "section2",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [{
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field27",
+                        "label": "",
+                        "value": "<h4 class=\"py-3 template-color epilogue-semibold\">Information<\/h4>\n<div class=\"row\">\n  <div class=\"col-md-7\">\n    <h5 class=\"epilogue-regular color-gray-3\">Headquarters<\/h5>\n    <p class=\"mb-4 color-blue-1\" id=\"headP\"><\/p>\n    \n    <h5 class=\"epilogue-regular color-gray-3\">Locations<\/h5>\n    <p class=\"mb-4 color-blue-1\" id=\"locationP\"><\/p>\n    <h5 class=\"epilogue-regular color-gray-3\">Employees<\/h5>\n       <p class=\"mb-4 color-blue-1\" id=\"employeesP\"><\/p>\n  <\/div>\n  <div class=\"col-md-5\">\n    \n    <h5 class=\"epilogue-regular color-gray-3\">Industry<\/h5>\n    <p class=\"mb-4 color-blue-1\" id=\"industryP\"><\/p>\n    \n    <h5 class=\"epilogue-regular color-gray-3\">Type<\/h5>\n    <p class=\"mb-4 color-blue-1\" id=\"typeP\"><\/p>\n    <h5 class=\"epilogue-regular color-gray-3\">Founded<\/h5>\n    <p class=\"mb-4 color-blue-1\" id=\"foundedP\"><\/p>\n  <\/div>\n  <\/div>\n<hr />\n<h4 class=\"py-3 template-color epilogue-semibold\">Description<\/h4>\n<div id=\"descriptionP\"  class=\"py-3 epilogue-semibold\">\n<\/div>\n<hr />"
+                    }
+                }],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "section11",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [{
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field25",
+                        "label": "",
+                        "value": "<h4 id=\"specialtiesDiv\" class=\"py-3  template-color  epilogue-semibold\">Specialties<\/h4>\r\n<ul id=\"skill_list\" class=\"list-unstyled d-inline-block \"><\/ul>\r\n\r\n\r\n"
+                    }
+                }],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "skills",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [{
+                    "className": "org.joget.apps.form.lib.CustomHTML",
+                    "properties": {
+                        "autoPopulate": "",
+                        "id": "field17",
+                        "label": "",
+                        "value": "<style>\n #seeMoreBtn{\n        width: 150px;\n        padding: 12px;\n        border: none;\n        margin: 5px 0;\n        opacity: 0.85;\n        display: inline-block;\n        font-size: 17px;\n        line-height: 20px;\n        text-decoration: none; \n        background-color: #0077b5;\n        color: white;\n        border-radius: 4px;\n        text-align: center;\n        margin-top:20px;\n\n    }\n\n    #seeMoreBtn:hover {\n        cursor: pointer;\n        color: white;\n        opacity:1;\n    } \n    #submit,.print-button{\n        display:none;\n    }\n<\/style>\n<center>\n    <a id=\"seeMoreBtn\" class=\"py-3 px-5 rounded-8 fs-6 epilogue-bold bg-template-color text-white\" onclick=\"redirection()\" > See full profile <\/a>\n\n<\/center>\n\n<script>\nlet id;\nlet search;\nlet title;\nlet totalResult;\n $( document ).ready(function() { \n    const queryString = window.location.search;\n    const urlParams = new URLSearchParams(queryString);\n    id = urlParams.get('id');\n    search = urlParams.get('search');\n    totalResult = urlParams.get('total_result');\n });\n\n    function redirection(){\n        if(window.top!==window.self)\n            window.open(\"firmPorfile?id=\"+id, '_blank');\n    }\n    \n    //   window.onunload = function(){ \n    //     var title=document.getElementById('search_title').innerHTML;\n    //     if(nextClicked==false && previousClicked==false)\n    //             parent.window.location.replace('savedFirmsSearch?id='+search+'&title='+title+\"&total_result=\"+totalResult+\"&saved=true\");\n    // } \n    \n<\/script>"
+                    }
+                }],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "section5",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.form.model.Section",
+            "elements": [{
+                "className": "org.joget.apps.form.model.Column",
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "autoPopulate": "",
+                            "id": "field26",
+                            "label": "",
+                            "value": "<style>\r\n\r\n#html #section-actions,.form-section-title,#field26{\r\n    display: none;\r\n}\r\n\r\n#websitediv{\r\n    cursor:pointer;\r\n}\r\n\r\n<\/style>\r\n<script>\r\n    function SetProfileImage() {\r\n        let image = document.getElementById(\"profile_image\").value;\r\n        let pro_image = document.getElementById(\"pro_img\");\r\n        pro_image.src = \"\"+image;\r\n        pro_image.addEventListener(\"error\", imageError = () => {\r\n            pro_image.onerror = \"\";\r\n            pro_image.src = \"#appResource.StartupDefault.jpg#\";\r\n            return true;\r\n        });\r\n    }\r\n    \r\n    $( document ).ready(function() {\r\n        \r\n    document.getElementById('nameP').innerHTML=document.getElementById('name').value;\r\n    document.getElementById('headP').innerHTML=document.getElementById('headquarters').value;\r\n    document.getElementById('locationP').innerHTML=document.getElementById('location').value;\r\n    document.getElementById('employeesP').innerHTML=document.getElementById('num_employees').value;\r\n    document.getElementById('industryP').innerHTML=document.getElementById('industry').value;\r\n    document.getElementById('typeP').innerHTML=document.getElementById('type').value;\r\n    document.getElementById('foundedP').innerHTML=document.getElementById('founded_date').value;\r\n    document.getElementById('descriptionP').innerHTML=document.getElementById('company_description').value;\r\n    document.getElementById('linkedindiv').innerHTML=document.getElementById('url').value.replace('https://www.linkedin.com','');\r\n    document.getElementById('websitediv').innerHTML=document.getElementById('website').value.replace('http://','');\r\n    document.getElementById('phonediv').innerHTML=document.getElementById('phone').value;\r\n   insertSkills();\r\n   redirectWebsite();\r\n   SetProfileImage();\r\n\r\n});\r\n    $('#fullname,#job_company,#location,#score,#email,#facebook,#phone,#linkedin,#twitter').parent('div').addClass('d-none');\r\n    \r\n    $(\"#section2\").addClass('profile-pop-div col-md-3 bg-white  py-4 border  px-4').removeClass('form-section');\r\n           \r\n      $(\"#section11\").addClass('profile-pop-div  profile-pop-details');\r\n\r\n     \r\n      $(\"#firm_prof_overlay #skills\").addClass('profile-pop-div  profile-pop-details');\r\n      $('#firm_prof_overlay .profile-pop-div').wrapAll('  <div class=\" d-inline-flex flex-column flex-md-row w-100 w-100 min-height-80vh\"><\/div>');\r\n      $('#prof_contact').wrapAll('  <div class=\"col-md-4   px-2\"><\/div>');\r\n      $('#firm_prof_overlay .profile-pop-details').wrapAll('  <div class=\"col-md-9   px-0 mt-2 px-md-2 mt-md-0\"><div class=\"bg-white border h-100  py-4 px-4\"><\/div><\/div>');\r\n    \r\n        $('#headerOverlay').wrapAll('  <div class=\"col-md-12   px-2 bg-white  mb-3\"><\/div>');\r\n        \r\n\r\n        \r\n     \r\n\r\n\r\n\r\n\r\n\r\n\r\n  function insertSkills(){\r\n      var pp3='';\r\n    pp3 = document.getElementById('specialities').value;\r\n    if(pp3 !='' && pp3!=null){\r\n\r\n    pp=pp3.split(',');\r\n    skills=pp;\r\n    let counter=0;\r\n    let list = document.getElementById('skill_list');\r\n    // console.log(list)\r\n    for (const skill in skills) {\r\n      const li = document.createElement('li');\r\n      li.innerHTML = `${skills[skill]}`;\r\n      list.appendChild(li);\r\n    }\r\n        $(\"ul#skill_list li\").addClass('float-start mx-1 mb-2 px-3 py-2 btn-yellow rounded-2 fs-5 epilogue-semiBold');\r\n      $(\"ul#skill_list li\").css('float','left')\r\n        \r\n    }else{\r\n        document.getElementById('specialtiesDiv').parentNode.style.display=\"none\";\r\n    }\r\n   \r\n  }\r\n\r\n\r\n\r\n      function redirectWebsite() {\r\n        var web = document.getElementById('websitediv').parentNode;\r\n        web.addEventListener(\"click\", function () {\r\n            window.open(document.getElementById('website').value, '_blank');\r\n        })\r\n    }\r\n    \r\n    function openLinkedinProfile(){\r\n        var LiDiv = document.getElementById('linkedindiv').parentNode;\r\n        LiDiv.addEventListener(\"click\", function () {\r\n            window.open(document.getElementById('url').value, \"_blank\");\r\n        })\r\n      \r\n    }\r\n    \r\n    function buttonLinkedinProfile(){\r\n         window.open(document.getElementById('url').value, \"_blank\");\r\n    }\r\n\r\n<\/script>\r\n<\/head>\r\n\r\n"
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "profile_image",
+                            "useDefaultWhenEmpty": "true",
+                            "value": "#appResource.StartupDefault.jpg#",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "specialities",
+                            "useDefaultWhenEmpty": "",
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "website",
+                            "useDefaultWhenEmpty": "true",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "Not assigned",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "url",
+                            "useDefaultWhenEmpty": "true",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "Not assigned",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "name",
+                            "useDefaultWhenEmpty": "",
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "founded_date",
+                            "useDefaultWhenEmpty": "true",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "Not assigned",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "company_description",
+                            "useDefaultWhenEmpty": "",
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "type",
+                            "useDefaultWhenEmpty": "true",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "Not assigned",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "headquarters",
+                            "useDefaultWhenEmpty": "true",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "Not assigned",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "phone",
+                            "useDefaultWhenEmpty": "true",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "Not assigned",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "location",
+                            "useDefaultWhenEmpty": "true",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "Not assigned",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "industry",
+                            "useDefaultWhenEmpty": "true",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "Not assigned",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "num_employees",
+                            "useDefaultWhenEmpty": "true",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "value": "Not assigned",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "next",
+                            "useDefaultWhenEmpty": "",
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "previous",
+                            "useDefaultWhenEmpty": "",
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "review_hf",
+                            "useDefaultWhenEmpty": "",
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "id": "company_size_label",
+                            "useDefaultWhenEmpty": "",
+                            "value": "",
+                            "workflowVariable": ""
+                        }
+                    }
+                ],
+                "properties": {"width": "100%"}
+            }],
+            "properties": {
+                "comment": "",
+                "id": "html section",
+                "join": "",
+                "label": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "permissionReadonly": "",
+                "readonly": "",
+                "readonlyLabel": "",
+                "regex": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityControl": "",
+                "visibilityValue": ""
+            }
+        }
+    ],
+    "properties": {
+        "description": "",
+        "id": "companyWs_prof_overlay",
+        "loadBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "name": "companyWs_profile_overlay",
+        "noPermissionMessage": "",
+        "permission": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessor": {
+            "className": "",
+            "properties": {}
+        },
+        "postProcessorRunOn": "create",
+        "storeBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "tableName": "companiesWs"
+    }
+}
