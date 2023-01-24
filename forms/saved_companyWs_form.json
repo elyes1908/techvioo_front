@@ -265,7 +265,7 @@
                     {
                         "className": "org.joget.apps.form.lib.HiddenField",
                         "properties": {
-                            "id": "saved_firms",
+                            "id": "saved_companiesWs",
                             "useDefaultWhenEmpty": "true",
                             "value": "0",
                             "workflowVariable": ""
