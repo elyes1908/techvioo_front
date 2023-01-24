@@ -4,7 +4,7 @@
         "className": "org.joget.apps.datalist.lib.FormRowDataListBinder",
         "properties": {
             "extraCondition": "c_saved='true' and createdBy='#currentUser.username#'",
-            "formDefId": "advaced_search_firms"
+            "formDefId": "advSearchCompaniesWs"
         }
     },
     "buttonPosition": "bottomLeft",
