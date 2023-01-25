@@ -4,7 +4,7 @@
         "className": "org.joget.apps.datalist.lib.FormRowDataListBinder",
         "properties": {
             "extraCondition": "c_saved='true' and createdBy='#currentUser.username#'",
-            "formDefId": "advnaced_search_labs"
+            "formDefId": "advSearchCompaniesWs"
         }
     },
     "buttonPosition": "bottomLeft",
@@ -15,7 +15,7 @@
                 "className": "org.joget.apps.datalist.lib.HyperlinkDataListAction",
                 "properties": {
                     "confirmation": "",
-                    "href": "savedLabsSearch",
+                    "href": "savedCompaniesWsSearch",
                     "hrefColumn": "id;title",
                     "hrefParam": "id;title",
                     "label": "Hyperlink",
@@ -67,9 +67,9 @@
         {
             "filterable": true,
             "hidden": "false",
-            "id": "column_4",
-            "label": "saved_labs",
-            "name": "saved_labs",
+            "id": "column_5",
+            "label": "saved_companiesWs",
+            "name": "saved_companiesWs",
             "sortable": "false"
         }
     ],
