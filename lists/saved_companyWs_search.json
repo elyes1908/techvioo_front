@@ -15,7 +15,7 @@
                 "className": "org.joget.apps.datalist.lib.HyperlinkDataListAction",
                 "properties": {
                     "confirmation": "",
-                    "href": "savedStartupsSearch",
+                    "href": "savedCompaniesWsSearch",
                     "hrefColumn": "id;title",
                     "hrefParam": "id;title",
                     "label": "Hyperlink",
@@ -63,6 +63,14 @@
             "id": "column_3",
             "label": "tags",
             "name": "tags",
+            "sortable": "false"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "id": "column_4",
+            "label": "saved_companiesWs",
+            "name": "saved_companiesWs",
             "sortable": "false"
         }
     ],
